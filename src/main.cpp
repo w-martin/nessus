@@ -8,13 +8,18 @@
 #include <cstdlib>
 #include <iostream>
 
+#include "net/Weight.h"
+
 using namespace std;
 
 /*
  * 
  */
 int main(int argc, char** argv) {
-    cout << "Hello";
+    cout << "Hello" << "\n";
+
+    Weight *w = new Weight(5);
+    cout << (*w).getMultiplier(4);
 
     return 0;
 }
