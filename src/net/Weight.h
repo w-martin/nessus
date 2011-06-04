@@ -10,6 +10,13 @@
 
 #include <vector>
 
+/**
+ * Weight Vector class for use with <code>Neuron</code>s.
+ * 
+ * @param noInputs the number of inputs the parent <code>Neuron</code>
+ *  is expecting.
+ * 
+ */
 class Weight {
 public:
     Weight(int noInputs);
