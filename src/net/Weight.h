@@ -24,13 +24,29 @@ public:
     /**
      * Gets the multiplier associated with the given input vector i.
      * 
-     * @param i the input vector
+     * @param i the input vector to get.
      * @return the multiplier associated with the given input vector i.
      * 
      */
-    double getMultiplier(int i);
+    float getMultiplier(int i);
+    /**
+     * Sets the multiplier associated with the given input vector i
+     * to the given value newMultiplier.
+     * 
+     * @param i the input vector to set.
+     * @param newMultiplier the new multiplier for the given input
+     * vector.
+     * 
+     */
+    void setMultiplier(int i, float newMultiplier);
+    /**
+     * Initialises the multipliers to small, random values.
+     * 
+     */
+    void init();
 private:
-    double *multipliers;
+    float *multipliers;
+    int size;
 };
 
 #endif	/* WEIGHT_H */

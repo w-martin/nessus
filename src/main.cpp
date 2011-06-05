@@ -7,6 +7,7 @@
 
 #include <cstdlib>
 #include <iostream>
+#include <stdio.h>
 
 #include "net/Weight.h"
 
@@ -16,10 +17,11 @@ using namespace std;
  * 
  */
 int main(int argc, char** argv) {
-    cout << "Hello" << "\n";
+    std::cout << "Hello" << "\n";
 
     Weight *w = new Weight(5);
-    cout << (*w).getMultiplier(4);
+    w->init();
+    printf("%f\n", w->getMultiplier(4));
 
     return 0;
 }
