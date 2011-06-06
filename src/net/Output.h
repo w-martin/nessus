@@ -14,9 +14,11 @@
  */
 class Output {
 public:
-    Output();
+    Output(float value);
     virtual ~Output();
+    float getValue();
 private:
+    float value;
 };
 
 #endif	/* OUTPUT_H */
