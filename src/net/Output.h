@@ -14,9 +14,15 @@
  */
 class Output {
 public:
-    Output(float value);
+
+    Output(float v) {
+        Output::value = v;
+    }
     virtual ~Output();
-    float getValue();
+
+    float getValue() {
+        return Output::value;
+    }
 private:
     float value;
 };

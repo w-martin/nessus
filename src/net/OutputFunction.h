@@ -26,7 +26,7 @@ public:
      * @return the <code>Output</code> of the neuron.
      * 
      */
-    static Output heavisideFunction(float activation, float threshold);
+    static Output *heavisideFunction(float activation, float threshold);
     /**
      * Computes the <code>Output</code> of a neuron using the given
      * activation by applying the <code>Sigmoid</code> function.
@@ -35,7 +35,7 @@ public:
      * @return the <code>Output</code> of the neuron.
      * 
      */
-    static Output sigmoidFunction(float activation);
+    static Output *sigmoidFunction(float activation);
     /**
      * Computes the <code>Output</code> from the <code>Sigmoid</code>
      * derivative function, for use in the error back-propagation
@@ -46,7 +46,7 @@ public:
      * derivative function.
      * 
      */
-    static Output sigmoidDerivativeFunction(float activation);
+    static Output *sigmoidDerivativeFunction(float activation);
 private:
 };
 

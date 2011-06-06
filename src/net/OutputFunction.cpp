@@ -8,9 +8,9 @@
 #include "OutputFunction.h"
 #include <math.h>
 
-static Output OutputFunction::heavisideFunction(
+Output* OutputFunction::heavisideFunction(
         float activation, float threshold) {
-    Output output;
+    Output *output;
     if (activation > threshold)
         output = new Output(1);
     else
@@ -18,16 +18,18 @@ static Output OutputFunction::heavisideFunction(
     return output;
 }
 
-static Output OutputFunction::sigmoidFunction(
+Output *OutputFunction::sigmoidFunction(
         float activation) {
-    float denom = 1.0f + expf(-activation);
-    float result = 1.0f / denom;
-    return new Output(result);
+    float denominator = 1.0f + expf(-activation);
+    float result = 1.0f / denominator;
+    Output *output = new Output(result);
+    return output;
 }
 
-static Output OutputFunction::sigmoidDerivativeFunction(
+Output *OutputFunction::sigmoidDerivativeFunction(
         float activation) {
-    Output fx = sigmoidFunction(activation);
-    float result = fx * (1.0f - fx);
-    return new Output(result);
+    Output *fx = sigmoidFunction(activation);
+    float result = fx->getValue() * (1.0f - fx->getValue());
+    Output *output = new Output(result);
+    return output;
 }
