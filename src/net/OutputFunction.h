@@ -36,6 +36,17 @@ public:
      * 
      */
     static Output sigmoidFunction(float activation);
+    /**
+     * Computes the <code>Output</code> from the <code>Sigmoid</code>
+     * derivative function, for use in the error back-propagation
+     * training process.
+     * 
+     * @param activation the activation of the neuron.
+     * @return the <code>Output</code> from the <code>Sigmoid</code>
+     * derivative function.
+     * 
+     */
+    static Output sigmoidDerivativeFunction(float activation);
 private:
 };
 
