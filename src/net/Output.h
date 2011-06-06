@@ -14,15 +14,23 @@
  */
 class Output {
 public:
-
-    Output(float v) {
-        Output::value = v;
-    }
+    /**
+     * Initialises the <code>Output</code> object with the given
+     * value v.
+     * 
+     * @param v the value to initialise the <code>Output</code>
+     * object with.
+     * 
+     */
+    Output(float v);
     virtual ~Output();
-
-    float getValue() {
-        return Output::value;
-    }
+    /**
+     * Gets the value of the <code>Output</code> object.
+     * 
+     * @return the value of the <code>Output</code> object.
+     * 
+     */
+    float getValue();
 private:
     float value;
 };

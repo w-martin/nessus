@@ -8,7 +8,7 @@
 #include "OutputFunction.h"
 #include <math.h>
 
-Output* OutputFunction::heavisideFunction(
+Output *OutputFunction::heavisideFunction(
         float activation, float threshold) {
     Output *output;
     if (activation > threshold)

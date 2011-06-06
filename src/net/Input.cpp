@@ -15,6 +15,9 @@ Input::Input(int noInputs) {
     }
 }
 
+Input::~Input() {
+}
+
 float Input::getValue(int i) {
     return Input::values[i];
 }
