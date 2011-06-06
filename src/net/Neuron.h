@@ -10,6 +10,7 @@
 
 #include "Weight.h"
 #include "Input.h"
+#include "Output.h"
 
 /**
  * Interface for neurons.
@@ -31,7 +32,7 @@ public:
      * @return the <code>Neuron</code>'s <code>Output</code>.
      * 
      */
-    Output* processInput(Input *input) {
+    Output *processInput(Input *input) {
         Output* activation = calculateActivation(input);
         Output* result = applyOutputFunction(activation->getValue());
         return result;
