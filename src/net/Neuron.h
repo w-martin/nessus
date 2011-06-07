@@ -11,6 +11,7 @@
 #include "Weight.h"
 #include "Input.h"
 #include "Output.h"
+#include "../functions/OutputFunction.h"
 
 /**
  * Interface for neurons.
@@ -18,12 +19,8 @@
  */
 class Neuron {
 public:
-
-    Neuron(Weight *weight) {
-        Neuron::weight = weight;
-    }
+    Neuron(Weight *w, OutputFunction *f);
     virtual ~Neuron();
-
     /**
      * Processes the given <code>Input</code> to produce the 
      * <code>Neuron</code>'s <code>Output</code>.
@@ -32,14 +29,35 @@ public:
      * @return the <code>Neuron</code>'s <code>Output</code>.
      * 
      */
-    Output *processInput(Input *input) {
-        Output* activation = calculateActivation(input);
-        Output* result = applyOutputFunction(activation->getValue());
-        return result;
-    }
-private:
-    Weight *weight;
-
+    Output *processInput(Input *input);
+    /**
+     * Gets the expected <code>Output</code> for this 
+     * <code>Neuron</code>.
+     * 
+     * @return the expected <code>Output</code> for this 
+     * <code>Neuron</code>.
+     * 
+     */
+    Output *getExpectedOutput();
+    /**
+     * Sets the expected <code>Output</code> for this 
+     * <code>Neuron</code>.
+     * 
+     * @param newExpectedOutput the new expected <code>Output</code> 
+     * for this <code>Neuron</code>.
+     * 
+     */
+    void setExpectedOutput(Output *newExpectedOutput);
+    /**
+     * Gets the <code>Weight</code> vector for this 
+     * <code>Neuron</code>.
+     * 
+     * @return the <code>Weight</code> vector for this 
+     * <code>Neuron</code>.
+     * 
+     */
+    Weight *getWeights();
+protected:
     /**
      * Calculates the <code>Neuron</code>'s activation from the
      * given <code>Input</code>.
@@ -50,15 +68,11 @@ private:
      * given <code>Input</code>.
      * 
      */
-    Output* calculateActivation(Input *input) {
-        float total = 0.0f;
-        for (int i = 0; i < input->getSize(); i++) {
-            total += input->getValue(i) * weight->getMultiplier(i);
-        }
-        Output *output = new Output(total);
-        return output;
-    }
-
+    virtual Output* calculateActivation(Input *input);
+private:
+    Weight *weight;
+    Output *expectedOutput;
+    OutputFunction *function;
     /**
      * Applies the <code>Neuron</code>'s elected output function
      * to the given activation.

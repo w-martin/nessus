@@ -16,6 +16,12 @@
  */
 class OutputFunction {
 public:
+
+    OutputFunction() {
+    }
+
+    ~OutputFunction() {
+    }
     /**
      * Applies the output function to the given activation.
      * 

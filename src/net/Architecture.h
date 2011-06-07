@@ -40,15 +40,6 @@ public:
      * 
      */
     Layer *getLayer(int i);
-protected:
-    /**
-     * Sets the <code>OutputFunction</code> to be the given
-     * <code>OutputFunction</code>.
-     * 
-     * @param newFunction the new <code>OutputFunction</code>.
-     * 
-     */
-    void setFunction(OutputFunction *newFunction);
     /**
      * Gets the <code>OutputFunction</code> of this 
      * <code>Architecture</code>.
@@ -58,6 +49,15 @@ protected:
      * 
      */
     OutputFunction *getFunction();
+protected:
+    /**
+     * Sets the <code>OutputFunction</code> to be the given
+     * <code>OutputFunction</code>.
+     * 
+     * @param newFunction the new <code>OutputFunction</code>.
+     * 
+     */
+    void setFunction(OutputFunction *newFunction);
 private:
     int size;
     Layer **layers;
