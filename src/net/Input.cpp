@@ -6,6 +6,7 @@
  */
 
 #include "Input.h"
+#include <stdlib.h>
 
 Input::Input(int noInputs) {
     Input::size = noInputs;
@@ -16,6 +17,7 @@ Input::Input(int noInputs) {
 }
 
 Input::~Input() {
+    free(values);
 }
 
 float Input::getValue(int i) {

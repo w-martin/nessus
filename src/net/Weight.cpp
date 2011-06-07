@@ -18,6 +18,7 @@ Weight::Weight(int noInputs) {
 }
 
 Weight::~Weight() {
+    free(multipliers);
 }
 
 float Weight::getMultiplier(int i) {

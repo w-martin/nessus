@@ -12,18 +12,23 @@
 Layer::Layer(int noNeurons) {
     size = noNeurons;
     neurons = new Neuron*[noNeurons];
+    for (int i = 0; i < noNeurons; i++) {
+        neurons[i] = NULL;
+    }
 }
 
 Layer::~Layer() {
     for (int i = 0; i < Layer::size; i++) {
-        neurons[i]->~Neuron();
+        if (NULL != neurons[i])
+            neurons[i]->~Neuron();
     }
+    free(neurons);
 }
 
-void Layer::setNeuron(int position, Neuron* neuron) {
+void Layer::setNeuron(int position, Neuron * neuron) {
     neurons[position] = neuron;
 }
 
-Neuron *Layer::getNeuron(int position) {
+Neuron * Layer::getNeuron(int position) {
     return Layer::neurons[position];
 }
