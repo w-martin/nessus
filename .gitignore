@@ -3,3 +3,5 @@
 /build/Debug/
 /dist/Debug/
 *.vpp*
+*.vpp
+/nbproject/*
