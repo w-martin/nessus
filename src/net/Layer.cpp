@@ -15,5 +15,15 @@ Layer::Layer(int noNeurons) {
 }
 
 Layer::~Layer() {
+    for (int i = 0; i < Layer::size; i++) {
+        neurons[i]->~Neuron();
+    }
 }
 
+void Layer::setNeuron(int position, Neuron* neuron) {
+    neurons[position] = neuron;
+}
+
+Neuron *Layer::getNeuron(int position) {
+    return Layer::neurons[position];
+}
