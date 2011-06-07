@@ -22,5 +22,13 @@ Architecture::~Architecture() {
             layers[i]->~Layer();
     }
     free(layers);
+    free(function);
 }
 
+void Architecture::setFunction(OutputFunction* newFunction) {
+    function = newFunction;
+}
+
+OutputFunction *Architecture::getFunction() {
+    return function;
+}

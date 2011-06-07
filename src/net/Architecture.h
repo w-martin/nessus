@@ -9,6 +9,7 @@
 #define	ARCHITECTURE_H
 
 #include "Layer.h"
+#include "../functions/OutputFunction.h"
 
 class Architecture {
 public:
@@ -39,9 +40,28 @@ public:
      * 
      */
     Layer *getLayer(int i);
+protected:
+    /**
+     * Sets the <code>OutputFunction</code> to be the given
+     * <code>OutputFunction</code>.
+     * 
+     * @param newFunction the new <code>OutputFunction</code>.
+     * 
+     */
+    void setFunction(OutputFunction *newFunction);
+    /**
+     * Gets the <code>OutputFunction</code> of this 
+     * <code>Architecture</code>.
+     * 
+     * @return the <code>OutputFunction</code> of this 
+     * <code>Architecture</code>.
+     * 
+     */
+    OutputFunction *getFunction();
 private:
     int size;
     Layer **layers;
+    OutputFunction *function;
 };
 
 #endif	/* ARCHITECTURE_H */
