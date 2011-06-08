@@ -8,7 +8,7 @@
 #ifndef OUTPUTFUNCTION_H
 #define	OUTPUTFUNCTION_H
 
-#include "../net/Output.h"
+#include "../model/Output.h"
 
 /**
  * Output function interface.

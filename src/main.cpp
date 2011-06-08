@@ -9,7 +9,7 @@
 #include <iostream>
 #include <stdio.h>
 
-#include "net/Weights.h"
+#include "model/Weights.h"
 
 using namespace std;
 
