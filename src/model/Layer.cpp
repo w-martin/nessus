@@ -9,8 +9,9 @@
 
 #include "Layer.h"
 
-Layer::Layer(int noNeurons) {
+Layer::Layer(int noNeurons, bool aw) {
     size = noNeurons;
+    Layer::adaptiveWeights = aw;
     neurons = new Neuron*[noNeurons];
     for (int i = 0; i < noNeurons; i++) {
         neurons[i] = NULL;
@@ -31,4 +32,8 @@ void Layer::setNeuron(int position, Neuron * neuron) {
 
 Neuron * Layer::getNeuron(int position) {
     return Layer::neurons[position];
+}
+
+bool Layer::hasAdaptiveWeights() {
+    return adaptiveWeights;
 }

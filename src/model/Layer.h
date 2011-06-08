@@ -20,7 +20,16 @@
  */
 class Layer {
 public:
-    Layer(int noNeurons);
+    /**
+     * Default constructor.
+     * 
+     * @param noNeurons the number of <code>Neuron</code>s in this
+     * <code>Layer</code>.
+     * @param aw boolean indicating whether this <code>Layer</code>
+     * has adaptive <code>Weights</code>.
+     * 
+     */
+    Layer(int noNeurons, bool aw);
     virtual ~Layer();
     /**
      * Sets the <code>Neuron</code> at the given position to be the
@@ -41,9 +50,19 @@ public:
      * 
      */
     Neuron *getNeuron(int position);
+    /**
+     * Checks whether this <code>Layer</code> has adaptive 
+     * <code>Weights</code> or not.
+     * 
+     * @return <code>true</code> if this <code>Layer</code> has adaptive 
+     * <code>Weights</code>, <code>false</code> otherwise.
+     * 
+     */
+    bool hasAdaptiveWeights();
 private:
     int size;
     Neuron **neurons;
+    bool adaptiveWeights;
 };
 
 #endif	/* LAYER_H */
