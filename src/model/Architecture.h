@@ -8,10 +8,15 @@
 #ifndef ARCHITECTURE_H
 #define	ARCHITECTURE_H
 
-#include "Layer.h"
 #include "../trainer/Trainer.h"
 #include "../functions/OutputFunction.h"
 
+/**
+ * Architecture class, for specifying the <code>OutputFunction</code>,
+ * <code>Trainer</code> and maximum number of <code>Layer</code> a
+ * <code>Net</code> may have.
+ * 
+ */
 class Architecture {
 public:
     /**
@@ -19,35 +24,23 @@ public:
      * number of <code>Layer</code>s.
      * 
      * @param noLayers the number of <code>Layer</code>s that this
-     * <code>Architecture</code> should have.
+     * <code>Architecture</code> can support. 0 indicates unlimited
+     * layer support.
      * 
      */
     Architecture(int noLayers);
     virtual ~Architecture();
     /**
-     * Gets the size of this <code>Architecture</code> / net.
+     * Gets the maximum number of layers that this 
+     * <code>Architecture</code> can support. 0 indicates unlimited
+     * layer support.
      * 
-     * @return the size of this <code>Architecture</code> / net.
-     * 
-     */
-    int getSize();
-    /**
-     * Sets the <code>Layer</code> at the specified position to be 
-     * the given <code>Architecture</code>.
-     * 
-     * @param i the position to set the <code>Layer</code> at.
-     * @param newLayer the <code>Layer</code> to set.
+     * @return the maximum number of layers that this 
+     * <code>Architecture</code> can support. 0 indicates unlimited
+     * layer support.
      * 
      */
-    void setLayer(int i, Layer *newLayer);
-    /**
-     * Gets the <code>Layer</code> at the specified position.
-     * 
-     * @param i the position to get the <code>Layer</code> from.
-     * @return the <code>Layer</code> at the specified position.
-     * 
-     */
-    Layer *getLayer(int i);
+    int getMaxLayers();
     /**
      * Gets the <code>OutputFunction</code> of this 
      * <code>Architecture</code>.
@@ -83,8 +76,7 @@ protected:
      */
     void setTrainer(Trainer *newTrainer);
 private:
-    int size;
-    Layer **layers;
+    int maxLayers;
     OutputFunction *function;
     Trainer *trainer;
 };

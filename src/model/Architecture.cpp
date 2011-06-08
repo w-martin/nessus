@@ -9,24 +9,16 @@
 #include <stdlib.h>
 
 Architecture::Architecture(int noLayers) {
-    Architecture::size = noLayers;
-    Architecture::layers = new Layer*[noLayers];
-    for (int i = 0; i < noLayers; i++) {
-        layers[i] = NULL;
-    }
+    Architecture::maxLayers = noLayers;
 }
 
 Architecture::~Architecture() {
-    for (int i = 0; i < size; i++) {
-        if (NULL != layers[i])
-            layers[i]->~Layer();
-    }
-    free(layers);
     free(function);
+    free(trainer);
 }
 
-int Architecture::getSize() {
-    return Architecture::size;
+int Architecture::getMaxLayers() {
+    return Architecture::maxLayers;
 }
 
 void Architecture::setFunction(OutputFunction* newFunction) {
