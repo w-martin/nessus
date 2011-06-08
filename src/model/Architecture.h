@@ -9,6 +9,7 @@
 #define	ARCHITECTURE_H
 
 #include "Layer.h"
+#include "../trainer/Trainer.h"
 #include "../functions/OutputFunction.h"
 
 class Architecture {
@@ -23,6 +24,13 @@ public:
      */
     Architecture(int noLayers);
     virtual ~Architecture();
+    /**
+     * Gets the size of this <code>Architecture</code> / net.
+     * 
+     * @return the size of this <code>Architecture</code> / net.
+     * 
+     */
+    int getSize();
     /**
      * Sets the <code>Layer</code> at the specified position to be 
      * the given <code>Architecture</code>.
@@ -49,6 +57,14 @@ public:
      * 
      */
     OutputFunction *getFunction();
+    /**
+     * Gets the <code>Trainer</code> of this <code>Architecture</code>.
+     * 
+     * @return the <code>Trainer</code> of this 
+     * <code>Architecture</code>.
+     * 
+     */
+    Trainer *getTrainer();
 protected:
     /**
      * Sets the <code>OutputFunction</code> to be the given
@@ -58,10 +74,19 @@ protected:
      * 
      */
     void setFunction(OutputFunction *newFunction);
+    /**
+     * Sets the <code>Trainer</code> of this <code>Architecture</code>.
+     * 
+     * @param newTrainer the new <code>Trainer</code> of this 
+     * <code>Architecture</code>.
+     * 
+     */
+    void setTrainer(Trainer *newTrainer);
 private:
     int size;
     Layer **layers;
     OutputFunction *function;
+    Trainer *trainer;
 };
 
 #endif	/* ARCHITECTURE_H */

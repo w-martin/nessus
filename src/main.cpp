@@ -19,9 +19,5 @@ using namespace std;
 int main(int argc, char** argv) {
     std::cout << "Hello" << "\n";
 
-    Weights *w = new Weights(5);
-    w->init();
-    printf("%f\n", w->getMultiplier(4));
-
     return 0;
 }

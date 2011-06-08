@@ -6,6 +6,7 @@
  */
 
 #include "Weights.h"
+#include <stdlib.h>
 
 Weights::Weights(int noInputs) {
     Weights::size = noInputs;

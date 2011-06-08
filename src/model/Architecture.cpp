@@ -25,10 +25,22 @@ Architecture::~Architecture() {
     free(function);
 }
 
+int Architecture::getSize() {
+    return Architecture::size;
+}
+
 void Architecture::setFunction(OutputFunction* newFunction) {
     function = newFunction;
 }
 
 OutputFunction *Architecture::getFunction() {
     return function;
+}
+
+void Architecture::setTrainer(Trainer* newTrainer) {
+    Architecture::trainer = newTrainer;
+}
+
+Trainer *Architecture::getTrainer() {
+    return Architecture::trainer;
 }
