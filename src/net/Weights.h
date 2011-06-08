@@ -1,12 +1,12 @@
 /* 
- * File:   Weight.h
+ * File:   Weights.h
  * Author: Will
  *
  * Created on 04 June 2011, 16:14
  */
 
-#ifndef WEIGHT_H
-#define	WEIGHT_H
+#ifndef WEIGHTS_H
+#define	WEIGHTS_H
 
 #include <vector>
 
@@ -17,10 +17,10 @@
  *  is expecting.
  * 
  */
-class Weight {
+class Weights {
 public:
-    Weight(int noInputs);
-    virtual ~Weight();
+    Weights(int noInputs);
+    virtual ~Weights();
     /**
      * Gets the multiplier associated with the given input vector i.
      * 
@@ -49,5 +49,5 @@ private:
     int size;
 };
 
-#endif	/* WEIGHT_H */
+#endif	/* WEIGHTS_H */
 

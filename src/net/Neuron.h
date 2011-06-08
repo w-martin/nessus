@@ -8,7 +8,7 @@
 #ifndef NEURON_H
 #define	NEURON_H
 
-#include "Weight.h"
+#include "Weights.h"
 #include "Input.h"
 #include "Output.h"
 #include "../functions/OutputFunction.h"
@@ -19,7 +19,7 @@
  */
 class Neuron {
 public:
-    Neuron(Weight *w, OutputFunction *f);
+    Neuron(Weights *w, OutputFunction *f);
     virtual ~Neuron();
     /**
      * Processes the given <code>Input</code> to produce the 
@@ -49,14 +49,12 @@ public:
      */
     void setExpectedOutput(Output *newExpectedOutput);
     /**
-     * Gets the <code>Weight</code> vector for this 
-     * <code>Neuron</code>.
+     * Gets the <code>Weights</code> for this <code>Neuron</code>.
      * 
-     * @return the <code>Weight</code> vector for this 
-     * <code>Neuron</code>.
+     * @return the <code>Weights</code> for this <code>Neuron</code>.
      * 
      */
-    Weight *getWeights();
+    Weights *getWeights();
 protected:
     /**
      * Calculates the <code>Neuron</code>'s activation from the
@@ -70,7 +68,7 @@ protected:
      */
     virtual Output* calculateActivation(Input *input);
 private:
-    Weight *weight;
+    Weights *weights;
     Output *expectedOutput;
     OutputFunction *function;
     /**

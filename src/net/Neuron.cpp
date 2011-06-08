@@ -8,15 +8,15 @@
 #include "Neuron.h"
 #include "Architecture.h"
 
-Neuron::Neuron(Weight* w, OutputFunction *f) {
-    Neuron::weight = w;
+Neuron::Neuron(Weights* w, OutputFunction *f) {
+    Neuron::weights = w;
     Neuron::function = f;
     Neuron::expectedOutput = NULL;
 }
 
 Neuron::~Neuron() {
-    if (NULL != Neuron::weight)
-        Neuron::weight->~Weight();
+    if (NULL != Neuron::weights)
+        Neuron::weights->~Weights();
     if (NULL != Neuron::function)
         Neuron::function->~OutputFunction();
     if (NULL != Neuron::expectedOutput)
@@ -32,7 +32,7 @@ Output *Neuron::processInput(Input* input) {
 Output *Neuron::calculateActivation(Input* input) {
     float total = 0.0f;
     for (int i = 0; i < input->getSize(); i++) {
-        total += input->getValue(i) * weight->getMultiplier(i);
+        total += input->getValue(i) * weights->getMultiplier(i);
     }
     Output *output = new Output(total);
     return output;
@@ -51,6 +51,6 @@ void Neuron::setExpectedOutput(Output* newExpectedOutput) {
     Neuron::expectedOutput = newExpectedOutput;
 }
 
-Weight *Neuron::getWeights() {
-    return Neuron::weight;
+Weights *Neuron::getWeights() {
+    return Neuron::weights;
 }
