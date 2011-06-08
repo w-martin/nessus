@@ -8,7 +8,7 @@
 #ifndef TRAINER_H
 #define	TRAINER_H
 
-#include "../net/Neuron.h"
+#include "../model/Neuron.h"
 
 /**
  * Class which trains the <code>Weights</code> of a <code>Neuron</code>
