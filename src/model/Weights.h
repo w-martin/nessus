@@ -40,10 +40,12 @@ public:
      */
     void setMultiplier(int i, float newMultiplier);
     /**
-     * Initialises the multipliers to small, random values.
+     * Gets the size of this set of <code>Weights</code>.
+     * 
+     * @return the size of this set of <code>Weights</code>.
      * 
      */
-    void init();
+    int getSize();
 private:
     float *multipliers;
     int size;

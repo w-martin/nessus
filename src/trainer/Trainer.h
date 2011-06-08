@@ -17,22 +17,28 @@
  */
 class Trainer {
 public:
-
-    Trainer() {
-    }
-
-    ~Trainer() {
-    };
+    Trainer();
+    virtual ~Trainer();
+    ;
     /**
-     * Adapts the <code>Weights</code> of the given <code>Neuron</code>.
+     * Initialises the <code>Weights</code> of the given 
+     * <code>Neuron</code>.
      * 
-     * @param n the <code>Neuron</code> whose <code>Weights</code> will 
-     * be adapted.
-     * @return <code>true</code> if the <code>Weights</code> were 
-     * successfully adapted, <code>false</code> otherwise.
+     * @param n the <code>Neuron</code> to initialise the 
+     * <code>Weights</code> for.
      * 
      */
-    virtual bool adaptWeights(Neuron *n) = 0;
+    virtual void initWeights(Neuron *n);
+protected:
+    /**
+     * Sets the <code>Weights</code> of the given <code>Neuron</code>
+     * to small, random values.
+     * 
+     * @param n the <code>Neuron</code> to set the <code>Weights</code> 
+     * for.
+     * 
+     */
+    virtual void setRandomWeights(Neuron *n);
 };
 
 #endif	/* TRAINER_H */

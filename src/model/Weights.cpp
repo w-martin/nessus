@@ -6,8 +6,6 @@
  */
 
 #include "Weights.h"
-#include <time.h>
-#include <stdlib.h>
 
 Weights::Weights(int noInputs) {
     Weights::size = noInputs;
@@ -29,10 +27,6 @@ void Weights::setMultiplier(int i, float newMultiplier) {
     Weights::multipliers[i] = newMultiplier;
 }
 
-void Weights::init() {
-    srand(time(NULL));
-    for (int i = 0; i < Weights::size; i++) {
-        int random = rand();
-        Weights::multipliers[i] = random / ((float) (2 * RAND_MAX));
-    }
+int Weights::getSize() {
+    return size;
 }
