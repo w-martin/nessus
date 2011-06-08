@@ -16,7 +16,7 @@
  */
 class BDN : public Neuron {
 public:
-    BDN();
+    BDN(Weights *w, OutputFunction *f);
     virtual ~BDN();
     float getThreshold();
     void setThreshold(const float t);

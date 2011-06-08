@@ -7,7 +7,9 @@
 
 #include "BDN.h"
 
-BDN::BDN() {
+BDN::BDN(Weights* w, OutputFunction* f) : Neuron(w, f) {
+    Neuron(w, f);
+    threshold = 0.0f;
 }
 
 BDN::~BDN() {
@@ -26,8 +28,7 @@ Output *BDN::calculateActivation(Input* input) {
     for (int i = 0; i < input->getSize(); i++) {
         total += input->getValue(i) * getWeights()->getMultiplier(i);
     }
-    if (NULL != threshold)
-        total -= threshold;
+    total -= threshold;
     Output *output = new Output(total);
     return output;
 }
