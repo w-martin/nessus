@@ -9,7 +9,7 @@
 #include "../../functions/HeavisideFunction.h"
 #include "BDNTrainer.h"
 
-LogicalArchitecture::LogicalArchitecture() : Architecture(2) {
+LogicalArchitecture::LogicalArchitecture() : Architecture(0) {
     setFunction(new HeavisideFunction());
     setTrainer(new BDNTrainer());
 }
