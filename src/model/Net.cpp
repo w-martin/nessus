@@ -9,12 +9,13 @@
 
 #include "Net.h"
 
-Net::Net(Architecture *a, int noLayers)
+Net::Net(Architecture *a, int noLayers, int noInputs)
 throw (UnsupportedLayersException) {
     if (noLayers > a->getMaxLayers())
         throw new UnsupportedLayersException();
 
     size = noLayers;
+    Net::noInputs = noInputs;
     layers = new Layer*[noLayers];
     for (int i = 0; i < noLayers; i++) {
         layers[i] = NULL;
@@ -45,4 +46,12 @@ Layer *Net::getLayer(int i) {
 
 Architecture *Net::getArchitecture() {
     return architecture;
+}
+
+void Net::setNoInputs(int noInputs) {
+    Net::noInputs = noInputs;
+}
+
+int Net::getNoInputs() {
+    return noInputs;
 }

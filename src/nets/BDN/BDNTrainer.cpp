@@ -6,7 +6,6 @@
  */
 
 #include "BDNTrainer.h"
-#include "BDN.h"
 #include <string.h>
 
 BDNTrainer::BDNTrainer() {
@@ -34,4 +33,14 @@ void BDNTrainer::initWeights(Neuron* n) {
         BDN *bdn = (BDN*) n;
         setBinaryWeights(bdn);
     }
+}
+
+void BDNTrainer::setThreshold(BDN* n) {
+    Input *necessaryInput = n->getNecessaryInput();
+    float threshold = necessaryInput->getSize() - 0.5f;
+    for (int i = 0; i < necessaryInput->getSize(); i++) {
+        if (necessaryInput->getValue(i) < 0.5f)
+            threshold -= 1.0f;
+    }
+    n->setThreshold(threshold);
 }

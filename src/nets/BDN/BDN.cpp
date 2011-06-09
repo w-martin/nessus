@@ -44,3 +44,11 @@ void BDN::setExpectedInput(Input* input) {
 Input *BDN::getExpectedInput() {
     return expectedInput;
 }
+
+void BDN::setNecessaryInput(Input* input) {
+    BDN::necessaryInput = input;
+}
+
+Input *BDN::getNecessaryInput() {
+    return necessaryInput;
+}

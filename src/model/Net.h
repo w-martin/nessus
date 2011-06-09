@@ -30,7 +30,8 @@ public:
      * <code>Net</code> should have.
      * 
      */
-    Net(Architecture *a, int noLayers) throw (UnsupportedLayersException);
+    Net(Architecture *a, int noLayers, int noInputs)
+    throw (UnsupportedLayersException);
     virtual ~Net();
     /**
      * Gets the number of <code>Layer</code>s of this <code>Net</code>.
@@ -66,8 +67,23 @@ public:
      * 
      */
     Architecture *getArchitecture();
+    /**
+     * Gets the number of inputs that this <code>Net</code> receives.
+     * 
+     * @return the number of inputs that this <code>Net</code> receives.
+     * 
+     */
+    int getNoInputs();
+protected:
+    /**
+     * Sets the number of inputs that this <code>Net</code> receives.
+     * 
+     * @param noInputs the number of inputs that this <code>Net</code> receives.
+     * 
+     */
+    void setNoInputs(int noInputs);
 private:
-    int size;
+    int size, noInputs;
     Layer **layers;
     Architecture *architecture;
 };
