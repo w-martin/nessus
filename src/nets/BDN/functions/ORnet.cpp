@@ -7,6 +7,7 @@
 
 #include "ORnet.h"
 #include "../BDN.h"
+#include "../BDNTrainer.h"
 
 ORnet::ORnet(int noInputs) : Net(new LogicalArchitecture(), 1, noInputs) {
     createInputVectors();
@@ -36,6 +37,8 @@ void ORnet::createNeurons() {
     BDN *n = new BDN(w, getArchitecture()->getFunction());
     n->setExpectedInput(expectedInput);
     n->setNecessaryInput(necessaryInput);
-    getArchitecture()->getTrainer()->initWeights(n);
+    BDNTrainer *trainer = (BDNTrainer*) getArchitecture()->getTrainer();
+    trainer->initWeights(n);
+    trainer->setThreshold(n);
     getLayer(0)->setNeuron(0, n);
 }
