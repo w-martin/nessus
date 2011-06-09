@@ -5,6 +5,8 @@
  * Created on 07 June 2011, 19:01
  */
 
+#include <string>
+
 #include "Neuron.h"
 #include "Architecture.h"
 
@@ -21,6 +23,10 @@ Neuron::~Neuron() {
         Neuron::function->~OutputFunction();
     if (NULL != Neuron::expectedOutput)
         Neuron::expectedOutput->~Output();
+}
+
+const char *Neuron::getType() {
+    return NEURON_TYPE_STD;
 }
 
 Output *Neuron::processInput(Input* input) {

@@ -4,14 +4,15 @@
  *
  * Created on 06 June 2011, 13:13
  */
-
 #ifndef NEURON_H
 #define	NEURON_H
+#define NEURON_TYPE_STD "standard neuron"
 
 #include "Weights.h"
 #include "Input.h"
 #include "Output.h"
 #include "../functions/OutputFunction.h"
+#include <string.h>
 
 /**
  * Interface for neurons.
@@ -21,6 +22,13 @@ class Neuron {
 public:
     Neuron(Weights *w, OutputFunction *f);
     virtual ~Neuron();
+    /**
+     * Gets the type of this <code>Neuron</code>.
+     * 
+     * @return the type of this <code>Neuron</code>.
+     * 
+     */
+    virtual const char *getType();
     /**
      * Processes the given <code>Input</code> to produce the 
      * <code>Neuron</code>'s <code>Output</code>.

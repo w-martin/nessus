@@ -15,6 +15,10 @@ BDN::BDN(Weights* w, OutputFunction* f) : Neuron(w, f) {
 BDN::~BDN() {
 }
 
+const char *BDN::getType() {
+    return NEURON_TYPE_BDN;
+}
+
 float BDN::getThreshold() {
     return threshold;
 }
@@ -31,4 +35,12 @@ Output *BDN::calculateActivation(Input* input) {
     total -= threshold;
     Output *output = new Output(total);
     return output;
+}
+
+void BDN::setExpectedInput(Input* input) {
+    BDN::expectedInput = input;
+}
+
+Input *BDN::getExpectedInput() {
+    return expectedInput;
 }
