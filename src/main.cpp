@@ -12,6 +12,7 @@
 #include "nets/BDN/functions/ORnet.h"
 #include "functions/HeavisideFunction.h"
 #include "nets/BDN/BDN.h"
+#include "model/Weights.h"
 
 using namespace std;
 
@@ -20,11 +21,9 @@ using namespace std;
  */
 int main(int argc, char** argv) {
     std::cout << "Hello" << "\n";
-
+    
     ORnet *net = new ORnet(1);
     cout << "created net" << "\n";
-    net->~Net();
-    cout << "destroyed net" << "\n";
 //    Input *in = new Input(3);
 //    cout << "created input" << "\n";
 //    in->setValue(0, 0);

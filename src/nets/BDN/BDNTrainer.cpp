@@ -7,6 +7,7 @@
 
 #include "BDNTrainer.h"
 #include <string.h>
+#include <iostream>
 
 BDNTrainer::BDNTrainer() {
 }
@@ -15,15 +16,20 @@ BDNTrainer::~BDNTrainer() {
 }
 
 void setBinaryWeights(BDN *n) {
+    std::cout << "here\n";
     Input *in = n->getExpectedInput();
     Weights *ws = n->getWeights();
 
+    std::cout << ws->getSize() << " " << in->getSize() << "\n";
+
     if (ws->getSize() >= in->getSize()) {
         for (int i = 0; i < in->getSize(); i++) {
-            if (in->getValue(i) > 0.5f)
-                ws->setMultiplier(i, 1);
+            std::cout << in->getValue(0) << "\n";
+            // Here lies a problem!
+            if (in->getValue(i) == 1.0f)
+                ws->setMultiplier(i, 1.0f);
             else
-                ws->setMultiplier(i, -1);
+                ws->setMultiplier(i, -1.0f);
         }
     }
 }
