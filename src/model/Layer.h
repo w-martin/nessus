@@ -59,6 +59,16 @@ public:
      * 
      */
     bool hasAdaptiveWeights();
+    /**
+     * Processes the given <code>Input</code> to produce the another
+     * <code>Input</code> vector as <code>Output</code>.
+     * 
+     * @param input the <code>Input</code> to process.
+     * @return an <code>Input</code> vector which is represents the
+     * <code>Output</code> of each constituent <code>Neuron</code>.
+     * 
+     */
+    Input *processInput(Input *input);
 private:
     int size;
     Neuron **neurons;

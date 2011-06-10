@@ -8,6 +8,9 @@
 #include "ORnet.h"
 #include "../BDN.h"
 #include "../BDNTrainer.h"
+#include <stdlib.h>
+
+using namespace std;
 
 ORnet::ORnet(int noInputs) : Net(new LogicalArchitecture(), 1, noInputs) {
     createInputVectors();
@@ -16,6 +19,8 @@ ORnet::ORnet(int noInputs) : Net(new LogicalArchitecture(), 1, noInputs) {
 }
 
 ORnet::~ORnet() {
+    expectedInput->~Input();
+    necessaryInput->~Input();
 }
 
 void ORnet::createInputVectors() {

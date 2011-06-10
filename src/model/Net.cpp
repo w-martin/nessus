@@ -8,18 +8,20 @@
 #include <stdlib.h>
 
 #include "Net.h"
+#include "exceptions/IncorrectInputException.h"
+#include <iostream>
 
 Net::Net(Architecture *a, int noLayers, int noInputs)
 throw (UnsupportedLayersException) {
-    if (noLayers > a->getMaxLayers())
+    if (a->getMaxLayers() > 0
+            && noLayers > a->getMaxLayers())
         throw new UnsupportedLayersException();
 
+    architecture = a;
     size = noLayers;
     Net::noInputs = noInputs;
     layers = new Layer*[noLayers];
-    for (int i = 0; i < noLayers; i++) {
-        layers[i] = NULL;
-    }
+    std::cout << "called super constructor" << '\n';
 }
 
 Net::~Net() {
@@ -54,4 +56,17 @@ void Net::setNoInputs(int noInputs) {
 
 int Net::getNoInputs() {
     return noInputs;
+}
+
+Output *Net::processInput(Input* input) throw (IncorrectInputException) {
+    if (input->getSize() != noInputs) {
+        throw new IncorrectInputException();
+    }
+
+    Input *nextInput = input;
+    for (int i = 0; i < size; i++) {
+        nextInput = getLayer(i)->processInput(nextInput);
+    }
+    Output *result = new Output(nextInput->getValue(0));
+    return result;
 }

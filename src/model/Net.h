@@ -10,7 +10,8 @@
 
 #include "Architecture.h"
 #include "Layer.h"
-#include "UnsupportedLayersException.h"
+#include "exceptions/IncorrectInputException.h"
+#include "exceptions/UnsupportedLayersException.h"
 
 /**
  * The network class. That is, a store of 
@@ -74,6 +75,16 @@ public:
      * 
      */
     int getNoInputs();
+    /**
+     * Processes the given <code>Input</code> to produce this 
+     * <code>Net</code>'s <code>Output</code>.
+     * 
+     * @param input the <code>Input</code> to process.
+     * @return the <code>Output</code> from the given 
+     * <code>Input</code>.
+     * 
+     */
+    Output *processInput(Input *input) throw (IncorrectInputException);
 protected:
     /**
      * Sets the number of inputs that this <code>Net</code> receives.

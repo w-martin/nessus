@@ -9,10 +9,10 @@
 #include <stdlib.h>
 
 Input::Input(int noInputs) {
-    Input::size = noInputs;
-    Input::values = new float[noInputs];
+    size = noInputs;
+    values = new float[noInputs];
     for (int i = 0; i < noInputs; i++) {
-        Input::values[i] = 0;
+        values[i] = 0.0f;
     }
 }
 
