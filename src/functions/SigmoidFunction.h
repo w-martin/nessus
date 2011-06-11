@@ -21,7 +21,7 @@ class SigmoidFunction : public OutputFunction {
 public:
     SigmoidFunction();
     virtual ~SigmoidFunction();
-    Output *function(const float activation);
+    virtual Output *function(float activation);
     /**
      * Computes the <code>Output</code> from the <code>Sigmoid</code>
      * derivative function, for use in the error back - propagation

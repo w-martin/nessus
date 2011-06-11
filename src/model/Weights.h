@@ -8,8 +8,6 @@
 #ifndef WEIGHTS_H
 #define	WEIGHTS_H
 
-#include <vector>
-
 /**
  * Weight Vector class for use with <code>Neuron</code>s.
  * 

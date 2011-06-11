@@ -16,16 +16,11 @@ BDNTrainer::~BDNTrainer() {
 }
 
 void setBinaryWeights(BDN *n) {
-    std::cout << "here\n";
     Input *in = n->getExpectedInput();
     Weights *ws = n->getWeights();
 
-    std::cout << ws->getSize() << " " << in->getSize() << "\n";
-
     if (ws->getSize() >= in->getSize()) {
         for (int i = 0; i < in->getSize(); i++) {
-            std::cout << in->getValue(0) << "\n";
-            // Here lies a problem!
             if (in->getValue(i) == 1.0f)
                 ws->setMultiplier(i, 1.0f);
             else
@@ -48,5 +43,6 @@ void BDNTrainer::setThreshold(BDN* n) {
         if (necessaryInput->getValue(i) < 0.5f)
             threshold -= 1.0f;
     }
+    std::cout << "setting threshold to " << threshold << "\n";
     n->setThreshold(threshold);
 }

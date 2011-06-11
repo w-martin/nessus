@@ -17,11 +17,11 @@
 class OutputFunction {
 public:
 
-    OutputFunction() {
-    }
-
-    ~OutputFunction() {
-    }
+    //    OutputFunction() {
+    //    }
+    //
+    //    virtual ~OutputFunction() {
+    //    }
     /**
      * Applies the output function to the given activation.
      * 
@@ -29,8 +29,10 @@ public:
      * @return the result of the output function on the given
      * activation.
      * 
+     * pure virtual method called
+     * 
      */
-    virtual Output *function(const float activation) = 0;
+    virtual Output *function(float activation) = 0;
 private:
 };
 

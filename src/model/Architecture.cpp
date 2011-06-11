@@ -13,8 +13,8 @@ Architecture::Architecture(int noLayers) {
 }
 
 Architecture::~Architecture() {
-    free(function);
-    free(trainer);
+    delete function;
+    delete trainer;
 }
 
 int Architecture::getMaxLayers() {

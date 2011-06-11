@@ -14,7 +14,7 @@ SigmoidFunction::~SigmoidFunction() {
 }
 
 Output *SigmoidFunction::function(
-        const float activation) {
+        float activation) {
     float denominator = 1.0f + expf(-activation);
     float result = 1.0f / denominator;
     Output *output = new Output(result);

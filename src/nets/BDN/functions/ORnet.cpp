@@ -44,6 +44,6 @@ void ORnet::createNeurons() {
     n->setNecessaryInput(necessaryInput);
     BDNTrainer *trainer = (BDNTrainer*) getArchitecture()->getTrainer();
     trainer->initWeights(n);
-//    trainer->setThreshold(n);
-//    getLayer(0)->setNeuron(0, n);
+    trainer->setThreshold(n);
+    getLayer(0)->setNeuron(0, n);
 }

@@ -29,9 +29,9 @@ Net::~Net() {
         if (NULL != layers[i])
             layers[i]->~Layer();
     }
-    free(layers);
+    delete [] layers;
     architecture->~Architecture();
-    free(architecture);
+    delete architecture;
 }
 
 int Net::getSize() {
@@ -43,6 +43,7 @@ void Net::setLayer(int i, Layer* newLayer) {
 }
 
 Layer *Net::getLayer(int i) {
+    std::cout << "here4\n";
     return layers[i];
 }
 
@@ -62,11 +63,18 @@ Output *Net::processInput(Input* input) throw (IncorrectInputException) {
     if (input->getSize() != noInputs) {
         throw new IncorrectInputException();
     }
-
-    Input *nextInput = input;
+    std::cout << "here1\n";
+    Input *currentInput = input;
+    std::cout << "here2\n";
     for (int i = 0; i < size; i++) {
-        nextInput = getLayer(i)->processInput(nextInput);
+        std::cout << "here3\n";
+        Input *nextInput = getLayer(i)->processInput(currentInput);
+        std::cout << "process input " << i << "\n";
+        if (currentInput != input)
+            currentInput->~Input();
+        currentInput = nextInput;
     }
-    Output *result = new Output(nextInput->getValue(0));
+    std::cout << "finished processing input\n";
+    Output *result = new Output(currentInput->getValue(0));
     return result;
 }

@@ -7,6 +7,7 @@
 
 #include "Weights.h"
 #include <stdlib.h>
+#include <iostream>
 
 Weights::Weights(int noInputs) {
     Weights::size = noInputs;
@@ -17,7 +18,7 @@ Weights::Weights(int noInputs) {
 }
 
 Weights::~Weights() {
-    free(multipliers);
+    //    free(multipliers);
 }
 
 float Weights::getMultiplier(int i) {
@@ -25,6 +26,7 @@ float Weights::getMultiplier(int i) {
 }
 
 void Weights::setMultiplier(int i, float newMultiplier) {
+    std::cout << "setting " << i << " to " << newMultiplier << "\n";
     Weights::multipliers[i] = newMultiplier;
 }
 

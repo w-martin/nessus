@@ -6,6 +6,7 @@
  */
 
 #include <stdlib.h>
+#include <iostream>
 
 #include "Layer.h"
 
@@ -19,11 +20,13 @@ Layer::Layer(int noNeurons, bool aw) {
 }
 
 Layer::~Layer() {
-    for (int i = 0; i < Layer::size; i++) {
-        if (NULL != neurons[i])
-            neurons[i]->~Neuron();
-    }
-    free(neurons);
+    //    for (int i = 0; i < Layer::size; i++) {
+    //        if (NULL != neurons[i]) {
+    //            neurons[i]->~Neuron();
+    //            delete neurons[i];
+    //        }
+    //    }
+    delete [] neurons;
 }
 
 void Layer::setNeuron(int position, Neuron * neuron) {
@@ -39,10 +42,14 @@ bool Layer::hasAdaptiveWeights() {
 }
 
 Input *Layer::processInput(Input* input) {
+    std::cout << "here5\n";
     Input *output = new Input(size);
     for (int i = 0; i < size; i++) {
+        std::cout << "here6\n";
         Output *result = getNeuron(i)->processInput(input);
+        std::cout << "here7\n";
         output->setValue(i, result->getValue());
+        std::cout << "here8\n";
     }
     return output;
 }

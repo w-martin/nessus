@@ -14,7 +14,7 @@ HeavisideFunction::~HeavisideFunction() {
 }
 
 Output *HeavisideFunction::function(
-        const float activation) {
+        float activation) {
     Output *output;
     if (activation > 0)
         output = new Output(1);

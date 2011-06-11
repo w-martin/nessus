@@ -17,7 +17,7 @@ Input::Input(int noInputs) {
 }
 
 Input::~Input() {
-    free(values);
+    delete [] values;
 }
 
 float Input::getValue(int i) {
