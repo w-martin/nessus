@@ -74,6 +74,19 @@
                    displayName="Test Files"
                    projectFiles="false"
                    kind="TEST_LOGICAL_FOLDER">
+      <logicalFolder name="f1"
+                     displayName="functions"
+                     projectFiles="true"
+                     kind="TEST_LOGICAL_FOLDER">
+      </logicalFolder>
+      <logicalFolder name="f2"
+                     displayName="HeavisideFunctionTest"
+                     projectFiles="true"
+                     kind="TEST">
+        <itemPath>test/functions/HeavisideFunctionTest.cpp</itemPath>
+        <itemPath>test/functions/HeavisideFunctionTest.h</itemPath>
+        <itemPath>test/functions/newtestrunner.cpp</itemPath>
+      </logicalFolder>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -101,6 +114,24 @@
           <commandLine>-Wall</commandLine>
         </ccTool>
       </compileType>
+      <folder path="TestFiles/f2">
+        <cTool>
+          <incDir>
+            <pElem>.</pElem>
+          </incDir>
+        </cTool>
+        <ccTool>
+          <incDir>
+            <pElem>.</pElem>
+          </incDir>
+        </ccTool>
+        <linkerTool>
+          <output>${TESTDIR}/TestFiles/f2</output>
+          <linkerLibItems>
+            <linkerLibStdlibItem>CppUnit</linkerLibStdlibItem>
+          </linkerLibItems>
+        </linkerTool>
+      </folder>
     </conf>
     <conf name="Release" type="1">
       <toolsSet>
@@ -121,6 +152,21 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <folder path="TestFiles/f2">
+        <cTool>
+          <incDir>
+            <pElem>.</pElem>
+          </incDir>
+        </cTool>
+        <ccTool>
+          <incDir>
+            <pElem>.</pElem>
+          </incDir>
+        </ccTool>
+        <linkerTool>
+          <output>${TESTDIR}/TestFiles/f2</output>
+        </linkerTool>
+      </folder>
     </conf>
   </confs>
 </configurationDescriptor>
