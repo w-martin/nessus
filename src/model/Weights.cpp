@@ -7,7 +7,6 @@
 
 #include "model/Weights.h"
 #include <stdlib.h>
-#include <iostream>
 
 Weights::Weights(int noInputs) {
     Weights::size = noInputs;
@@ -26,7 +25,6 @@ float Weights::getMultiplier(int i) {
 }
 
 void Weights::setMultiplier(int i, float newMultiplier) {
-    std::cout << "setting " << i << " to " << newMultiplier << "\n";
     Weights::multipliers[i] = newMultiplier;
 }
 

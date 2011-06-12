@@ -7,7 +7,6 @@
 
 #include "nets/BDN/BDNTrainer.h"
 #include <string.h>
-#include <iostream>
 
 BDNTrainer::BDNTrainer() {
 }
@@ -43,6 +42,5 @@ void BDNTrainer::setThreshold(BDN* n) {
         if (necessaryInput->getValue(i) < 0.5f)
             threshold -= 1.0f;
     }
-    std::cout << "setting threshold to " << threshold << "\n";
     n->setThreshold(threshold);
 }

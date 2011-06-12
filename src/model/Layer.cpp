@@ -6,7 +6,6 @@
  */
 
 #include <stdlib.h>
-#include <iostream>
 
 #include "model/Layer.h"
 
@@ -42,14 +41,10 @@ bool Layer::hasAdaptiveWeights() {
 }
 
 Input *Layer::processInput(Input* input) {
-    std::cout << "here5\n";
     Input *output = new Input(size);
     for (int i = 0; i < size; i++) {
-        std::cout << "here6\n";
         Output *result = getNeuron(i)->processInput(input);
-        std::cout << "here7\n";
         output->setValue(i, result->getValue());
-        std::cout << "here8\n";
     }
     return output;
 }

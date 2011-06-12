@@ -6,7 +6,6 @@
  */
 
 #include <string>
-#include <iostream>
 
 #include "model/Neuron.h"
 #include "model/Architecture.h"
@@ -31,11 +30,8 @@ const char *Neuron::getType() {
 }
 
 Output *Neuron::processInput(Input* input) {
-    std::cout << "here2\n";
     Output* activation = calculateActivation(input);
-    std::cout << "here3\n";
     Output* result = applyOutputFunction(activation->getValue());
-    std::cout << "here4\n";
     return result;
 }
 
@@ -49,9 +45,7 @@ Output *Neuron::calculateActivation(Input* input) {
 }
 
 Output *Neuron::applyOutputFunction(float activation) {
-    std::cout << "here21\n";
     Output *result = function->function(activation);
-    std::cout << "here22\n";
     return result;
 }
 

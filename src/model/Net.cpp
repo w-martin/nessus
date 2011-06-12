@@ -9,7 +9,6 @@
 
 #include "model/Net.h"
 #include "model/exceptions/IncorrectInputException.h"
-#include <iostream>
 
 Net::Net(Architecture *a, int noLayers, int noInputs)
 throw (UnsupportedLayersException) {
@@ -21,7 +20,6 @@ throw (UnsupportedLayersException) {
     size = noLayers;
     Net::noInputs = noInputs;
     layers = new Layer*[noLayers];
-    std::cout << "called super constructor" << '\n';
 }
 
 Net::~Net() {
@@ -43,7 +41,6 @@ void Net::setLayer(int i, Layer* newLayer) {
 }
 
 Layer *Net::getLayer(int i) {
-    std::cout << "here4\n";
     return layers[i];
 }
 
@@ -63,18 +60,13 @@ Output *Net::processInput(Input* input) throw (IncorrectInputException) {
     if (input->getSize() != noInputs) {
         throw new IncorrectInputException();
     }
-    std::cout << "here1\n";
     Input *currentInput = input;
-    std::cout << "here2\n";
     for (int i = 0; i < size; i++) {
-        std::cout << "here3\n";
         Input *nextInput = getLayer(i)->processInput(currentInput);
-        std::cout << "process input " << i << "\n";
         if (currentInput != input)
             currentInput->~Input();
         currentInput = nextInput;
     }
-    std::cout << "finished processing input\n";
     Output *result = new Output(currentInput->getValue(0));
     return result;
 }

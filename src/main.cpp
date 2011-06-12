@@ -23,11 +23,7 @@ int main(int argc, char** argv) {
     std::cout << "Hello" << "\n";
 
     ORnet *net = new ORnet(3);
-    cout << "created net" << "\n";
     delete net;
-    //    free(net);
-    //    free(in);
-    //    cout << "freed memory" << "\n";
 
     return 0;
 }
