@@ -5,9 +5,9 @@
  * Created on 09 June 2011, 09:45
  */
 
-#include "LogicalArchitecture.h"
-#include "../../functions/HeavisideFunction.h"
-#include "BDNTrainer.h"
+#include "nets/BDN/LogicalArchitecture.h"
+#include "nets/BDN/BDNTrainer.h"
+#include "functions/HeavisideFunction.h"
 
 LogicalArchitecture::LogicalArchitecture() : Architecture(0) {
     setFunction(new HeavisideFunction());

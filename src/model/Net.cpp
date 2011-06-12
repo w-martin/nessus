@@ -7,8 +7,8 @@
 
 #include <stdlib.h>
 
-#include "Net.h"
-#include "exceptions/IncorrectInputException.h"
+#include "model/Net.h"
+#include "model/exceptions/IncorrectInputException.h"
 #include <iostream>
 
 Net::Net(Architecture *a, int noLayers, int noInputs)

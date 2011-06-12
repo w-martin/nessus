@@ -8,8 +8,8 @@
 #include <string>
 #include <iostream>
 
-#include "Neuron.h"
-#include "Architecture.h"
+#include "model/Neuron.h"
+#include "model/Architecture.h"
 
 Neuron::Neuron(Weights* w, OutputFunction *f) {
     Neuron::weights = w;

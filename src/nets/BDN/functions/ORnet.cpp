@@ -5,9 +5,9 @@
  * Created on 09 June 2011, 18:06
  */
 
-#include "ORnet.h"
-#include "../BDN.h"
-#include "../BDNTrainer.h"
+#include "nets/BDN/functions/ORnet.h"
+#include "nets/BDN/BDNTrainer.h"
+#include "nets/BDN/BDN.h"
 #include <stdlib.h>
 
 using namespace std;

@@ -5,7 +5,7 @@
  * Created on 04 June 2011, 16:14
  */
 
-#include "Weights.h"
+#include "model/Weights.h"
 #include <stdlib.h>
 #include <iostream>
 

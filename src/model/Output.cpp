@@ -5,7 +5,7 @@
  * Created on 06 June 2011, 16:04
  */
 
-#include "Output.h"
+#include "model/Output.h"
 
 Output::Output(float v) {
     Output::value = v;

@@ -5,7 +5,7 @@
  * Created on 08 June 2011, 11:00
  */
 
-#include "BDN.h"
+#include "nets/BDN/BDN.h"
 
 BDN::BDN(Weights* w, OutputFunction* f) : Neuron(w, f) {
     Neuron(w, f);

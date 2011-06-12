@@ -8,7 +8,7 @@
 #include <stdlib.h>
 #include <iostream>
 
-#include "Layer.h"
+#include "model/Layer.h"
 
 Layer::Layer(int noNeurons, bool aw) {
     size = noNeurons;

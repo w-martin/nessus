@@ -5,7 +5,7 @@
  * Created on 06 June 2011, 13:21
  */
 
-#include "Input.h"
+#include "model/Input.h"
 #include <stdlib.h>
 
 Input::Input(int noInputs) {

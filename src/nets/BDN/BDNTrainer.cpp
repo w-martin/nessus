@@ -5,7 +5,7 @@
  * Created on 09 June 2011, 13:39
  */
 
-#include "BDNTrainer.h"
+#include "nets/BDN/BDNTrainer.h"
 #include <string.h>
 #include <iostream>
 

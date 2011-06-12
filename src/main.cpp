@@ -21,24 +21,13 @@ using namespace std;
  */
 int main(int argc, char** argv) {
     std::cout << "Hello" << "\n";
-    
+
     ORnet *net = new ORnet(3);
     cout << "created net" << "\n";
-    Input *in = new Input(3);
-    cout << "created input" << "\n";
-    in->setValue(0, 0);
-    in->setValue(1, 1);
-    in->setValue(2, 0);
-    cout << "set input" << "\n";
-    Output *out = net->processInput(in);
-    cout << "processed input" << "\n";
-    cout << out->getValue() << '\n';
-    out->~Output();
-    net->~ORnet();
-    in->~Input();
-//    free(net);
-//    free(in);
-//    cout << "freed memory" << "\n";
+    delete net;
+    //    free(net);
+    //    free(in);
+    //    cout << "freed memory" << "\n";
 
     return 0;
 }

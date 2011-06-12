@@ -5,7 +5,7 @@
  * Created on 08 June 2011, 15:53
  */
 
-#include "Trainer.h"
+#include "trainer/Trainer.h"
 #include <time.h>
 #include <stdlib.h>
 

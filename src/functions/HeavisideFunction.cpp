@@ -5,7 +5,7 @@
  * Created on 07 June 2011, 14:08
  */
 
-#include "HeavisideFunction.h"
+#include "functions/HeavisideFunction.h"
 
 HeavisideFunction::HeavisideFunction() {
 }

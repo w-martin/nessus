@@ -5,7 +5,7 @@
  * Created on 07 June 2011, 14:21
  */
 
-#include "SigmoidFunction.h"
+#include "functions/SigmoidFunction.h"
 
 SigmoidFunction::SigmoidFunction() {
 }
