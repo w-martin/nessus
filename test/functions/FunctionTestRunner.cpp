@@ -1,8 +1,8 @@
 /*
- * File:   newtestrunner.cpp
+ * File:   FunctionTestRunner.cpp
  * Author: William Martin
  *
- * Created on Jun 12, 2011, 4:40:55 PM
+ * Created on Jun 12, 2011, 5:42:37 PM
  */
 
 #include <cppunit/BriefTestProgressListener.h>
