@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="79">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <logicalFolder name="HeaderFiles"
+                   displayName="Header Files"
+                   projectFiles="true">
+      <logicalFolder name="f1" displayName="functions" projectFiles="true">
+        <itemPath>src/functions/HeavisideFunction.h</itemPath>
+        <itemPath>src/functions/OutputFunction.h</itemPath>
+        <itemPath>src/functions/SigmoidFunction.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="model" displayName="model" projectFiles="true">
+        <logicalFolder name="exceptions" displayName="exceptions" projectFiles="true">
+          <itemPath>src/model/exceptions/IncorrectInputException.h</itemPath>
+          <itemPath>src/model/exceptions/UnsupportedLayersException.h</itemPath>
+        </logicalFolder>
+        <itemPath>src/model/Architecture.h</itemPath>
+        <itemPath>src/model/Input.h</itemPath>
+        <itemPath>src/model/Layer.h</itemPath>
+        <itemPath>src/model/Net.h</itemPath>
+        <itemPath>src/model/Neuron.h</itemPath>
+        <itemPath>src/model/Output.h</itemPath>
+        <itemPath>src/model/Weights.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f3" displayName="nets" projectFiles="true">
+        <logicalFolder name="f1" displayName="BDN" projectFiles="true">
+          <logicalFolder name="f1" displayName="functions" projectFiles="true">
+            <itemPath>src/nets/BDN/functions/ORnet.h</itemPath>
+          </logicalFolder>
+          <itemPath>src/nets/BDN/BDN.h</itemPath>
+          <itemPath>src/nets/BDN/BDNTrainer.h</itemPath>
+          <itemPath>src/nets/BDN/LogicalArchitecture.h</itemPath>
+        </logicalFolder>
+      </logicalFolder>
+      <logicalFolder name="f2" displayName="trainer" projectFiles="true">
+        <itemPath>src/trainer/SupervisedTrainer.h</itemPath>
+        <itemPath>src/trainer/Trainer.h</itemPath>
+      </logicalFolder>
+    </logicalFolder>
+    <logicalFolder name="ResourceFiles"
+                   displayName="Resource Files"
+                   projectFiles="true">
+    </logicalFolder>
+    <logicalFolder name="SourceFiles"
+                   displayName="Source Files"
+                   projectFiles="true">
+      <logicalFolder name="f1" displayName="functions" projectFiles="true">
+        <itemPath>src/functions/HeavisideFunction.cpp</itemPath>
+        <itemPath>src/functions/SigmoidFunction.cpp</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f3" displayName="model" projectFiles="true">
+        <itemPath>src/model/Architecture.cpp</itemPath>
+        <itemPath>src/model/Input.cpp</itemPath>
+        <itemPath>src/model/Layer.cpp</itemPath>
+        <itemPath>src/model/Net.cpp</itemPath>
+        <itemPath>src/model/Neuron.cpp</itemPath>
+        <itemPath>src/model/Output.cpp</itemPath>
+        <itemPath>src/model/Weights.cpp</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f2" displayName="nets" projectFiles="true">
+        <logicalFolder name="f1" displayName="BDN" projectFiles="true">
+          <logicalFolder name="f1" displayName="functions" projectFiles="true">
+            <itemPath>src/nets/BDN/functions/ORnet.cpp</itemPath>
+          </logicalFolder>
+          <itemPath>src/nets/BDN/BDN.cpp</itemPath>
+          <itemPath>src/nets/BDN/BDNTrainer.cpp</itemPath>
+          <itemPath>src/nets/BDN/LogicalArchitecture.cpp</itemPath>
+        </logicalFolder>
+      </logicalFolder>
+      <logicalFolder name="f4" displayName="trainer" projectFiles="true">
+        <itemPath>src/trainer/Trainer.cpp</itemPath>
+      </logicalFolder>
+      <itemPath>src/main.cpp</itemPath>
+    </logicalFolder>
+    <logicalFolder name="TestFiles"
+                   displayName="Test Files"
+                   projectFiles="false"
+                   kind="TEST_LOGICAL_FOLDER">
+    </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>Makefile</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <sourceRootList>
+    <Elem>src</Elem>
+  </sourceRootList>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Debug" type="1">
+      <toolsSet>
+        <remote-sources-mode>LOCAL_SOURCES</remote-sources-mode>
+        <compilerSet>default</compilerSet>
+      </toolsSet>
+      <compileType>
+        <ccTool>
+          <commandLine>-Wall</commandLine>
+        </ccTool>
+      </compileType>
+    </conf>
+    <conf name="Release" type="1">
+      <toolsSet>
+        <remote-sources-mode>LOCAL_SOURCES</remote-sources-mode>
+        <compilerSet>default</compilerSet>
+      </toolsSet>
+      <compileType>
+        <cTool>
+          <developmentMode>5</developmentMode>
+        </cTool>
+        <ccTool>
+          <developmentMode>5</developmentMode>
+        </ccTool>
+        <fortranCompilerTool>
+          <developmentMode>5</developmentMode>
+        </fortranCompilerTool>
+        <asmTool>
+          <developmentMode>5</developmentMode>
+        </asmTool>
+      </compileType>
+    </conf>
+  </confs>
+</configurationDescriptor>
