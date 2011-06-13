@@ -8,10 +8,10 @@
 #define	NEURON_H
 #define NEURON_TYPE_STD "standard neuron"
 
-#include "Weights.h"
-#include "Input.h"
-#include "Output.h"
-#include "../functions/OutputFunction.h"
+#include "model/Weights.h"
+#include "model/Input.h"
+#include "model/Output.h"
+#include "functions/OutputFunction.h"
 #include <string.h>
 
 /**

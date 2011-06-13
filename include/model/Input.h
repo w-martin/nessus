@@ -8,13 +8,16 @@
 #ifndef INPUT_H
 #define	INPUT_H
 
+#include "model/exceptions/OutOfBoundsException.h"
+#include "model/exceptions/EmptyInputException.h"
+
 /**
  * Input object for neurons.
  * 
  */
 class Input {
 public:
-    Input(int noInputs);
+    Input(int noInputs) throw (EmptyInputException);
     virtual ~Input();
     /**
      * Gets the input value at position i.
@@ -29,9 +32,11 @@ public:
      * 
      * @param i the position to set the input value for.
      * @param newInput the new input value.
+     * @throw OutOfBoundsException if the position i is out of bounds of
+     * this <code>Input</code> vector.
      * 
      */
-    void setValue(int i, float newInput);
+    void setValue(int i, float newInput) throw (OutOfBoundsException);
     /**
      * Gets the size of the input.
      * 

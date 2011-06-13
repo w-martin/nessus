@@ -8,7 +8,9 @@
 #include "model/Input.h"
 #include <stdlib.h>
 
-Input::Input(int noInputs) {
+Input::Input(int noInputs) throw (EmptyInputException) {
+    if (noInputs == 0)
+        throw new EmptyInputException();
     size = noInputs;
     values = new float[noInputs];
     for (int i = 0; i < noInputs; i++) {
@@ -24,8 +26,11 @@ float Input::getValue(int i) {
     return Input::values[i];
 }
 
-void Input::setValue(int i, float newInput) {
-    Input::values[i] = newInput;
+void Input::setValue(int i, float newInput) throw (OutOfBoundsException) {
+    if (i < size)
+        Input::values[i] = newInput;
+    else
+        throw new OutOfBoundsException();
 }
 
 int Input::getSize() {
