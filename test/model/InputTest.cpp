@@ -18,8 +18,8 @@ InputTest::~InputTest() {
 }
 
 void InputTest::setUp() {
-    input = new Input(size);
     size = 5;
+    input = new Input(size);
 }
 
 void InputTest::tearDown() {
@@ -27,7 +27,7 @@ void InputTest::tearDown() {
 }
 
 void InputTest::testConstructor() {
-    CPPUNIT_ASSERT_THROW(new Input(0), EmptyInputException);
+    CPPUNIT_ASSERT_THROW(new Input(0), EmptyInputException*);
 }
 
 void InputTest::testValue() {
@@ -36,7 +36,7 @@ void InputTest::testValue() {
         input->setValue(i, value);
         CPPUNIT_ASSERT(input->getValue(i) == value);
     }
-    CPPUNIT_ASSERT_THROW(input->setValue(size, size), OutOfBoundsException);
+    CPPUNIT_ASSERT_THROW(input->setValue(size, size), OutOfBoundsException*);
 }
 
 void InputTest::testSize() {

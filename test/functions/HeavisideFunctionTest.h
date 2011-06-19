@@ -10,7 +10,7 @@
 
 #include <cppunit/extensions/HelperMacros.h>
 
-#include "include/functions/HeavisideFunction.h"
+#include "functions/HeavisideFunction.h"
 
 /**
  * Tests HeavisideFunction.

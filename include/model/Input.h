@@ -17,7 +17,7 @@
  */
 class Input {
 public:
-    Input(int noInputs) throw (EmptyInputException);
+    Input(int noInputs) throw (EmptyInputException*);
     virtual ~Input();
     /**
      * Gets the input value at position i.
@@ -36,7 +36,7 @@ public:
      * this <code>Input</code> vector.
      * 
      */
-    void setValue(int i, float newInput) throw (OutOfBoundsException);
+    void setValue(int i, float newInput) throw (OutOfBoundsException*);
     /**
      * Gets the size of the input.
      * 
