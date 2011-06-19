@@ -27,7 +27,7 @@ void InputTest::tearDown() {
 }
 
 void InputTest::testConstructor() {
-    CPPUNIT_ASSERT_THROW(new Input(0), EmptyInputException*);
+    CPPUNIT_ASSERT_THROW(new Input(0), EmptyVectorException*);
 }
 
 void InputTest::testValue() {

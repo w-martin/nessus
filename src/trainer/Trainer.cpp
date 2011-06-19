@@ -25,6 +25,6 @@ void Trainer::setRandomWeights(Neuron* n) {
     for (int i = 0; i < w->getSize(); i++) {
         int random = rand();
         float multiplier = random / ((float) (2 * RAND_MAX));
-        w->setMultiplier(i, multiplier);
+        w->setValue(i, multiplier);
     }
 }

@@ -38,7 +38,7 @@ Output *Neuron::processInput(Input* input) {
 Output *Neuron::calculateActivation(Input* input) {
     float total = 0.0f;
     for (int i = 0; i < input->getSize(); i++) {
-        total += input->getValue(i) * weights->getMultiplier(i);
+        total += input->getValue(i) * weights->getValue(i);
     }
     Output *output = new Output(total);
     return output;

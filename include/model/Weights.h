@@ -8,6 +8,9 @@
 #ifndef WEIGHTS_H
 #define	WEIGHTS_H
 
+#include "model/exceptions/EmptyVectorException.h"
+#include "model/Vector.h"
+
 /**
  * Weight Vector class for use with <code>Neuron</code>s.
  * 
@@ -15,38 +18,15 @@
  *  is expecting.
  * 
  */
-class Weights {
+class Weights : public Vector {
 public:
-    Weights(int noInputs);
-    virtual ~Weights();
-    /**
-     * Gets the multiplier associated with the given input vector i.
-     * 
-     * @param i the input vector to get.
-     * @return the multiplier associated with the given input vector i.
-     * 
-     */
-    float getMultiplier(int i);
-    /**
-     * Sets the multiplier associated with the given input vector i
-     * to the given value newMultiplier.
-     * 
-     * @param i the input vector to set.
-     * @param newMultiplier the new multiplier for the given input
-     * vector.
-     * 
-     */
-    void setMultiplier(int i, float newMultiplier);
-    /**
-     * Gets the size of this set of <code>Weights</code>.
-     * 
-     * @return the size of this set of <code>Weights</code>.
-     * 
-     */
-    int getSize();
-private:
-    float *multipliers;
-    int size;
+
+    Weights(int noInputs) throw (EmptyVectorException*) : Vector(noInputs) {
+    }
+
+    virtual ~Weights() {
+
+    }
 };
 
 #endif	/* WEIGHTS_H */

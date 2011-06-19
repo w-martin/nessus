@@ -4,3 +4,8 @@
 /dist/Debug/
 *.vpp*
 *.vpp
+.DS_Store
+*.cproject
+*.project
+*Makefile-*
+*Package-*

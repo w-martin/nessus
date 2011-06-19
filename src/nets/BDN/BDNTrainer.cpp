@@ -21,9 +21,9 @@ void setBinaryWeights(BDN *n) {
     if (ws->getSize() >= in->getSize()) {
         for (int i = 0; i < in->getSize(); i++) {
             if (in->getValue(i) == 1.0f)
-                ws->setMultiplier(i, 1.0f);
+                ws->setValue(i, 1.0f);
             else
-                ws->setMultiplier(i, -1.0f);
+                ws->setValue(i, -1.0f);
         }
     }
 }

@@ -8,17 +8,23 @@
 #ifndef OUTOFBOUNDSEXCEPTION_H
 #define	OUTOFBOUNDSEXCEPTION_H
 
-#include <exception>
+#define OUT_OF_BOUNDS_MESSAGE "Attempted to access an array outside of its bounds."
+
+#include <string.h>
+#include "model/exceptions/Exception.h"
 
 /**
  * Exception class which indicates that something attempted to access an
  * array outside of its bounds.
  * 
  */
-class OutOfBoundsException : public std::exception {
+class OutOfBoundsException : public Exception {
+public:
 
-    virtual const char* what() const throw () {
-        return "Attempted to access an array outside of its bounds.";
+    OutOfBoundsException() : Exception(OUT_OF_BOUNDS_MESSAGE) {
+    }
+
+    OutOfBoundsException(const char *message) : Exception(message) {
     }
 };
 
