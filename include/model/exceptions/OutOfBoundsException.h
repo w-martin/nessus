@@ -10,7 +10,6 @@
 
 #define OUT_OF_BOUNDS_MESSAGE "Attempted to access an array outside of its bounds."
 
-#include <string.h>
 #include "model/exceptions/Exception.h"
 
 /**

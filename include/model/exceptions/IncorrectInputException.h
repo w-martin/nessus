@@ -8,17 +8,24 @@
 #ifndef INCORRECTINPUTEXCEPTION_H
 #define	INCORRECTINPUTEXCEPTION_H
 
-#include <exception>
+#define INCORRECT_INPUT_MESSAGE "Attempted to process an input of the wrong size."
+
+#include "model/exceptions/Exception.h"
 
 /**
  * Exception class which indicates that a <code>Net</code> was asked
  * to process an <code>Input</code> of the wrong size.
  * 
  */
-class IncorrectInputException : public std::exception {
+class IncorrectInputException : public Exception {
+public:
 
-    virtual const char* what() const throw () {
-        return "Attempted to process an input of the wrong size.";
+    IncorrectInputException() : Exception(INCORRECT_INPUT_MESSAGE) {
+
+    }
+
+    IncorrectInputException(const char *message) : Exception(message) {
+
     }
 };
 

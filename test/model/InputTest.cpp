@@ -6,7 +6,7 @@
  */
 
 #include "InputTest.h"
-#include "model/exceptions/EmptyInputException.h"
+#include "model/exceptions/EmptyVectorException.h"
 #include "model/exceptions/OutOfBoundsException.h"
 
 CPPUNIT_TEST_SUITE_REGISTRATION(InputTest);
