@@ -94,6 +94,8 @@
         <itemPath>test/model/InputTest.cpp</itemPath>
         <itemPath>test/model/InputTest.h</itemPath>
         <itemPath>test/model/ModelTestRunner.cpp</itemPath>
+        <itemPath>test/model/VectorTest.cpp</itemPath>
+        <itemPath>test/model/VectorTest.h</itemPath>
         <itemPath>test/model/WeightsTest.cpp</itemPath>
         <itemPath>test/model/WeightsTest.h</itemPath>
       </logicalFolder>

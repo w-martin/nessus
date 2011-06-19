@@ -1,27 +1,27 @@
-/*
- * File:   InputTest.h
- * Author: William Martin
+/* 
+ * File:   WeightsTest.h
+ * Author: will
  *
- * Created on Jun 13, 2011, 8:10:43 AM
+ * Created on June 19, 2011, 6:48 PM
  */
 
-#ifndef INPUTTEST_H
-#define	INPUTTEST_H
+#ifndef WEIGHTSTEST_H
+#define	WEIGHTSTEST_H
 
 #include <cppunit/extensions/HelperMacros.h>
 
-#include "model/Input.h"
+#include "model/Weights.h"
 
-class InputTest : public CPPUNIT_NS::TestFixture {
-    CPPUNIT_TEST_SUITE(InputTest);
+class WeightsTest : public CPPUNIT_NS::TestFixture {
+    CPPUNIT_TEST_SUITE(WeightsTest);
 
     CPPUNIT_TEST(testConstructor);
 
     CPPUNIT_TEST_SUITE_END();
 
 public:
-    InputTest();
-    virtual ~InputTest();
+    WeightsTest();
+    virtual ~WeightsTest();
     void setUp();
     void tearDown();
 
@@ -35,5 +35,5 @@ private:
     int size;
 };
 
-#endif	/* INPUTTEST_H */
+#endif	/* WEIGHTSTEST_H */
 
