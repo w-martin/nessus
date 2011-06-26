@@ -1,4 +1,11 @@
 This program uses cmake to build.
-Run "cmake ." to create the Makefile.
-Run "make" to build.
-Run "make install" to install the program.
+
+For best results:
+1. Run "mkdir build"
+2. Run "cd build"
+3. Run "cmake ../src/" to create the Makefile.
+4. Run "make" to build.
+
+Optionally:
+5. Run "make install" to install the program.
+
