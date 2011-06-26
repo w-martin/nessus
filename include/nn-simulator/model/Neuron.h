@@ -12,6 +12,7 @@
 #include "model/Input.h"
 #include "model/Output.h"
 #include "functions/OutputFunction.h"
+#include "util/exceptions/IllegalArgumentException.h"
 #include <string.h>
 
 /**
@@ -20,7 +21,7 @@
  */
 class Neuron {
 public:
-    Neuron(Weights *w, OutputFunction *f);
+    Neuron(Weights *w, OutputFunction *f)throw (IllegalArgumentException*);
     virtual ~Neuron();
     /**
      * Gets the type of this <code>Neuron</code>.
@@ -37,7 +38,8 @@ public:
      * @return the <code>Neuron</code>'s <code>Output</code>.
      * 
      */
-    Output *processInput(Input *input);
+    Output *processInput(Input *input)
+    throw (IllegalArgumentException*);
     /**
      * Gets the expected <code>Output</code> for this 
      * <code>Neuron</code>.
@@ -55,7 +57,8 @@ public:
      * for this <code>Neuron</code>.
      * 
      */
-    void setExpectedOutput(Output *newExpectedOutput);
+    void setExpectedOutput(Output *newExpectedOutput)
+    throw (IllegalArgumentException*);
     /**
      * Gets the <code>Weights</code> for this <code>Neuron</code>.
      * 

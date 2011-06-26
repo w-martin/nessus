@@ -18,7 +18,7 @@
  */
 class NetsFactory {
 public:
-    virtual Net *createInstance(const char *netIdentifier, int noInputs) 
+    static Net *createInstance(const char *netIdentifier, int noInputs) 
     throw (UnsupportedConfigurationException*);
 };
 

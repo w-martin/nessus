@@ -9,8 +9,8 @@
 #include <iostream>
 #include <stdio.h>
 
-extern void hello(void);
-extern void hello2(void);
+#include "nets/NetsFactory.h"
+#include "nets/BDN/realisations/ORnet.h"
 
 using namespace std;
 
@@ -18,7 +18,15 @@ using namespace std;
  * 
  */
 int main(int argc, char** argv) {
-    cout << "Hello" << "\n";
+    cout << "Creating OR net" << "\n";
+
+    ORnet *net = (ORnet*) NetsFactory::createInstance(ORNET_ID, 2);
+
+    cout << "Created OR net" << "\n";
+
+    delete net;
+
+    cout << "Deleted OR net." << "\n";
 
     return 0;
 }

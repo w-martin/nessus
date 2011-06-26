@@ -8,13 +8,14 @@
 #include <stdlib.h>
 
 #include "model/Net.h"
-#include "model/exceptions/IncorrectInputException.h"
 
 Net::Net(Architecture *a, int noLayers, int noInputs)
-throw (UnsupportedLayersException) {
+throw (UnsupportedConfigurationException*, IllegalArgumentException*) {
+    if (NULL == a)
+        throw new IllegalArgumentException("Architecture cannot be NULL.");
     if (a->getMaxLayers() > 0
             && noLayers > a->getMaxLayers())
-        throw new UnsupportedLayersException();
+        throw new UnsupportedConfigurationException();
 
     architecture = a;
     size = noLayers;
@@ -56,7 +57,7 @@ int Net::getNoInputs() {
     return noInputs;
 }
 
-Output *Net::processInput(Input* input) throw (IncorrectInputException) {
+Output *Net::processInput(Input* input) throw (IncorrectInputException*) {
     if (input->getSize() != noInputs) {
         throw new IncorrectInputException();
     }

@@ -8,8 +8,9 @@
 #ifndef ARCHITECTURE_H
 #define	ARCHITECTURE_H
 
-#include "../trainer/Trainer.h"
-#include "../functions/OutputFunction.h"
+#include "trainer/Trainer.h"
+#include "functions/OutputFunction.h"
+#include "util/exceptions/IllegalArgumentException.h"
 
 /**
  * Architecture class, for specifying the <code>OutputFunction</code>,
@@ -26,9 +27,15 @@ public:
      * @param noLayers the number of <code>Layer</code>s that this
      * <code>Architecture</code> can support. 0 indicates unlimited
      * layer support.
+     * @param function the <code>OutputFunction</code> for this 
+     * <code>Architecture</code>.
+     * @param trainer the <code>Trainer</code> for this 
+     * <code>Architecture</code>.
+     * @throw IllegalArgumentException if any of the arguments are NULL.
      * 
      */
-    Architecture(int noLayers);
+    Architecture(int noLayers, OutputFunction *function, Trainer *trainer)
+    throw (IllegalArgumentException*);
     virtual ~Architecture();
     /**
      * Gets the maximum number of layers that this 
@@ -58,23 +65,6 @@ public:
      * 
      */
     Trainer *getTrainer();
-protected:
-    /**
-     * Sets the <code>OutputFunction</code> to be the given
-     * <code>OutputFunction</code>.
-     * 
-     * @param newFunction the new <code>OutputFunction</code>.
-     * 
-     */
-    void setFunction(OutputFunction *newFunction);
-    /**
-     * Sets the <code>Trainer</code> of this <code>Architecture</code>.
-     * 
-     * @param newTrainer the new <code>Trainer</code> of this 
-     * <code>Architecture</code>.
-     * 
-     */
-    void setTrainer(Trainer *newTrainer);
 private:
     int maxLayers;
     OutputFunction *function;

@@ -8,8 +8,15 @@
 #include "model/Architecture.h"
 #include <stdlib.h>
 
-Architecture::Architecture(int noLayers) {
+Architecture::Architecture(int noLayers,
+        OutputFunction *function, Trainer *trainer)
+throw (IllegalArgumentException*) {
+    if (NULL == function
+            || NULL == trainer)
+        throw new IllegalArgumentException();
     Architecture::maxLayers = noLayers;
+    Architecture::function = function;
+    Architecture::trainer = trainer;
 }
 
 Architecture::~Architecture() {
@@ -21,16 +28,8 @@ int Architecture::getMaxLayers() {
     return Architecture::maxLayers;
 }
 
-void Architecture::setFunction(OutputFunction* newFunction) {
-    function = newFunction;
-}
-
 OutputFunction *Architecture::getFunction() {
     return function;
-}
-
-void Architecture::setTrainer(Trainer* newTrainer) {
-    Architecture::trainer = newTrainer;
 }
 
 Trainer *Architecture::getTrainer() {

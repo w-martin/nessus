@@ -9,9 +9,8 @@
 #include "nets/BDN/BDNTrainer.h"
 #include "functions/HeavisideFunction.h"
 
-LogicalArchitecture::LogicalArchitecture() : Architecture(0) {
-    setFunction(new HeavisideFunction());
-    setTrainer(new BDNTrainer());
+LogicalArchitecture::LogicalArchitecture()
+: Architecture(0, new HeavisideFunction(), new BDNTrainer()) {
 }
 
 LogicalArchitecture::~LogicalArchitecture() {

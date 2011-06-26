@@ -13,8 +13,8 @@
 #include "util/exceptions/Exception.h"
 
 /**
- * Exception which indicates that a  vector either is
- * empty and was used, or can only be empty (i.e. created with size = 0).
+ * Exception which indicates that a vector either is
+ * empty and was used.
  * 
  */
 class EmptyVectorException : public Exception {

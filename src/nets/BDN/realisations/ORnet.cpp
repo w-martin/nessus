@@ -13,19 +13,20 @@
 using namespace std;
 
 ORnet::ORnet(int noInputs) : Net(new LogicalArchitecture(), 1, noInputs) {
+    expectedInput = new Input(noInputs);
+    necessaryInput = new Input(noInputs);
+    
     createInputVectors();
     createLayers();
     createNeurons();
 }
 
 ORnet::~ORnet() {
-    expectedInput->~Input();
-    necessaryInput->~Input();
+    delete expectedInput;
+    delete necessaryInput;
 }
 
 void ORnet::createInputVectors() {
-    expectedInput = new Input(getNoInputs());
-    necessaryInput = new Input(getNoInputs());
     for (int i = 0; i < getNoInputs(); i++) {
         expectedInput->setValue(i, 1.0f);
         necessaryInput->setValue(i, (i == 0) ? 1.0f : 0.0f);

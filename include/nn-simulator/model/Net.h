@@ -10,8 +10,9 @@
 
 #include "Architecture.h"
 #include "Layer.h"
-#include "exceptions/IncorrectInputException.h"
-#include "exceptions/UnsupportedLayersException.h"
+#include "model/exceptions/IncorrectInputException.h"
+#include "util/exceptions/UnsupportedConfigurationException.h"
+#include "util/exceptions/IllegalArgumentException.h"
 
 /**
  * The network class. That is, a store of 
@@ -29,10 +30,14 @@ public:
      * implements.
      * @param noLayers the number of <code>Layer</code>s that this
      * <code>Net</code> should have.
+     * @throw UnsupportedConfigurationException if the number of layers
+     * or inputs does not match a supported configuration.
+     * @throw IllegalArgumentException if any of the arguments are illegal
+     * i.e. if the <code>Architecture</code> is NULL.
      * 
      */
     Net(Architecture *a, int noLayers, int noInputs)
-    throw (UnsupportedLayersException);
+    throw (UnsupportedConfigurationException*, IllegalArgumentException*);
     virtual ~Net();
     /**
      * Gets the number of <code>Layer</code>s of this <code>Net</code>.
@@ -84,7 +89,7 @@ public:
      * <code>Input</code>.
      * 
      */
-    Output *processInput(Input *input) throw (IncorrectInputException);
+    Output *processInput(Input *input) throw (IncorrectInputException*);
 protected:
     /**
      * Sets the number of inputs that this <code>Net</code> receives.
