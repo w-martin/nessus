@@ -10,6 +10,13 @@
 
 #include <exception>
 
+/**
+ * Custom <code>Exception</code> class.
+ * 
+ * @param message the message that will be printed as the cause for this
+ * <code>Exception</code>.
+ * 
+ */
 class Exception : public std::exception {
 public:
 

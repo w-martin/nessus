@@ -10,7 +10,7 @@
 
 #define INCORRECT_INPUT_MESSAGE "Attempted to process an input of the wrong size."
 
-#include "model/exceptions/Exception.h"
+#include "util/exceptions/Exception.h"
 
 /**
  * Exception class which indicates that a <code>Net</code> was asked

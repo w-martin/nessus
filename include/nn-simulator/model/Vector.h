@@ -9,7 +9,7 @@
 #define	VECTOR_H
 
 #include "model/exceptions/EmptyVectorException.h"
-#include "model/exceptions/OutOfBoundsException.h"
+#include "util/exceptions/OutOfBoundsException.h"
 
 /**
  * Vector superclass, for storing and retrieving a set of floats.

@@ -9,10 +9,8 @@
 #include <iostream>
 #include <stdio.h>
 
-#include "nets/BDN/functions/ORnet.h"
-#include "functions/HeavisideFunction.h"
-#include "nets/BDN/BDN.h"
-#include "model/Weights.h"
+extern void hello(void);
+extern void hello2(void);
 
 using namespace std;
 
@@ -20,10 +18,7 @@ using namespace std;
  * 
  */
 int main(int argc, char** argv) {
-    std::cout << "Hello" << "\n";
-
-    ORnet *net = new ORnet(3);
-    delete net;
+    cout << "Hello" << "\n";
 
     return 0;
 }

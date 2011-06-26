@@ -8,6 +8,8 @@
 #ifndef ORNET_H
 #define	ORNET_H
 
+#define ORNET_ID "ORNET"
+
 #include "../LogicalArchitecture.h"
 #include "../../../model/Net.h"
 #include "../../../model/Input.h"

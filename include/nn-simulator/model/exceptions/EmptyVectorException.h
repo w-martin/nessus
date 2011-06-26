@@ -10,7 +10,7 @@
 
 #define EMPTY_VECTOR_MESSAGE "Error. Empty vector."
 
-#include "model/exceptions/Exception.h"
+#include "util/exceptions/Exception.h"
 
 /**
  * Exception which indicates that a  vector either is

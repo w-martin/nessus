@@ -5,7 +5,7 @@
  * Created on 09 June 2011, 18:06
  */
 
-#include "nets/BDN/functions/ORnet.h"
+#include "nets/BDN/realisations/ORnet.h"
 #include "nets/BDN/BDNTrainer.h"
 #include "nets/BDN/BDN.h"
 #include <stdlib.h>

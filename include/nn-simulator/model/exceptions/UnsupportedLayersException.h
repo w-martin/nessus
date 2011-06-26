@@ -10,7 +10,7 @@
 
 #define UNSUPPORTED_LAYERS_MESSAGE "Attempted to create a Net with an unsupported number of layers."
 
-#include "model/exceptions/Exception.h"
+#include "util/exceptions/Exception.h"
 
 /**
  * Exception class which indicates that a <code>Net</code> was created
