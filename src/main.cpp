@@ -18,7 +18,7 @@ using namespace std;
  * 
  */
 int main(int argc, char** argv) {
-    cout << "Creating OR net" << "\n";
+    cout << "Creating OR net!" << "\n";
 
     ORnet *net = (ORnet*) NetsFactory::createInstance(ORNET_ID, 2);
 
