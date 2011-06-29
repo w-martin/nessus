@@ -49,9 +49,17 @@ enable_testing(true)
 
 include_directories(${gtest_SOURCE_DIR}/include 
 	${gtest_SOURCE_DIR})
+	
+# left test definitions here
+# TODO: replace this with a macro
 
 add_executable(HeavisideFunctionTests 
 	${NNSIM_TEST_DIR}/functions/HeavisideFunctionTest.cpp) 
 target_link_libraries(HeavisideFunctionTests gtest gtest_main ${NNSIM_LIB}) 
 add_test(FunctionTests HeavisideFunctionTests)
+
+add_executable(SigmoidFunctionTests 
+	${NNSIM_TEST_DIR}/functions/SigmoidFunctionTest.cpp) 
+target_link_libraries(SigmoidFunctionTests gtest gtest_main ${NNSIM_LIB}) 
+add_test(FunctionTests SigmoidFunctionTests)
 

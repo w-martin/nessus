@@ -1,3 +1,9 @@
+/* 
+ * File:   HeavisideFunctionTest.cpp
+ * Author: Will
+ * 
+ * Created on 29 June 2011, 23:20
+ */
 
 #include "functions/HeavisideFunction.h"
 #include "model/Output.h"
@@ -27,4 +33,3 @@ namespace {
         EXPECT_EQ(1.0f, heavisideFunction->function(1)->getValue());
     }
 }
-
