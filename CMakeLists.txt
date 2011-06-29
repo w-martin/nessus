@@ -7,10 +7,11 @@ project (nn-simulator CXX)
 set(PROJECT_NAME nn-simulator)
 set(PROJECT_SOURCE_DIR src)
 set(PROJECT_INCLUDE_DIR include/nn-simulator)
-set(PROJECT_BINARY_DIR build/bin)
 
 include_directories(${PROJECT_INCLUDE_DIR})
 
+# list all source files here
+# TODO: replace this with a macro
 add_executable (${PROJECT_NAME} 
     ${PROJECT_SOURCE_DIR}/main.cpp
     ${PROJECT_SOURCE_DIR}/functions/HeavisideFunction.cpp
