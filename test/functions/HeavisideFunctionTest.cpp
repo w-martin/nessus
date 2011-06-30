@@ -28,8 +28,8 @@ namespace {
      * Tests whether the function method works correctly.
      * 
      */
-    TEST_F(HeavisideFunctionTest, FunctionTest) {
-        EXPECT_EQ(0.0f, heavisideFunction->function(-1)->getValue());
-        EXPECT_EQ(1.0f, heavisideFunction->function(1)->getValue());
+    TEST_F(HeavisideFunctionTest, TestFunction) {
+        ASSERT_EQ(0.0f, heavisideFunction->function(-1)->getValue());
+        ASSERT_EQ(1.0f, heavisideFunction->function(1)->getValue());
     }
 }

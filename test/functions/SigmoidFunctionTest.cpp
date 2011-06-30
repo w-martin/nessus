@@ -28,22 +28,24 @@ namespace {
      * Tests whether the function method works correctly.
      * 
      */
-    TEST_F(SigmoidFunctionTest, FunctionTest) {
+    TEST_F(SigmoidFunctionTest, TestFunction) {
         float value;
         value = sigmoidFunction->function(0.0f)->getValue();
-        EXPECT_TRUE((value > 0.0f) && (value < 1.0f));
+        ASSERT_LT(0.0f, value);
+        ASSERT_GT(1.0f, value);
         value = sigmoidFunction->function(1.0f)->getValue();
-        EXPECT_TRUE((value > 0.0f) && (value < 1.0f));
+        ASSERT_LT(0.0f, value);
+        ASSERT_GT(1.0f, value);
     }
 
     /**
      * Tests whether the derivative method works correctly.
      * 
      */
-    TEST_F(SigmoidFunctionTest, DerivativeTest) {
+    TEST_F(SigmoidFunctionTest, TestDerivative) {
         float value;
         value = sigmoidFunction->function(0.5f)->getValue();
         value = value * (1.0f - value);
-        EXPECT_EQ(value, sigmoidFunction->derivative(0.5f)->getValue());
+        ASSERT_EQ(value, sigmoidFunction->derivative(0.5f)->getValue());
     }
 }
