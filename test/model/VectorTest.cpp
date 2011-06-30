@@ -72,7 +72,7 @@ namespace {
         int max = 10;
         for (int i = 0; i < max; i++) {
             vector->setValue(0, i + 0.5f);
-            EXPECT_EQ(i + 0.5f, vector->getValue());
+            ASSERT_EQ(i + 0.5f, vector->getValue(0));
         }
     }
 }
