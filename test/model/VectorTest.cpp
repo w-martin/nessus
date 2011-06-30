@@ -75,4 +75,17 @@ namespace {
             ASSERT_EQ(i + 0.5f, vector->getValue(0));
         }
     }
+
+    /*
+     * Tests whether the getSize method works correctly.
+     * 
+     */
+    TEST_F(VectorTest, GetSizeTest) {
+        int max = 10;
+        for (int i = 1; i < 10; i++) {
+            Vector *tmp = new Vector(i);
+            ASSERT_EQ(i, tmp->getSize());
+            delete tmp;
+        }
+    }
 }
