@@ -25,7 +25,6 @@ public:
     }
 
     virtual ~Exception() throw () {
-        delete message;
     }
 
     virtual const char* what() const throw () {

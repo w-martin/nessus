@@ -63,7 +63,14 @@ target_link_libraries(FunctionTests gtest gtest_main ${NNSIM_LIB})
 add_test(FunctionTests FunctionTests)
 
 add_executable(ModelTests 
+	${NNSIM_TEST_DIR}/model/InputTest.cpp
 	${NNSIM_TEST_DIR}/model/OutputTest.cpp
-	${NNSIM_TEST_DIR}/model/VectorTest.cpp) 
+	${NNSIM_TEST_DIR}/model/VectorTest.cpp
+	${NNSIM_TEST_DIR}/model/WeightsTest.cpp) 
 target_link_libraries(ModelTests gtest gtest_main ${NNSIM_LIB}) 
 add_test(ModelTests ModelTests)
+
+add_executable(UtilTests 
+	${NNSIM_TEST_DIR}/util/exceptions/ExceptionTest.cpp) 
+target_link_libraries(UtilTests gtest gtest_main ${NNSIM_LIB}) 
+add_test(UtilTests UtilTests)
