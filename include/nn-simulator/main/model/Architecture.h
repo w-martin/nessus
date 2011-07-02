@@ -34,7 +34,8 @@ public:
      * <code>Architecture</code>.
      * @param trainer the <code>Trainer</code> for this 
      * <code>Architecture</code>.
-     * @throw IllegalArgumentException if any of the arguments are NULL.
+     * @throw IllegalArgumentException if any of the arguments are not
+     * initialized, or there are no layers.
      * 
      */
     Architecture(int noLayers, auto_ptr<OutputFunction> function,

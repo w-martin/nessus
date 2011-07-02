@@ -12,7 +12,8 @@ Architecture::Architecture(int noLayers, auto_ptr<OutputFunction> function,
         auto_ptr<Trainer> trainer)
 throw (IllegalArgumentException*) {
     if (!function.get()
-            || !trainer.get())
+            || !trainer.get()
+            || 0 == noLayers)
         throw new IllegalArgumentException();
     Architecture::maxLayers = noLayers;
     Architecture::function = function;
