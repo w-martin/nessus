@@ -9,6 +9,9 @@
 #define	LAYER_H
 
 #include "Neuron.h"
+#include <memory>
+
+using std::auto_ptr;
 
 /**
  * Layer object constitutes of a number of <code>Neuron</code>s.
@@ -25,12 +28,21 @@ public:
      * 
      * @param noNeurons the number of <code>Neuron</code>s in this
      * <code>Layer</code>.
-     * @param aw boolean indicating whether this <code>Layer</code>
-     * has adaptive <code>Weights</code>.
+     * @param adaptiveWeights boolean indicating whether this 
+     * <code>Layer</code> has adaptive <code>Weights</code>.
      * 
      */
-    Layer(int noNeurons, bool aw);
+    Layer(int noNeurons, bool adaptiveWeights);
     virtual ~Layer();
+    /**
+     * Gets the number of <code>Neuron</code>s in this 
+     * <code>Layer</code>.
+     * 
+     * @return the number of <code>Neuron</code>s in this 
+     * <code>Layer</code>.
+     * 
+     */
+    int getSize();
     /**
      * Sets the <code>Neuron</code> at the given position to be the
      * given <code>Neuron</code>.
@@ -40,7 +52,7 @@ public:
      * @param neuron the <code>Neuron</code> to set.
      * 
      */
-    void setNeuron(int position, Neuron *neuron);
+    void setNeuron(int position, auto_ptr<Neuron> neuron);
     /**
      * Gets the <code>Neuron</code> at the given position.
      * 
@@ -71,7 +83,7 @@ public:
     Input *processInput(Input *input);
 private:
     int size;
-    Neuron **neurons;
+    auto_ptr<Neuron> *neurons;
     bool adaptiveWeights;
 };
 

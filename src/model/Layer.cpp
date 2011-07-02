@@ -9,12 +9,12 @@
 
 #include "nn-simulator/main/model/Layer.h"
 
-Layer::Layer(int noNeurons, bool aw) {
+Layer::Layer(int noNeurons, bool adaptiveWeights) {
     size = noNeurons;
-    Layer::adaptiveWeights = aw;
-    neurons = new Neuron*[noNeurons];
+    Layer::adaptiveWeights = adaptiveWeights;
+    neurons = new auto_ptr<Neuron>[size];
     for (int i = 0; i < noNeurons; i++) {
-        neurons[i] = NULL;
+        neurons[i] = auto_ptr<Neuron > ();
     }
 }
 
@@ -22,12 +22,19 @@ Layer::~Layer() {
     delete [] neurons;
 }
 
-void Layer::setNeuron(int position, Neuron * neuron) {
+int Layer::getSize() {
+    return size;
+}
+
+void Layer::setNeuron(int position, auto_ptr<Neuron> neuron) {
     neurons[position] = neuron;
 }
 
-Neuron * Layer::getNeuron(int position) {
-    return Layer::neurons[position];
+Neuron *Layer::getNeuron(int position) {
+    if (neurons[position].get())
+        return neurons[position].get();
+    else
+        return NULL;
 }
 
 bool Layer::hasAdaptiveWeights() {

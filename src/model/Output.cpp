@@ -11,10 +11,6 @@ Output::Output(float v) {
     Output::value = v;
 }
 
-Output::Output() {
-    value = 0.0f;
-}
-
 Output::~Output() {
 }
 

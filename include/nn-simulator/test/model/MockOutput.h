@@ -10,6 +10,10 @@
 
 class MockOutput : public Output {
 public:
+
+    MockOutput() : Output(0.0f) {
+    }
+
     MOCK_METHOD0(getValue,
             float());
 };

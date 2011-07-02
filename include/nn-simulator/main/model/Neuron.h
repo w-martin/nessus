@@ -24,7 +24,8 @@ using std::auto_ptr;
  */
 class Neuron {
 public:
-    Neuron(auto_ptr<Weights> weights, OutputFunction *f)throw (IllegalArgumentException*);
+    Neuron(auto_ptr<Weights> weights, OutputFunction *f)
+    throw (IllegalArgumentException*);
     virtual ~Neuron();
     /**
      * Gets the type of this <code>Neuron</code>.
