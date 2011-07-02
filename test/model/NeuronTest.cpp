@@ -8,7 +8,7 @@
 #include "gmock/gmock.h"
 #include "gtest/gtest.h"
 #include "nn-simulator/main/model/Neuron.h"
-#include "nn-simulator/test/functions/OutputFunctionMock.h"
+#include "nn-simulator/test/functions/MockOutputFunction.h"
 
 namespace {
 
@@ -18,7 +18,7 @@ namespace {
         NeuronTest() {
             size = 1;
             weights = new Weights(size);
-            outputFunction = new HeavisideFunction();
+            neuron = new Neuron(weights, &outputFunctionMock);
         }
 
         virtual ~NeuronTest() {
@@ -26,16 +26,19 @@ namespace {
         }
         int size;
         Weights *weights;
-        OutputFunction *outputFunction;
+        MockOutputFunction outputFunctionMock;
         Neuron *neuron;
     };
 
     /*
-     * Tests whether the <code>Neuron</code> class extends 
-     * <code>Vector</code> correctly.
+     * Tests whether the constructor throws an exception given
+     * a null input.
      * 
      */
-    TEST_F(NeuronTest, ExtensionTest) {
-        ASSERT_EQ(size, neuron->getSize());
+    TEST_F(NeuronTest, ConstructorExceptionTest) {
+        EXPECT_THROW(new Neuron(null, &outputFunctionMock),
+                IllegalArgumentException*);
+        EXPECT_THROW(new Neuron(weights, NULL),
+                IllegalArgumentException*);
     }
 }
