@@ -18,6 +18,13 @@ Vector::Vector(int noInputs) throw (EmptyVectorException*) {
     }
 }
 
+Vector::Vector(Vector& orig) {
+    Vector(orig.getSize());
+    for (int i = 0; i < size; i++) {
+        multipliers[i] = orig.getValue(i);
+    }
+}
+
 Vector::~Vector() {
     delete [] multipliers;
 }

@@ -17,8 +17,9 @@ namespace {
         NeuronTest() {
             size = 1;
             weights = new Weights(size);
+            auto_ptr<Weights> tmp(weights);
             outputFunctionMock = new MockOutputFunction();
-            neuron = new Neuron(weights, outputFunctionMock);
+            neuron = new Neuron(tmp, outputFunctionMock);
         }
 
         virtual ~NeuronTest() {
@@ -36,9 +37,30 @@ namespace {
      * 
      */
     TEST_F(NeuronTest, ConstructorExceptionTest) {
-        EXPECT_THROW(new Neuron(NULL, outputFunctionMock),
+        auto_ptr<Weights> w;
+        EXPECT_THROW(new Neuron(w, outputFunctionMock),
                 IllegalArgumentException*);
-        EXPECT_THROW(new Neuron(weights, NULL),
+        
+        weights = new Weights(size);
+        w = auto_ptr<Weights> (weights);
+        EXPECT_THROW(new Neuron(w, NULL),
                 IllegalArgumentException*);
+    }
+
+    /*
+     * Tests whether the getWeights method returns the weights correctly.
+     * 
+     */
+    TEST_F(NeuronTest, GetWeightsTest) {
+        EXPECT_EQ(weights, neuron->getWeights());
+    }
+
+    /*
+     * Tests whether the getOutputFunction method returns the output function
+     * correctly.
+     * 
+     */
+    TEST_F(NeuronTest, GetOutputFunctionTest) {
+        EXPECT_EQ(outputFunctionMock, neuron->getOutputFunction());
     }
 }

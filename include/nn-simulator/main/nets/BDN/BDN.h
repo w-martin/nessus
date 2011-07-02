@@ -9,7 +9,7 @@
 #define	BDN_H
 #define NEURON_TYPE_BDN "binary decision neuron"
 
-#include "../../model/Neuron.h"
+#include "nn-simulator/main/model/Neuron.h"
 
 /**
  * Binary decision neuron class.
@@ -17,7 +17,7 @@
  */
 class BDN : public Neuron {
 public:
-    BDN(Weights *w, OutputFunction *f);
+    BDN(auto_ptr<Weights> weights, OutputFunction *f);
     virtual ~BDN();
     virtual const char *getType();
     /**

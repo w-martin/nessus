@@ -10,21 +10,16 @@
 #include "nn-simulator/main/model/Neuron.h"
 #include "nn-simulator/main/model/Architecture.h"
 
-Neuron::Neuron(Weights* w, OutputFunction *f)
+Neuron::Neuron(auto_ptr<Weights> weights, OutputFunction *outputFunction)
 throw (IllegalArgumentException*) {
-    if (NULL == w
-            || NULL == f)
+    if (!weights.get()
+            || NULL == outputFunction)
         throw new IllegalArgumentException();
-    Neuron::weights = w;
-    Neuron::function = f;
-    Neuron::expectedOutput = NULL;
+    Neuron::weights = weights;
+    Neuron::outputFunction = outputFunction;
 }
 
 Neuron::~Neuron() {
-    delete weights;
-    delete function;
-    if (NULL != expectedOutput)
-        delete expectedOutput;
 }
 
 const char *Neuron::getType() {
@@ -49,21 +44,25 @@ Output *Neuron::calculateActivation(Input* input) {
 }
 
 Output *Neuron::applyOutputFunction(float activation) {
-    Output *result = function->function(activation);
+    Output *result = outputFunction->function(activation);
     return result;
 }
 
 Output *Neuron::getExpectedOutput() {
-    return Neuron::expectedOutput;
+    return expectedOutput.get();
 }
 
-void Neuron::setExpectedOutput(Output* newExpectedOutput)
+void Neuron::setExpectedOutput(auto_ptr<Output> expectedOutput)
 throw (IllegalArgumentException*) {
-    if (NULL == newExpectedOutput)
+    if (!expectedOutput.get())
         throw new IllegalArgumentException();
-    Neuron::expectedOutput = newExpectedOutput;
+    Neuron::expectedOutput = expectedOutput;
 }
 
 Weights *Neuron::getWeights() {
-    return Neuron::weights;
+    return weights.get();
+}
+
+OutputFunction *Neuron::getOutputFunction() {
+    return outputFunction;
 }

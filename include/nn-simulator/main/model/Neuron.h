@@ -14,6 +14,9 @@
 #include "nn-simulator/main/functions/OutputFunction.h"
 #include "nn-simulator/main/util/exceptions/IllegalArgumentException.h"
 #include <string.h>
+#include <memory>
+
+using std::auto_ptr;
 
 /**
  * Interface for neurons.
@@ -21,7 +24,7 @@
  */
 class Neuron {
 public:
-    Neuron(Weights *w, OutputFunction *f)throw (IllegalArgumentException*);
+    Neuron(auto_ptr<Weights> weights, OutputFunction *f)throw (IllegalArgumentException*);
     virtual ~Neuron();
     /**
      * Gets the type of this <code>Neuron</code>.
@@ -57,7 +60,7 @@ public:
      * for this <code>Neuron</code>.
      * 
      */
-    void setExpectedOutput(Output *newExpectedOutput)
+    void setExpectedOutput(auto_ptr<Output> newExpectedOutput)
     throw (IllegalArgumentException*);
     /**
      * Gets the <code>Weights</code> for this <code>Neuron</code>.
@@ -66,6 +69,15 @@ public:
      * 
      */
     Weights *getWeights();
+    /**
+     * Gets the <code>OutputFunction</code> used by this 
+     * <code>Neuron</code>.
+     * 
+     * @return the <code>OutputFunction</code> used by this 
+     * <code>Neuron</code>.
+     * 
+     */
+    OutputFunction *getOutputFunction();
 protected:
     /**
      * Calculates the <code>Neuron</code>'s activation from the
@@ -79,9 +91,9 @@ protected:
      */
     virtual Output* calculateActivation(Input *input);
 private:
-    Weights *weights;
-    Output *expectedOutput;
-    OutputFunction *function;
+    auto_ptr<Weights> weights;
+    auto_ptr<Output> expectedOutput;
+    OutputFunction *outputFunction;
     /**
      * Applies the <code>Neuron</code>'s elected output function
      * to the given activation.

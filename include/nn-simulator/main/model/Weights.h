@@ -24,6 +24,9 @@ public:
     Weights(int noInputs) throw (EmptyVectorException*) : Vector(noInputs) {
     }
 
+    Weights(Weights &orig) : Vector(orig) {
+    }
+
     virtual ~Weights() {
 
     }

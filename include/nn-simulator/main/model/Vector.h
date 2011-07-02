@@ -18,6 +18,7 @@
 class Vector {
 public:
     Vector(int noInputs) throw (EmptyVectorException*);
+    Vector(Vector &orig);
     virtual ~Vector();
     /**
      * Gets the value associated with the given position i.

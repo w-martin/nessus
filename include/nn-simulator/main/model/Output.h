@@ -23,6 +23,7 @@ public:
      * 
      */
     Output(float v);
+    Output();
     virtual ~Output();
     /**
      * Gets the value of the <code>Output</code> object.
