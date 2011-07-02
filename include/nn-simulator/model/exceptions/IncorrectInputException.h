@@ -30,4 +30,3 @@ public:
 };
 
 #endif	/* INCORRECTINPUTEXCEPTION_H */
-

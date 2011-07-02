@@ -8,7 +8,7 @@
 #ifndef OUTPUTFUNCTION_H
 #define	OUTPUTFUNCTION_H
 
-#include "../model/Output.h"
+#include "model/Output.h"
 
 /**
  * Output function interface.
@@ -17,11 +17,6 @@
 class OutputFunction {
 public:
 
-    //    OutputFunction() {
-    //    }
-    //
-    //    virtual ~OutputFunction() {
-    //    }
     /**
      * Applies the output function to the given activation.
      * 

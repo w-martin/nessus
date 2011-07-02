@@ -73,6 +73,9 @@ target_link_libraries(ModelTests gtest gtest_main ${NNSIM_LIB})
 add_test(ModelTests ModelTests)
 
 add_executable(UtilTests 
-	${NNSIM_TEST_DIR}/util/exceptions/ExceptionTest.cpp) 
+	${NNSIM_TEST_DIR}/util/exceptions/ExceptionTest.cpp
+	${NNSIM_TEST_DIR}/util/exceptions/IllegalArgumentExceptionTest.cpp
+	${NNSIM_TEST_DIR}/util/exceptions/OutOfBoundsExceptionTest.cpp
+	${NNSIM_TEST_DIR}/util/exceptions/UnsupportedConfigurationExceptionTest.cpp) 
 target_link_libraries(UtilTests gtest gtest_main ${NNSIM_LIB}) 
 add_test(UtilTests UtilTests)
