@@ -19,7 +19,6 @@ Layer::Layer(int noNeurons, bool adaptiveWeights) {
 }
 
 Layer::~Layer() {
-    delete [] neurons;
 }
 
 int Layer::getSize() {

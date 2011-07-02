@@ -43,7 +43,7 @@ public:
      * @throw IllegalArgumentException if the input is null.
      * 
      */
-    Output *processInput(Input *input)
+    virtual Output *processInput(Input *input)
     throw (IllegalArgumentException*);
     /**
      * Gets the expected <code>Output</code> for this 
