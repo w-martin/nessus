@@ -47,7 +47,10 @@ Output *Neuron::applyOutputFunction(float activation) {
 }
 
 Output *Neuron::getExpectedOutput() {
-    return expectedOutput.get();
+    if (expectedOutput.get())
+        return expectedOutput.get();
+    else
+        return NULL;
 }
 
 void Neuron::setExpectedOutput(auto_ptr<Output> expectedOutput)

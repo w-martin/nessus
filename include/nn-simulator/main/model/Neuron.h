@@ -39,6 +39,7 @@ public:
      * 
      * @param input the <code>Input</code> to process.
      * @return the <code>Neuron</code>'s <code>Output</code>.
+     * @throw IllegalArgumentException if the input is null.
      * 
      */
     Output *processInput(Input *input)

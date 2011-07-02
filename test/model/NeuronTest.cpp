@@ -8,6 +8,7 @@
 #include "gtest/gtest.h"
 #include "nn-simulator/main/model/Neuron.h"
 #include "nn-simulator/test/functions/MockOutputFunction.h"
+#include "nn-simulator/test/model/MockOutput.h"
 
 namespace {
 
@@ -24,6 +25,7 @@ namespace {
 
         virtual ~NeuronTest() {
             delete neuron;
+            delete outputFunctionMock;
         }
         int size;
         Weights *weights;
@@ -40,9 +42,9 @@ namespace {
         auto_ptr<Weights> w;
         EXPECT_THROW(new Neuron(w, outputFunctionMock),
                 IllegalArgumentException*);
-        
+
         weights = new Weights(size);
-        w = auto_ptr<Weights> (weights);
+        w = auto_ptr<Weights > (weights);
         EXPECT_THROW(new Neuron(w, NULL),
                 IllegalArgumentException*);
     }
@@ -53,6 +55,47 @@ namespace {
      */
     TEST_F(NeuronTest, GetWeightsTest) {
         EXPECT_EQ(weights, neuron->getWeights());
+    }
+
+    /*
+     * Tests whether the getType method returns the type correctly.
+     * 
+     */
+    TEST_F(NeuronTest, GetTypeTest) {
+        EXPECT_EQ(NEURON_TYPE_STD, neuron->getType());
+    }
+
+    /*
+     * Tests whether an exception is thrown when the processInput
+     * method is given a null argument.
+     * 
+     */
+    TEST_F(NeuronTest, ProcessInputExceptionTest) {
+        EXPECT_THROW(neuron->processInput(NULL), IllegalArgumentException*);
+    }
+
+    /*
+     * Tests whether the input is processed correctly.
+     * 
+     */
+    TEST_F(NeuronTest, ProcessInputTest) {
+        EXPECT_CALL((*outputFunctionMock), function(1));
+        Input *input = new Input(1);
+        input->setValue(0, 1.0f);
+        neuron->processInput(input);
+    }
+
+    /*
+     * Tests whether the expected output getter and setter work correctly.
+     * 
+     */
+    TEST_F(NeuronTest, ExpectedOutputTest) {
+        EXPECT_EQ(NULL, neuron->getExpectedOutput());
+
+        Output *output = new MockOutput();
+        auto_ptr<Output> pOutput(output);
+        neuron->setExpectedOutput(pOutput);
+        EXPECT_EQ(output, neuron->getExpectedOutput());
     }
 
     /*
