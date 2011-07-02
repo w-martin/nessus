@@ -28,7 +28,7 @@ public:
      * <code>Weights</code> for.
      * 
      */
-    virtual void initWeights(Neuron *n);
+    virtual void initWeights(Neuron &n);
 protected:
     /**
      * Sets the <code>Weights</code> of the given <code>Neuron</code>
@@ -38,7 +38,7 @@ protected:
      * for.
      * 
      */
-    virtual void setRandomWeights(Neuron *n);
+    virtual void setRandomWeights(Neuron &n);
 };
 
 #endif	/* TRAINER_H */

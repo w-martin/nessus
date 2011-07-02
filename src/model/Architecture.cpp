@@ -8,11 +8,11 @@
 #include "nn-simulator/main/model/Architecture.h"
 #include <stdlib.h>
 
-Architecture::Architecture(int noLayers,
-        OutputFunction *function, Trainer *trainer)
+Architecture::Architecture(int noLayers, auto_ptr<OutputFunction> function,
+        auto_ptr<Trainer> trainer)
 throw (IllegalArgumentException*) {
-    if (NULL == function
-            || NULL == trainer)
+    if (!function.get()
+            || !trainer.get())
         throw new IllegalArgumentException();
     Architecture::maxLayers = noLayers;
     Architecture::function = function;
@@ -20,18 +20,16 @@ throw (IllegalArgumentException*) {
 }
 
 Architecture::~Architecture() {
-    delete function;
-    delete trainer;
 }
 
 int Architecture::getMaxLayers() {
-    return Architecture::maxLayers;
+    return maxLayers;
 }
 
 OutputFunction *Architecture::getFunction() {
-    return function;
+    return function.get();
 }
 
 Trainer *Architecture::getTrainer() {
-    return Architecture::trainer;
+    return trainer.get();
 }

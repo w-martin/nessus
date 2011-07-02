@@ -15,12 +15,12 @@ Trainer::Trainer() {
 Trainer::~Trainer() {
 }
 
-void Trainer::initWeights(Neuron* n) {
+void Trainer::initWeights(Neuron &n) {
     setRandomWeights(n);
 }
 
-void Trainer::setRandomWeights(Neuron* n) {
-    Weights *w = n->getWeights();
+void Trainer::setRandomWeights(Neuron &n) {
+    Weights *w = n.getWeights();
     srand(time(NULL));
     for (int i = 0; i < w->getSize(); i++) {
         int random = rand();

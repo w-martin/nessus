@@ -62,7 +62,7 @@ namespace {
      * 
      */
     TEST_F(NeuronTest, GetTypeTest) {
-        EXPECT_EQ(NEURON_TYPE_STD, neuron->getType());
+        EXPECT_STREQ(NEURON_TYPE_STD, neuron->getType());
     }
 
     /*

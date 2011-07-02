@@ -10,7 +10,8 @@
 #include "nn-simulator/main/functions/HeavisideFunction.h"
 
 LogicalArchitecture::LogicalArchitecture()
-: Architecture(0, new HeavisideFunction(), new BDNTrainer()) {
+: Architecture(0, auto_ptr<OutputFunction> (new HeavisideFunction()),
+auto_ptr<Trainer>(new BDNTrainer())) {
 }
 
 LogicalArchitecture::~LogicalArchitecture() {

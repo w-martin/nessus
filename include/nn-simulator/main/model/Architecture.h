@@ -11,6 +11,9 @@
 #include "nn-simulator/main/trainer/Trainer.h"
 #include "nn-simulator/main/functions/OutputFunction.h"
 #include "nn-simulator/main/util/exceptions/IllegalArgumentException.h"
+#include <memory>
+
+using std::auto_ptr;
 
 /**
  * Architecture class, for specifying the <code>OutputFunction</code>,
@@ -34,7 +37,8 @@ public:
      * @throw IllegalArgumentException if any of the arguments are NULL.
      * 
      */
-    Architecture(int noLayers, OutputFunction *function, Trainer *trainer)
+    Architecture(int noLayers, auto_ptr<OutputFunction> function,
+            auto_ptr<Trainer> trainer)
     throw (IllegalArgumentException*);
     virtual ~Architecture();
     /**
@@ -67,8 +71,8 @@ public:
     Trainer *getTrainer();
 private:
     int maxLayers;
-    OutputFunction *function;
-    Trainer *trainer;
+    auto_ptr<OutputFunction> function;
+    auto_ptr<Trainer> trainer;
 };
 
 #endif	/* ARCHITECTURE_H */
