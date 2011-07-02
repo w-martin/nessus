@@ -16,3 +16,4 @@ cmake_install.cmake
 build/
 Makefile
 nbproject/
+*.pyc
