@@ -17,14 +17,12 @@ Output *SigmoidFunction::function(
         float activation) {
     float denominator = 1.0f + expf(-activation);
     float result = 1.0f / denominator;
-    Output *output = new Output(result);
-    return output;
+    return new Output(result);
 }
 
 Output *SigmoidFunction::derivative(
         float activation) {
     Output *fx = function(activation);
     float result = fx->getValue() * (1.0f - fx->getValue());
-    Output *output = new Output(result);
-    return output;
+    return new Output(result);
 }

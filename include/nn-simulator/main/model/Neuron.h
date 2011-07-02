@@ -103,7 +103,7 @@ private:
      * output function on the given activation.
      * 
      */
-    Output* applyOutputFunction(float activation);
+    Output *applyOutputFunction(float activation);
 };
 
 #endif	/* NEURON_H */

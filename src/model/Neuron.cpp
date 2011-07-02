@@ -30,8 +30,7 @@ Output *Neuron::processInput(Input* input) throw (IllegalArgumentException*) {
     if (NULL == input)
         throw new IllegalArgumentException();
     Output* activation = calculateActivation(input);
-    Output* result = applyOutputFunction(activation->getValue());
-    return result;
+    return applyOutputFunction(activation->getValue());
 }
 
 Output *Neuron::calculateActivation(Input* input) {
@@ -44,8 +43,7 @@ Output *Neuron::calculateActivation(Input* input) {
 }
 
 Output *Neuron::applyOutputFunction(float activation) {
-    Output *result = outputFunction->function(activation);
-    return result;
+    return outputFunction->function(activation);
 }
 
 Output *Neuron::getExpectedOutput() {
