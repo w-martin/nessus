@@ -5,7 +5,7 @@
  * Created on June 26, 2011, 9:10 PM
  */
 
-#include "nets/NetsFactory.h"
+#include "nn-simulator/main/nets/NetsFactory.h"
 #include <string.h>
 
 Net *NetsFactory::createInstance(const char* netIdentifier, int noInputs)

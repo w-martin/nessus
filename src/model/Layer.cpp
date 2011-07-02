@@ -7,7 +7,7 @@
 
 #include <stdlib.h>
 
-#include "model/Layer.h"
+#include "nn-simulator/main/model/Layer.h"
 
 Layer::Layer(int noNeurons, bool aw) {
     size = noNeurons;
@@ -19,12 +19,6 @@ Layer::Layer(int noNeurons, bool aw) {
 }
 
 Layer::~Layer() {
-    //    for (int i = 0; i < Layer::size; i++) {
-    //        if (NULL != neurons[i]) {
-    //            neurons[i]->~Neuron();
-    //            delete neurons[i];
-    //        }
-    //    }
     delete [] neurons;
 }
 

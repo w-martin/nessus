@@ -6,7 +6,7 @@
  */
 
 #include "gtest/gtest.h"
-#include "util/exceptions/IllegalArgumentException.h"
+#include "nn-simulator/main/util/exceptions/IllegalArgumentException.h"
 
 #define message "test message"
 

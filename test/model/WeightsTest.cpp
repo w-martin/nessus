@@ -6,7 +6,7 @@
  */
 
 #include "gtest/gtest.h"
-#include "model/Weights.h"
+#include "nn-simulator/main/model/Weights.h"
 
 namespace {
 

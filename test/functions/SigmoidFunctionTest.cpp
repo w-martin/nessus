@@ -5,8 +5,8 @@
  * Created on June 29, 2011, 11:38 PM
  */
 
-#include "functions/SigmoidFunction.h"
-#include "model/Output.h"
+#include "nn-simulator/main/functions/SigmoidFunction.h"
+#include "nn-simulator/main/model/Output.h"
 #include "gtest/gtest.h"
 
 namespace {

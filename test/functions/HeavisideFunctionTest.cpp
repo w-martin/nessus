@@ -5,8 +5,8 @@
  * Created on 29 June 2011, 23:20
  */
 
-#include "functions/HeavisideFunction.h"
-#include "model/Output.h"
+#include "nn-simulator/main/functions/HeavisideFunction.h"
+#include "nn-simulator/main/model/Output.h"
 #include "gtest/gtest.h"
 
 namespace {

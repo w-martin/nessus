@@ -6,7 +6,7 @@
  */
 
 #include "gtest/gtest.h"
-#include "util/exceptions/UnsupportedConfigurationException.h"
+#include "nn-simulator/main/util/exceptions/UnsupportedConfigurationException.h"
 
 #define message "test message"
 

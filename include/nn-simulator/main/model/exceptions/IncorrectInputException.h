@@ -10,7 +10,7 @@
 
 #define INCORRECT_INPUT_MESSAGE "Attempted to process an input of the wrong size."
 
-#include "util/exceptions/Exception.h"
+#include "nn-simulator/main/util/exceptions/Exception.h"
 
 /**
  * Exception class which indicates that a <code>Net</code> was asked

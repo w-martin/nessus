@@ -5,7 +5,7 @@
  * Created on 07 June 2011, 13:15
  */
 
-#include "model/Architecture.h"
+#include "nn-simulator/main/model/Architecture.h"
 #include <stdlib.h>
 
 Architecture::Architecture(int noLayers,

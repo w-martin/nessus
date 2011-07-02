@@ -6,7 +6,7 @@
  */
 
 #include "gtest/gtest.h"
-#include "util/exceptions/OutOfBoundsException.h"
+#include "nn-simulator/main/util/exceptions/OutOfBoundsException.h"
 
 #define message "test message"
 

@@ -51,7 +51,9 @@ add_subdirectory(gmock-1.6.0)
 enable_testing(true) 
 
 include_directories(${gtest_SOURCE_DIR}/include 
-	${gtest_SOURCE_DIR})
+	${gtest_SOURCE_DIR}
+        ${gmock_SOURCE_DIR}/include 
+	${gmock_SOURCE_DIR})
 	
 # left test definitions here
 # TODO: replace this with a macro

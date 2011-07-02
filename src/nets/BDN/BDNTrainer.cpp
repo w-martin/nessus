@@ -5,7 +5,7 @@
  * Created on 09 June 2011, 13:39
  */
 
-#include "nets/BDN/BDNTrainer.h"
+#include "nn-simulator/main/nets/BDN/BDNTrainer.h"
 #include <string.h>
 
 BDNTrainer::BDNTrainer() {

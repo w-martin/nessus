@@ -6,9 +6,9 @@
  */
 
 #include "gtest/gtest.h"
-#include "model/Vector.h"
-#include "model/exceptions/EmptyVectorException.h"
-#include "util/exceptions/OutOfBoundsException.h"
+#include "nn-simulator/main/model/Vector.h"
+#include "nn-simulator/main/model/exceptions/EmptyVectorException.h"
+#include "nn-simulator/main/util/exceptions/OutOfBoundsException.h"
 
 namespace {
 

@@ -6,7 +6,7 @@
  */
 
 #include "gtest/gtest.h"
-#include "model/Input.h"
+#include "nn-simulator/main/model/Input.h"
 
 namespace {
 

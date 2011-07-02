@@ -6,7 +6,7 @@
  */
 
 #include "gtest/gtest.h"
-#include "model/exceptions/EmptyVectorException.h"
+#include "nn-simulator/main/model/exceptions/EmptyVectorException.h"
 
 #define message "test message"
 

@@ -5,7 +5,7 @@
  * Created on 07 June 2011, 14:21
  */
 
-#include "functions/SigmoidFunction.h"
+#include "nn-simulator/main/functions/SigmoidFunction.h"
 
 SigmoidFunction::SigmoidFunction() {
 }

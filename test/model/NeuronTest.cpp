@@ -36,7 +36,7 @@ namespace {
      * 
      */
     TEST_F(NeuronTest, ConstructorExceptionTest) {
-        EXPECT_THROW(new Neuron(null, &outputFunctionMock),
+        EXPECT_THROW(new Neuron(NULL, &outputFunctionMock),
                 IllegalArgumentException*);
         EXPECT_THROW(new Neuron(weights, NULL),
                 IllegalArgumentException*);

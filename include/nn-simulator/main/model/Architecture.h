@@ -8,9 +8,9 @@
 #ifndef ARCHITECTURE_H
 #define	ARCHITECTURE_H
 
-#include "trainer/Trainer.h"
-#include "functions/OutputFunction.h"
-#include "util/exceptions/IllegalArgumentException.h"
+#include "nn-simulator/main/trainer/Trainer.h"
+#include "nn-simulator/main/functions/OutputFunction.h"
+#include "nn-simulator/main/util/exceptions/IllegalArgumentException.h"
 
 /**
  * Architecture class, for specifying the <code>OutputFunction</code>,

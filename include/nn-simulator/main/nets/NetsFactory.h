@@ -8,9 +8,9 @@
 #ifndef NETSFACTORY_H
 #define	NETSFACTORY_H
 
-#include "model/Net.h"
-#include "util/exceptions/UnsupportedConfigurationException.h"
-#include "nets/BDN/realisations/ORnet.h"
+#include "nn-simulator/main/model/Net.h"
+#include "nn-simulator/main/util/exceptions/UnsupportedConfigurationException.h"
+#include "nn-simulator/main/nets/BDN/realisations/ORnet.h"
 
 /**
  * Factory for creating <code>Nets</code>.

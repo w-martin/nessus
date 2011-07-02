@@ -8,11 +8,11 @@
 #ifndef NET_H
 #define	NET_H
 
-#include "Architecture.h"
-#include "Layer.h"
-#include "model/exceptions/IncorrectInputException.h"
-#include "util/exceptions/UnsupportedConfigurationException.h"
-#include "util/exceptions/IllegalArgumentException.h"
+#include "nn-simulator/main/model/Architecture.h"
+#include "nn-simulator/main/model/Layer.h"
+#include "nn-simulator/main/model/exceptions/IncorrectInputException.h"
+#include "nn-simulator/main/util/exceptions/UnsupportedConfigurationException.h"
+#include "nn-simulator/main/util/exceptions/IllegalArgumentException.h"
 
 /**
  * The network class. That is, a store of 

@@ -7,7 +7,7 @@
 
 #include <stdlib.h>
 
-#include "model/Net.h"
+#include "nn-simulator/main/model/Net.h"
 
 Net::Net(Architecture *a, int noLayers, int noInputs)
 throw (UnsupportedConfigurationException*, IllegalArgumentException*) {

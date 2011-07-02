@@ -5,7 +5,7 @@
  * Created on June 19, 2011, 6:05 PM
  */
 
-#include "model/Vector.h"
+#include "nn-simulator/main/model/Vector.h"
 
 Vector::Vector(int noInputs) throw (EmptyVectorException*) {
     if (0 == noInputs)

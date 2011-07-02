@@ -6,7 +6,7 @@
  */
 
 #include "gtest/gtest.h"
-#include "model/exceptions/IncorrectInputException.h"
+#include "nn-simulator/main/model/exceptions/IncorrectInputException.h"
 
 #define message "test message"
 

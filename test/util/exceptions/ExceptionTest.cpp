@@ -6,7 +6,7 @@
  */
 
 #include "gtest/gtest.h"
-#include "util/exceptions/Exception.h"
+#include "nn-simulator/main/util/exceptions/Exception.h"
 
 #define message "test message"
 

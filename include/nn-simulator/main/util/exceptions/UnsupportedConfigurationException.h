@@ -10,7 +10,7 @@
 
 #define UNSUPPORT_CONFIGURATION_MESSAGE "Error. Unsupported configuration."
 
-#include "util/exceptions/Exception.h"
+#include "nn-simulator/main/util/exceptions/Exception.h"
 
 class UnsupportedConfigurationException : public Exception {
 public:
