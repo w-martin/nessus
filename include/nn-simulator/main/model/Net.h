@@ -36,7 +36,7 @@ public:
      * i.e. if the <code>Architecture</code> is NULL.
      * 
      */
-    Net(Architecture *a, int noLayers, int noInputs)
+    Net(auto_ptr<Architecture> architecture, int noLayers, int noInputs)
     throw (UnsupportedConfigurationException*, IllegalArgumentException*);
     virtual ~Net();
     /**
@@ -101,7 +101,7 @@ protected:
 private:
     int size, noInputs;
     Layer **layers;
-    Architecture *architecture;
+    auto_ptr<Architecture> architecture;
 };
 
 #endif	/* NET_H */

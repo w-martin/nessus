@@ -70,6 +70,7 @@ add_executable(ModelTests
 	${NNSIM_TEST_DIR}/model/ArchitectureTest.cpp
 	${NNSIM_TEST_DIR}/model/InputTest.cpp
 	${NNSIM_TEST_DIR}/model/LayerTest.cpp
+	${NNSIM_TEST_DIR}/model/NetTest.cpp
 	${NNSIM_TEST_DIR}/model/NeuronTest.cpp
 	${NNSIM_TEST_DIR}/model/OutputTest.cpp
 	${NNSIM_TEST_DIR}/model/VectorTest.cpp

@@ -12,7 +12,8 @@
 
 using namespace std;
 
-ORnet::ORnet(int noInputs) : Net(new LogicalArchitecture(), 1, noInputs) {
+ORnet::ORnet(int noInputs) :
+Net(auto_ptr<Architecture>(new LogicalArchitecture()), 1, noInputs) {
     expectedInput = new Input(noInputs);
     necessaryInput = new Input(noInputs);
 
@@ -46,6 +47,6 @@ void ORnet::createNeurons() {
     BDNTrainer *trainer = (BDNTrainer*) getArchitecture()->getTrainer();
     trainer->initWeights(n);
     trainer->setThreshold(n);
-    auto_ptr<Neuron> neuronPointer = auto_ptr<Neuron>(n);
+    auto_ptr<Neuron> neuronPointer = auto_ptr<Neuron > (n);
     getLayer(0)->setNeuron(0, neuronPointer);
 }
