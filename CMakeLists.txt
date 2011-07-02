@@ -67,6 +67,7 @@ add_test(FunctionTests FunctionTests)
 add_executable(ModelTests 
 	${NNSIM_TEST_DIR}/model/exceptions/EmptyVectorExceptionTest.cpp
 	${NNSIM_TEST_DIR}/model/exceptions/IncorrectInputExceptionTest.cpp
+	${NNSIM_TEST_DIR}/model/ArchitectureTest.cpp
 	${NNSIM_TEST_DIR}/model/InputTest.cpp
 	${NNSIM_TEST_DIR}/model/LayerTest.cpp
 	${NNSIM_TEST_DIR}/model/NeuronTest.cpp
