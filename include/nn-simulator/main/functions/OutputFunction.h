@@ -28,7 +28,6 @@ public:
      * 
      */
     virtual Output *function(float activation) = 0;
-private:
 };
 
 #endif	/* OUTPUTFUNCTION_H */

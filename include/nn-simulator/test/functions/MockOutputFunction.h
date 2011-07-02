@@ -4,6 +4,7 @@
  *
  * Created on 02 July, 2011, 11:26 AM
  */
+
 #include "nn-simulator/main/functions/OutputFunction.h"
 #include "gmock/gmock.h"
 

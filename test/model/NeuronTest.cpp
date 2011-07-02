@@ -5,7 +5,6 @@
  * Created on July 2, 2011, 10:04 AM
  */
 
-#include "gmock/gmock.h"
 #include "gtest/gtest.h"
 #include "nn-simulator/main/model/Neuron.h"
 #include "nn-simulator/test/functions/MockOutputFunction.h"
@@ -18,7 +17,8 @@ namespace {
         NeuronTest() {
             size = 1;
             weights = new Weights(size);
-            neuron = new Neuron(weights, &outputFunctionMock);
+            outputFunctionMock = new MockOutputFunction();
+            neuron = new Neuron(weights, outputFunctionMock);
         }
 
         virtual ~NeuronTest() {
@@ -26,7 +26,7 @@ namespace {
         }
         int size;
         Weights *weights;
-        MockOutputFunction outputFunctionMock;
+        MockOutputFunction *outputFunctionMock;
         Neuron *neuron;
     };
 
@@ -36,7 +36,7 @@ namespace {
      * 
      */
     TEST_F(NeuronTest, ConstructorExceptionTest) {
-        EXPECT_THROW(new Neuron(NULL, &outputFunctionMock),
+        EXPECT_THROW(new Neuron(NULL, outputFunctionMock),
                 IllegalArgumentException*);
         EXPECT_THROW(new Neuron(weights, NULL),
                 IllegalArgumentException*);
