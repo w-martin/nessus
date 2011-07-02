@@ -7,8 +7,8 @@
 
 #include <string>
 
-#include "model/Neuron.h"
-#include "model/Architecture.h"
+#include "nn-simulator/main/model/Neuron.h"
+#include "nn-simulator/main/model/Architecture.h"
 
 Neuron::Neuron(Weights* w, OutputFunction *f)
 throw (IllegalArgumentException*) {

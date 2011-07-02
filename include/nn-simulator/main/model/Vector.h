@@ -8,8 +8,8 @@
 #ifndef VECTOR_H
 #define	VECTOR_H
 
-#include "model/exceptions/EmptyVectorException.h"
-#include "util/exceptions/OutOfBoundsException.h"
+#include "nn-simulator/main/model/exceptions/EmptyVectorException.h"
+#include "nn-simulator/main/util/exceptions/OutOfBoundsException.h"
 
 /**
  * Vector superclass, for storing and retrieving a set of floats.

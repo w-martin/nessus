@@ -14,7 +14,7 @@ project (nn-simulator CXX)
 set(NNSIM_NAME nn-simulator)
 set(NNSIM_LIB lib-nn-simulator)
 set(NNSIM_SOURCE_DIR src)
-set(NNSIM_INCLUDE_DIR include/nn-simulator)
+set(NNSIM_INCLUDE_DIR include)
 set(NNSIM_TEST_DIR test)
 
 include_directories(${NNSIM_INCLUDE_DIR})
@@ -66,6 +66,7 @@ add_executable(ModelTests
 	${NNSIM_TEST_DIR}/model/exceptions/EmptyVectorExceptionTest.cpp
 	${NNSIM_TEST_DIR}/model/exceptions/IncorrectInputExceptionTest.cpp
 	${NNSIM_TEST_DIR}/model/InputTest.cpp
+	${NNSIM_TEST_DIR}/model/NeuronTest.cpp
 	${NNSIM_TEST_DIR}/model/OutputTest.cpp
 	${NNSIM_TEST_DIR}/model/VectorTest.cpp
 	${NNSIM_TEST_DIR}/model/WeightsTest.cpp) 

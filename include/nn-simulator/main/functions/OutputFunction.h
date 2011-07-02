@@ -8,7 +8,7 @@
 #ifndef OUTPUTFUNCTION_H
 #define	OUTPUTFUNCTION_H
 
-#include "model/Output.h"
+#include "nn-simulator/main/model/Output.h"
 
 /**
  * Output function interface.

@@ -8,8 +8,8 @@
 #ifndef WEIGHTS_H
 #define	WEIGHTS_H
 
-#include "model/exceptions/EmptyVectorException.h"
-#include "model/Vector.h"
+#include "nn-simulator/main/model/exceptions/EmptyVectorException.h"
+#include "nn-simulator/main/model/Vector.h"
 
 /**
  * Weight Vector class for use with <code>Neuron</code>s.

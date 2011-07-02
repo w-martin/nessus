@@ -8,8 +8,8 @@
 #ifndef INPUT_H
 #define	INPUT_H
 
-#include "model/exceptions/EmptyVectorException.h"
-#include "model/Vector.h"
+#include "nn-simulator/main/model/exceptions/EmptyVectorException.h"
+#include "nn-simulator/main/model/Vector.h"
 
 /**
  * Input object for neurons.

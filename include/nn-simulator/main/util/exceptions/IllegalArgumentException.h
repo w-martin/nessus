@@ -10,7 +10,7 @@
 
 #define ILLEGAL_ARGUMENT_MESSAGE "Error. Illegal argument(s)."
 
-#include "util/exceptions/Exception.h"
+#include "nn-simulator/main/util/exceptions/Exception.h"
 
 /**
  * Exception class which indicates that a method was called with 

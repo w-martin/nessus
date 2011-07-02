@@ -10,7 +10,7 @@
 
 #define EMPTY_VECTOR_MESSAGE "Error. Empty vector."
 
-#include "util/exceptions/Exception.h"
+#include "nn-simulator/main/util/exceptions/Exception.h"
 
 /**
  * Exception which indicates that a vector either is

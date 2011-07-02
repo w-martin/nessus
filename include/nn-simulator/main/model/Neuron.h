@@ -8,11 +8,11 @@
 #define	NEURON_H
 #define NEURON_TYPE_STD "standard neuron"
 
-#include "model/Weights.h"
-#include "model/Input.h"
-#include "model/Output.h"
-#include "functions/OutputFunction.h"
-#include "util/exceptions/IllegalArgumentException.h"
+#include "nn-simulator/main/model/Weights.h"
+#include "nn-simulator/main/model/Input.h"
+#include "nn-simulator/main/model/Output.h"
+#include "nn-simulator/main/functions/OutputFunction.h"
+#include "nn-simulator/main/util/exceptions/IllegalArgumentException.h"
 #include <string.h>
 
 /**

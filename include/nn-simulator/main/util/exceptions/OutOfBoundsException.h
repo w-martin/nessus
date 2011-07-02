@@ -10,7 +10,7 @@
 
 #define OUT_OF_BOUNDS_MESSAGE "Attempted to access an array outside of its bounds."
 
-#include "util/exceptions/Exception.h"
+#include "nn-simulator/main/util/exceptions/Exception.h"
 
 /**
  * Exception class which indicates that something attempted to access an
