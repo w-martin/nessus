@@ -15,14 +15,28 @@
 using namespace std;
 
 /*
- * 
+ * Main.
  */
 int main(int argc, char** argv) {
-    cout << "Creating OR net!" << "\n";
+    cout << "Creating OR net." << "\n";
 
     ORnet *net = (ORnet*) NetsFactory::createInstance(ORNET_ID, 2);
 
-    cout << "Created OR net" << "\n";
+    cout << "Created OR net." << "\n";
+
+    Input *input = new Input(2);
+
+    cout << "Created input." << "\n";
+
+    float f0 = 1.0f;
+    float f1 = 0.0f;
+
+    input->setValue(0, f0);
+    input->setValue(1, f1);
+
+    cout << "Set inputs to " << f0 << " and " << f1 << "." << "\n";
+
+    cout << "OR = " << net->processInput(input)->getValue() << ".\n";
 
     delete net;
 
