@@ -31,7 +31,7 @@ namespace {
      * 
      */
     TEST_F(WeightsTest, ExtensionTest) {
-        ASSERT_EQ(size, weights->getSize());
+        EXPECT_EQ(size, weights->getSize());
     }
 
     /*
@@ -40,6 +40,6 @@ namespace {
      * 
      */
     TEST_F(WeightsTest, ExceptionTest) {
-        ASSERT_THROW(new Weights(0), EmptyVectorException);
+        EXPECT_THROW(new Weights(0), EmptyVectorException);
     }
 }

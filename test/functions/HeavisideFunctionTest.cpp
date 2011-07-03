@@ -29,7 +29,7 @@ namespace {
      * 
      */
     TEST_F(HeavisideFunctionTest, TestFunction) {
-        ASSERT_EQ(0.0f, heavisideFunction->function(-1)->getValue());
-        ASSERT_EQ(1.0f, heavisideFunction->function(1)->getValue());
+        EXPECT_EQ(0.0f, heavisideFunction->function(-1)->getValue());
+        EXPECT_EQ(1.0f, heavisideFunction->function(1)->getValue());
     }
 }

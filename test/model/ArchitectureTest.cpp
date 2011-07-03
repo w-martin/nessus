@@ -63,7 +63,7 @@ namespace {
      * 
      */
     TEST_F(ArchitectureTest, GetMaxLayersTest) {
-        ASSERT_EQ(noLayers, architecture->getMaxLayers());
+        EXPECT_EQ(noLayers, architecture->getMaxLayers());
     }
 
     /*
@@ -71,7 +71,7 @@ namespace {
      * 
      */
     TEST_F(ArchitectureTest, GetFunctionTest) {
-        ASSERT_EQ(outputFunctionMock, architecture->getFunction());
+        EXPECT_EQ(outputFunctionMock, architecture->getFunction());
     }
 
     /*
@@ -79,6 +79,6 @@ namespace {
      * 
      */
     TEST_F(ArchitectureTest, GetTrainerTest) {
-        ASSERT_EQ(trainer, architecture->getTrainer());
+        EXPECT_EQ(trainer, architecture->getTrainer());
     }
 }

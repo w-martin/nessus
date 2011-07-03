@@ -42,7 +42,7 @@ namespace {
      * 
      */
     TEST_F(LayerTest, GetSizeTest) {
-        ASSERT_EQ(size, layer->getSize());
+        EXPECT_EQ(size, layer->getSize());
     }
 
     /*

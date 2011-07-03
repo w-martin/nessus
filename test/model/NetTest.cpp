@@ -27,6 +27,6 @@ namespace {
      *
      */
     TEST_F(NetTest, GetMaxLayersTest) {
-//        ASSERT_EQ(noLayers, architecture->getMaxLayers());
+//        EXPECT_EQ(noLayers, architecture->getMaxLayers());
     }
 }

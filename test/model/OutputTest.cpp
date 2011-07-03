@@ -31,6 +31,6 @@ namespace {
      * 
      */
     TEST_F(OutputTest, GetValueTest) {
-        ASSERT_EQ(value, output->getValue());
+        EXPECT_EQ(value, output->getValue());
     }
 }

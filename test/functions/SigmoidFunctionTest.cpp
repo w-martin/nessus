@@ -31,11 +31,11 @@ namespace {
     TEST_F(SigmoidFunctionTest, TestFunction) {
         float value;
         value = sigmoidFunction->function(0.0f)->getValue();
-        ASSERT_LT(0.0f, value);
-        ASSERT_GT(1.0f, value);
+        EXPECT_LT(0.0f, value);
+        EXPECT_GT(1.0f, value);
         value = sigmoidFunction->function(1.0f)->getValue();
-        ASSERT_LT(0.0f, value);
-        ASSERT_GT(1.0f, value);
+        EXPECT_LT(0.0f, value);
+        EXPECT_GT(1.0f, value);
     }
 
     /**
@@ -46,6 +46,6 @@ namespace {
         float value;
         value = sigmoidFunction->function(0.5f)->getValue();
         value = value * (1.0f - value);
-        ASSERT_EQ(value, sigmoidFunction->derivative(0.5f)->getValue());
+        EXPECT_EQ(value, sigmoidFunction->derivative(0.5f)->getValue());
     }
 }
