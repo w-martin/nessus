@@ -32,7 +32,7 @@ namespace {
      * 
      */
     TEST_F(VectorTest, ConstructorExceptionTest) {
-        ASSERT_THROW(new Vector(0), EmptyVectorException*);
+        ASSERT_THROW(new Vector(0), EmptyVectorException);
     }
 
     /**
@@ -52,7 +52,7 @@ namespace {
      * 
      */
     TEST_F(VectorTest, GetValueExceptionTest) {
-        ASSERT_THROW(vector->getValue(size + 1), OutOfBoundsException*);
+        ASSERT_THROW(vector->getValue(size + 1), OutOfBoundsException);
     }
 
     /*
@@ -61,7 +61,7 @@ namespace {
      */
     TEST_F(VectorTest, SetValueExceptionTest) {
         ASSERT_THROW(vector->setValue(size + 1, 0.0f),
-                OutOfBoundsException*);
+                OutOfBoundsException);
     }
 
     /*

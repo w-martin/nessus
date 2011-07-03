@@ -17,7 +17,7 @@
  */
 class Vector {
 public:
-    Vector(int noInputs) throw (EmptyVectorException*);
+    Vector(int noInputs) throw (EmptyVectorException);
     Vector(Vector &orig);
     virtual ~Vector();
     /**
@@ -29,7 +29,7 @@ public:
      * bounds.
      * 
      */
-    float getValue(int i) throw (OutOfBoundsException*);
+    float getValue(int i) throw (OutOfBoundsException);
     /**
      * Sets the value associated with the given position i
      * to the given value newValue.
@@ -41,7 +41,7 @@ public:
      * 
      */
     void setValue(int i, float newValue)
-    throw (OutOfBoundsException*);
+    throw (OutOfBoundsException);
     /**
      * Gets the size of this <code>Vector</code>.
      * 

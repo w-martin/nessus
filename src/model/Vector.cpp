@@ -7,9 +7,9 @@
 
 #include "nn-simulator/main/model/Vector.h"
 
-Vector::Vector(int noInputs) throw (EmptyVectorException*) {
+Vector::Vector(int noInputs) throw (EmptyVectorException) {
     if (0 == noInputs)
-        throw new EmptyVectorException();
+        throw EmptyVectorException();
 
     size = noInputs;
     multipliers = new float[noInputs];
@@ -29,17 +29,17 @@ Vector::~Vector() {
     delete [] multipliers;
 }
 
-float Vector::getValue(int i) throw (OutOfBoundsException*) {
+float Vector::getValue(int i) throw (OutOfBoundsException) {
     if (i < size)
         return multipliers[i];
-    else throw new OutOfBoundsException();
+    else throw OutOfBoundsException();
 }
 
 void Vector::setValue(int i, float newMultiplier)
-throw (OutOfBoundsException*) {
+throw (OutOfBoundsException) {
     if (i < size)
         multipliers[i] = newMultiplier;
-    else throw new OutOfBoundsException();
+    else throw OutOfBoundsException();
 }
 
 int Vector::getSize() {

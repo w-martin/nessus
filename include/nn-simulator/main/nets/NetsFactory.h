@@ -19,7 +19,7 @@
 class NetsFactory {
 public:
     static Net *createInstance(const char *netIdentifier, int noInputs) 
-    throw (UnsupportedConfigurationException*);
+    throw (UnsupportedConfigurationException);
 };
 
 #endif	/* NETSFACTORY_H */

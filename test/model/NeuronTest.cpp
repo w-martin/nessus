@@ -41,12 +41,12 @@ namespace {
     TEST_F(NeuronTest, ConstructorExceptionTest) {
         auto_ptr<Weights> w;
         EXPECT_THROW(new Neuron(w, outputFunctionMock),
-                IllegalArgumentException*);
+                IllegalArgumentException);
 
         weights = new Weights(size);
         w = auto_ptr<Weights > (weights);
         EXPECT_THROW(new Neuron(w, NULL),
-                IllegalArgumentException*);
+                IllegalArgumentException);
     }
 
     /*
@@ -71,7 +71,7 @@ namespace {
      * 
      */
     TEST_F(NeuronTest, ProcessInputExceptionTest) {
-        EXPECT_THROW(neuron->processInput(NULL), IllegalArgumentException*);
+        EXPECT_THROW(neuron->processInput(NULL), IllegalArgumentException);
     }
 
     /*

@@ -9,9 +9,9 @@
 #include <string.h>
 
 Net *NetsFactory::createInstance(const char* netIdentifier, int noInputs)
-throw (UnsupportedConfigurationException*) {
+throw (UnsupportedConfigurationException) {
     if(0 == strcmp(ORNET_ID, netIdentifier)){
         return new ORnet(noInputs);
     }
-    throw new UnsupportedConfigurationException("Error. Unknown net.");
+    throw UnsupportedConfigurationException("Error. Unknown net.");
 }

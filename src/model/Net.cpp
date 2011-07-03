@@ -10,12 +10,12 @@
 #include "nn-simulator/main/model/Net.h"
 
 Net::Net(auto_ptr<Architecture> architecture, int noLayers, int noInputs)
-throw (UnsupportedConfigurationException*, IllegalArgumentException*) {
+throw (UnsupportedConfigurationException, IllegalArgumentException) {
     if (!architecture.get())
-        throw new IllegalArgumentException("Architecture cannot be NULL.");
+        throw IllegalArgumentException("Architecture cannot be NULL.");
     if (architecture->getMaxLayers() > 0
             && noLayers > architecture->getMaxLayers())
-        throw new UnsupportedConfigurationException();
+        throw UnsupportedConfigurationException();
 
     Net::architecture = architecture;
     size = noLayers;
@@ -51,9 +51,9 @@ int Net::getNoInputs() {
     return noInputs;
 }
 
-Output *Net::processInput(Input* input) throw (IncorrectInputException*) {
+Output *Net::processInput(Input* input) throw (IncorrectInputException) {
     if (input->getSize() != noInputs) {
-        throw new IncorrectInputException();
+        throw IncorrectInputException();
     }
     Input *currentInput = input;
     for (int i = 0; i < size; i++) {

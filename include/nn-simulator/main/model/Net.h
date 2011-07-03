@@ -37,7 +37,7 @@ public:
      * 
      */
     Net(auto_ptr<Architecture> architecture, int noLayers, int noInputs)
-    throw (UnsupportedConfigurationException*, IllegalArgumentException*);
+    throw (UnsupportedConfigurationException, IllegalArgumentException);
     virtual ~Net();
     /**
      * Gets the number of <code>Layer</code>s of this <code>Net</code>.
@@ -89,7 +89,7 @@ public:
      * <code>Input</code>.
      * 
      */
-    Output *processInput(Input *input) throw (IncorrectInputException*);
+    Output *processInput(Input *input) throw (IncorrectInputException);
 protected:
     /**
      * Sets the number of inputs that this <code>Net</code> receives.

@@ -25,7 +25,7 @@ public:
             Output*(Input *input));
 
     virtual Output *processInput(Input *input)
-    throw (IllegalArgumentException*) {
+    throw (IllegalArgumentException) {
         return mockProcessInput(input);
     }
 };

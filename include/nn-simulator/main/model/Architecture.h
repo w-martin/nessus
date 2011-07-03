@@ -35,12 +35,12 @@ public:
      * @param trainer the <code>Trainer</code> for this 
      * <code>Architecture</code>.
      * @throw IllegalArgumentException if any of the arguments are not
-     * initialized, or there are no layers.
+     * initialized.
      * 
      */
     Architecture(int noLayers, auto_ptr<OutputFunction> function,
             auto_ptr<Trainer> trainer)
-    throw (IllegalArgumentException*);
+    throw (IllegalArgumentException);
     virtual ~Architecture();
     /**
      * Gets the maximum number of layers that this 

@@ -11,10 +11,11 @@
 #include "nn-simulator/main/model/Architecture.h"
 
 Neuron::Neuron(auto_ptr<Weights> weights, OutputFunction *outputFunction)
-throw (IllegalArgumentException*) {
-    if (!weights.get()
-            || NULL == outputFunction)
-        throw new IllegalArgumentException();
+throw (IllegalArgumentException) {
+    if (!weights.get())
+        throw IllegalArgumentException("Error. No weights.");
+    if (NULL == outputFunction)
+        throw IllegalArgumentException("Error. No output function.");
     Neuron::weights = weights;
     Neuron::outputFunction = outputFunction;
 }
@@ -26,9 +27,9 @@ const char *Neuron::getType() {
     return NEURON_TYPE_STD;
 }
 
-Output *Neuron::processInput(Input* input) throw (IllegalArgumentException*) {
+Output *Neuron::processInput(Input* input) throw (IllegalArgumentException) {
     if (NULL == input)
-        throw new IllegalArgumentException();
+        throw IllegalArgumentException();
     Output* activation = calculateActivation(input);
     return applyOutputFunction(activation->getValue());
 }
@@ -54,9 +55,9 @@ Output *Neuron::getExpectedOutput() {
 }
 
 void Neuron::setExpectedOutput(auto_ptr<Output> expectedOutput)
-throw (IllegalArgumentException*) {
+throw (IllegalArgumentException) {
     if (!expectedOutput.get())
-        throw new IllegalArgumentException();
+        throw IllegalArgumentException();
     Neuron::expectedOutput = expectedOutput;
 }
 

@@ -40,6 +40,6 @@ namespace {
      * 
      */
     TEST_F(InputTest, ExceptionTest) {
-        ASSERT_THROW(new Input(0), EmptyVectorException*);
+        ASSERT_THROW(new Input(0), EmptyVectorException);
     }
 }

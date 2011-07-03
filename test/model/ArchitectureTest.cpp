@@ -46,22 +46,16 @@ namespace {
         auto_ptr<OutputFunction> outputFunctionPointer(
                 new MockOutputFunction());
         auto_ptr<Trainer> trainerPointer(new Trainer());
-        EXPECT_THROW(new Architecture(0,
-                outputFunctionPointer, trainerPointer),
-                IllegalArgumentException*);
 
         auto_ptr<OutputFunction> tmp1;
-        trainerPointer = auto_ptr<Trainer > (new Trainer());
         EXPECT_THROW(new Architecture(0,
                 tmp1, trainerPointer),
-                IllegalArgumentException*);
+                IllegalArgumentException);
 
-        outputFunctionPointer = auto_ptr<OutputFunction > (
-                new MockOutputFunction());
         auto_ptr<Trainer> tmp2;
         EXPECT_THROW(new Architecture(0,
                 outputFunctionPointer, tmp2),
-                IllegalArgumentException*);
+                IllegalArgumentException);
     }
 
     /*

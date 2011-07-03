@@ -21,7 +21,7 @@
 class Weights : public Vector {
 public:
 
-    Weights(int noInputs) throw (EmptyVectorException*) : Vector(noInputs) {
+    Weights(int noInputs) throw (EmptyVectorException) : Vector(noInputs) {
     }
 
     Weights(Weights &orig) : Vector(orig) {

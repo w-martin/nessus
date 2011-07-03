@@ -25,7 +25,7 @@ using std::auto_ptr;
 class Neuron {
 public:
     Neuron(auto_ptr<Weights> weights, OutputFunction *f)
-    throw (IllegalArgumentException*);
+    throw (IllegalArgumentException);
     virtual ~Neuron();
     /**
      * Gets the type of this <code>Neuron</code>.
@@ -44,7 +44,7 @@ public:
      * 
      */
     virtual Output *processInput(Input *input)
-    throw (IllegalArgumentException*);
+    throw (IllegalArgumentException);
     /**
      * Gets the expected <code>Output</code> for this 
      * <code>Neuron</code>.
@@ -63,7 +63,7 @@ public:
      * 
      */
     void setExpectedOutput(auto_ptr<Output> newExpectedOutput)
-    throw (IllegalArgumentException*);
+    throw (IllegalArgumentException);
     /**
      * Gets the <code>Weights</code> for this <code>Neuron</code>.
      * 
