@@ -14,6 +14,6 @@ public:
     MockOutput() : Output(0.0f) {
     }
 
-    MOCK_METHOD0(getValue,
+    MOCK_CONST_METHOD0(getValue,
             float());
 };

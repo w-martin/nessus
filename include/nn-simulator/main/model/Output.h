@@ -16,13 +16,14 @@ class Output {
 public:
     /**
      * Initializes the <code>Output</code> object with the given
-     * value v.
+     * value value.
      * 
-     * @param v the value to initialize the <code>Output</code>
+     * @param value the value to initialize the <code>Output</code>
      * object with.
      * 
      */
-    Output(float v);
+    Output(float value);
+    Output(const Output &orig);
     virtual ~Output();
     /**
      * Gets the value of the <code>Output</code> object.
@@ -30,7 +31,7 @@ public:
      * @return the value of the <code>Output</code> object.
      * 
      */
-    virtual float getValue();
+    virtual float getValue() const;
 private:
     float value;
 };

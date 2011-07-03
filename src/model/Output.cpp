@@ -7,13 +7,17 @@
 
 #include "nn-simulator/main/model/Output.h"
 
-Output::Output(float v) {
-    Output::value = v;
+Output::Output(float value) {
+    Output::value = value;
+}
+
+Output::Output(const Output& orig) {
+    value = orig.getValue();
 }
 
 Output::~Output() {
 }
 
-float Output::getValue() {
-    return Output::value;
+float Output::getValue() const {
+    return value;
 }
