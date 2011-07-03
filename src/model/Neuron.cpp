@@ -27,23 +27,23 @@ const char *Neuron::getType() {
     return NEURON_TYPE_STD;
 }
 
-Output *Neuron::processInput(Input* input) throw (IllegalArgumentException) {
+Output Neuron::processInput(Input* input) throw (IllegalArgumentException) {
     if (NULL == input)
         throw IllegalArgumentException();
-    Output* activation = calculateActivation(input);
-    return applyOutputFunction(activation->getValue());
+    Output activation = calculateActivation(input);
+    return applyOutputFunction(activation.getValue());
 }
 
-Output *Neuron::calculateActivation(Input* input) {
+Output Neuron::calculateActivation(Input* input) {
     float total = 0.0f;
     for (int i = 0; i < input->getSize(); i++) {
         total += input->getValue(i) * weights->getValue(i);
     }
-    Output *output = new Output(total);
+    Output output = Output(total);
     return output;
 }
 
-Output *Neuron::applyOutputFunction(float activation) {
+Output Neuron::applyOutputFunction(float activation) {
     return outputFunction->function(activation);
 }
 

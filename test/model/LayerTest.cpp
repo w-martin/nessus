@@ -72,15 +72,12 @@ namespace {
      */
     TEST_F(LayerTest, ProcessInputTest) {
         Input *input = new Input(1);
-        float expected = 0.34f;
         EXPECT_CALL((*neuronMock), mockProcessInput(input))
-                .WillOnce(Return(outputMock));
-        EXPECT_CALL((*outputMock), getValue())
-                .WillOnce(Return(expected));
+                .WillOnce(Return((*outputMock)));
         
         auto_ptr<Neuron> neuronPointer(neuronMock);
         layer->setNeuron(0, neuronPointer);
         Input *processedInput = layer->processInput(input);
-        EXPECT_EQ(expected, processedInput->getValue(0));
+        EXPECT_EQ(MockOutput().getValue(), processedInput->getValue(0));
     }
 }

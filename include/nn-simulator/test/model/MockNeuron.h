@@ -20,11 +20,11 @@ public:
     MOCK_METHOD0(getType,
             const char*());
     MOCK_METHOD1(mockProcessInput,
-            Output*(Input *input));
+            Output(Input *input));
     MOCK_METHOD1(calculateActivation,
-            Output*(Input *input));
+            Output(Input *input));
 
-    virtual Output *processInput(Input *input)
+    virtual Output processInput(Input *input)
     throw (IllegalArgumentException) {
         return mockProcessInput(input);
     }

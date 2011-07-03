@@ -13,16 +13,16 @@ SigmoidFunction::SigmoidFunction() {
 SigmoidFunction::~SigmoidFunction() {
 }
 
-Output *SigmoidFunction::function(
+Output SigmoidFunction::function(
         float activation) {
     float denominator = 1.0f + expf(-activation);
     float result = 1.0f / denominator;
-    return new Output(result);
+    return Output(result);
 }
 
-Output *SigmoidFunction::derivative(
+Output SigmoidFunction::derivative(
         float activation) {
-    Output *fx = function(activation);
-    float result = fx->getValue() * (1.0f - fx->getValue());
-    return new Output(result);
+    Output fx = function(activation);
+    float result = fx.getValue() * (1.0f - fx.getValue());
+    return Output(result);
 }

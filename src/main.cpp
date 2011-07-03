@@ -36,7 +36,7 @@ int main(int argc, char** argv) {
 
     cout << "Set inputs to " << f0 << " and " << f1 << "." << "\n";
 
-    cout << "OR = " << net->processInput(input)->getValue() << ".\n";
+    cout << "OR = " << net->processInput(input).getValue() << ".\n";
 
     delete net;
 

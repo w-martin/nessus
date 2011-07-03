@@ -29,7 +29,7 @@ namespace {
      * 
      */
     TEST_F(HeavisideFunctionTest, TestFunction) {
-        EXPECT_EQ(0.0f, heavisideFunction->function(-1)->getValue());
-        EXPECT_EQ(1.0f, heavisideFunction->function(1)->getValue());
+        EXPECT_EQ(0.0f, heavisideFunction->function(-1).getValue());
+        EXPECT_EQ(1.0f, heavisideFunction->function(1).getValue());
     }
 }

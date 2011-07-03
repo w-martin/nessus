@@ -89,7 +89,7 @@ public:
      * <code>Input</code>.
      * 
      */
-    Output *processInput(Input *input) throw (IncorrectInputException);
+    Output processInput(Input *input) throw (IncorrectInputException);
 protected:
     /**
      * Sets the number of inputs that this <code>Net</code> receives.

@@ -43,8 +43,8 @@ bool Layer::hasAdaptiveWeights() {
 Input *Layer::processInput(Input* input) {
     Input *output = new Input(size);
     for (int i = 0; i < size; i++) {
-        Output *result = getNeuron(i)->processInput(input);
-        output->setValue(i, result->getValue());
+        Output result = getNeuron(i)->processInput(input);
+        output->setValue(i, result.getValue());
     }
     return output;
 }

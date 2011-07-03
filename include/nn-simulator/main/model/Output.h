@@ -31,7 +31,7 @@ public:
      * @return the value of the <code>Output</code> object.
      * 
      */
-    virtual float getValue() const;
+    float getValue() const;
 private:
     float value;
 };

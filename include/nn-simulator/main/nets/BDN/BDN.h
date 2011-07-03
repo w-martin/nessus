@@ -70,7 +70,7 @@ public:
      */
     Input *getNecessaryInput();
 protected:
-    Output* calculateActivation(Input *input);
+    Output calculateActivation(Input *input);
 private:
     float threshold;
     Input *expectedInput;

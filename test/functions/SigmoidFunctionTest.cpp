@@ -30,10 +30,10 @@ namespace {
      */
     TEST_F(SigmoidFunctionTest, TestFunction) {
         float value;
-        value = sigmoidFunction->function(0.0f)->getValue();
+        value = sigmoidFunction->function(0.0f).getValue();
         EXPECT_LT(0.0f, value);
         EXPECT_GT(1.0f, value);
-        value = sigmoidFunction->function(1.0f)->getValue();
+        value = sigmoidFunction->function(1.0f).getValue();
         EXPECT_LT(0.0f, value);
         EXPECT_GT(1.0f, value);
     }
@@ -44,8 +44,8 @@ namespace {
      */
     TEST_F(SigmoidFunctionTest, TestDerivative) {
         float value;
-        value = sigmoidFunction->function(0.5f)->getValue();
+        value = sigmoidFunction->function(0.5f).getValue();
         value = value * (1.0f - value);
-        EXPECT_EQ(value, sigmoidFunction->derivative(0.5f)->getValue());
+        EXPECT_EQ(value, sigmoidFunction->derivative(0.5f).getValue());
     }
 }

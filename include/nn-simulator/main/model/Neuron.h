@@ -43,7 +43,7 @@ public:
      * @throw IllegalArgumentException if the input is null.
      * 
      */
-    virtual Output *processInput(Input *input)
+    virtual Output processInput(Input *input)
     throw (IllegalArgumentException);
     /**
      * Gets the expected <code>Output</code> for this 
@@ -91,7 +91,7 @@ protected:
      * given <code>Input</code>.
      * 
      */
-    virtual Output* calculateActivation(Input *input);
+    virtual Output calculateActivation(Input *input);
 private:
     auto_ptr<Weights> weights;
     auto_ptr<Output> expectedOutput;
@@ -105,7 +105,7 @@ private:
      * output function on the given activation.
      * 
      */
-    Output *applyOutputFunction(float activation);
+    Output applyOutputFunction(float activation);
 };
 
 #endif	/* NEURON_H */

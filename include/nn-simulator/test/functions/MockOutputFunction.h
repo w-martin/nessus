@@ -11,5 +11,5 @@
 class MockOutputFunction : public OutputFunction {
 public:
     MOCK_METHOD1(function,
-            Output* (float activation));
+            Output (float activation));
 };

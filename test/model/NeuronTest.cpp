@@ -10,6 +10,8 @@
 #include "nn-simulator/test/functions/MockOutputFunction.h"
 #include "nn-simulator/test/model/MockOutput.h"
 
+using ::testing::Return;
+
 namespace {
 
     class NeuronTest : public ::testing::Test {
@@ -79,7 +81,8 @@ namespace {
      * 
      */
     TEST_F(NeuronTest, ProcessInputTest) {
-        EXPECT_CALL((*outputFunctionMock), function(1));
+        EXPECT_CALL((*outputFunctionMock), function(1))
+                .WillOnce(Return(MockOutput()));
         Input *input = new Input(1);
         input->setValue(0, 1.0f);
         neuron->processInput(input);
@@ -92,10 +95,10 @@ namespace {
     TEST_F(NeuronTest, ExpectedOutputTest) {
         EXPECT_EQ(NULL, neuron->getExpectedOutput());
 
-        Output *output = new MockOutput();
-        auto_ptr<Output> pOutput(output);
+        Output *outputMock = new MockOutput();
+        auto_ptr<Output> pOutput(outputMock);
         neuron->setExpectedOutput(pOutput);
-        EXPECT_EQ(output, neuron->getExpectedOutput());
+        EXPECT_EQ(outputMock, neuron->getExpectedOutput());
     }
 
     /*

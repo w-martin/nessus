@@ -13,10 +13,10 @@ HeavisideFunction::HeavisideFunction() {
 HeavisideFunction::~HeavisideFunction() {
 }
 
-Output *HeavisideFunction::function(
+Output HeavisideFunction::function(
         float activation) {
     if (activation > 0)
-        return new Output(1);
+        return Output(1);
     else
-        return new Output(0);
+        return Output(0);
 }

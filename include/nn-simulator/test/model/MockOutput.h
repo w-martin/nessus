@@ -8,12 +8,15 @@
 #include "gmock/gmock.h"
 #include "nn-simulator/main/model/Output.h"
 
+using ::testing::Return;
+using ::testing::_;
+
 class MockOutput : public Output {
 public:
 
     MockOutput() : Output(0.0f) {
     }
 
-    MOCK_CONST_METHOD0(getValue,
-            float());
+    MockOutput(const MockOutput &orig) : Output(0.0f) {
+    }
 };
