@@ -51,17 +51,15 @@ int Net::getNoInputs() {
     return noInputs;
 }
 
-Output Net::processInput(Input* input) throw (IncorrectInputException) {
-    if (input->getSize() != noInputs) {
+Output Net::processInput(Input input) throw (IncorrectInputException) {
+    if (input.getSize() != noInputs) {
         throw IncorrectInputException();
     }
-    Input *currentInput = input;
+    Input currentInput = input;
     for (int i = 0; i < size; i++) {
-        Input *nextInput = getLayer(i)->processInput(currentInput);
-        if (currentInput != input)
-            delete currentInput;
+        Input nextInput = getLayer(i)->processInput(currentInput);
         currentInput = nextInput;
     }
-    Output result = Output(currentInput->getValue(0));
+    Output result = Output(currentInput.getValue(0));
     return result;
 }

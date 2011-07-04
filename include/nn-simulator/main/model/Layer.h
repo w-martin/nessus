@@ -80,7 +80,7 @@ public:
      * <code>Output</code> of each constituent <code>Neuron</code>.
      * 
      */
-    Input *processInput(Input *input);
+    Input processInput(Input input);
 private:
     int size;
     auto_ptr<Neuron> *neurons;

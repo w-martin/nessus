@@ -10,9 +10,9 @@
 
 #define ORNET_ID "ORNET"
 
-#include "../LogicalArchitecture.h"
-#include "../../../model/Net.h"
-#include "../../../model/Input.h"
+#include "nn-simulator/main/nets/BDN/LogicalArchitecture.h"
+#include "nn-simulator/main/model/Net.h"
+#include "nn-simulator/main/model/Input.h"
 
 class ORnet : public Net {
 public:
@@ -23,6 +23,7 @@ protected:
     virtual void createLayers();
     virtual void createNeurons();
 private:
+    int noInputs;
     Input *expectedInput;
     Input *necessaryInput;
 };

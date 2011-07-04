@@ -14,5 +14,5 @@ public:
     MockLayer() : Layer(0, false) {
     }
     MOCK_METHOD1(processInput,
-            Input*(Input *input));
+            Input(Input input));
 };

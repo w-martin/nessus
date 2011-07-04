@@ -24,15 +24,15 @@ int main(int argc, char** argv) {
 
     cout << "Created OR net." << "\n";
 
-    Input *input = new Input(2);
+    Input input(2);
 
     cout << "Created input." << "\n";
 
     float f0 = 1.0f;
     float f1 = 0.0f;
 
-    input->setValue(0, f0);
-    input->setValue(1, f1);
+    input.setValue(0, f0);
+    input.setValue(1, f1);
 
     cout << "Set inputs to " << f0 << " and " << f1 << "." << "\n";
 

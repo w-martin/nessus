@@ -18,8 +18,9 @@
 class Vector {
 public:
     Vector(int noInputs) throw (EmptyVectorException);
-    Vector(Vector &orig);
+    Vector(const Vector &orig) throw (EmptyVectorException);
     virtual ~Vector();
+    Vector &operator=(const Vector &other);
     /**
      * Gets the value associated with the given position i.
      * 
@@ -29,7 +30,7 @@ public:
      * bounds.
      * 
      */
-    float getValue(int i) throw (OutOfBoundsException);
+    float getValue(int i) const throw (OutOfBoundsException);
     /**
      * Sets the value associated with the given position i
      * to the given value newValue.
@@ -48,7 +49,7 @@ public:
      * @return the size of this <code>Vector</code>.
      * 
      */
-    int getSize();
+    int getSize() const;
 private:
     float *multipliers;
     int size;

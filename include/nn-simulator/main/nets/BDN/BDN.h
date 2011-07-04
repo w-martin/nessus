@@ -10,6 +10,9 @@
 #define NEURON_TYPE_BDN "binary decision neuron"
 
 #include "nn-simulator/main/model/Neuron.h"
+#include <memory>
+
+using std::auto_ptr;
 
 /**
  * Binary decision neuron class.
@@ -40,7 +43,7 @@ public:
      * @param input the expected <code>Input</code> for this <code>BDN</code>.
      * 
      */
-    void setExpectedInput(Input *input);
+    void setExpectedInput(auto_ptr<Input> input);
     /**
      * Gets the expected <code>Input</code> for this <code>BDN</code>.
      * 
@@ -57,7 +60,7 @@ public:
      * <code>BDN</code>.
      * 
      */
-    void setNecessaryInput(Input *input);
+    void setNecessaryInput(auto_ptr<Input> input);
     /**
      * Gets input the necessary <code>Input</code> for this 
      * <code>BDN</code>. 
@@ -70,11 +73,11 @@ public:
      */
     Input *getNecessaryInput();
 protected:
-    Output calculateActivation(Input *input);
+    Output calculateActivation(Input input);
 private:
     float threshold;
-    Input *expectedInput;
-    Input *necessaryInput;
+    auto_ptr<Input> expectedInput;
+    auto_ptr<Input> necessaryInput;
 };
 
 #endif	/* BDN_H */

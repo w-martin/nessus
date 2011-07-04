@@ -2,3 +2,4 @@
 # Updated 8th June 2011
 
 - Rewrite NeuronFactory (to use templates?)
+- Replace Layer** in Net with auto_ptr<Layer> *

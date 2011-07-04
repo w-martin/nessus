@@ -68,23 +68,14 @@ namespace {
     }
 
     /*
-     * Tests whether an exception is thrown when the processInput
-     * method is given a null argument.
-     * 
-     */
-    TEST_F(NeuronTest, ProcessInputExceptionTest) {
-        EXPECT_THROW(neuron->processInput(NULL), IllegalArgumentException);
-    }
-
-    /*
      * Tests whether the input is processed correctly.
      * 
      */
     TEST_F(NeuronTest, ProcessInputTest) {
         EXPECT_CALL((*outputFunctionMock), function(1))
                 .WillOnce(Return(MockOutput()));
-        Input *input = new Input(1);
-        input->setValue(0, 1.0f);
+        Input input(1);
+        input.setValue(0, 1.0f);
         neuron->processInput(input);
     }
 

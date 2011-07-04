@@ -26,28 +26,28 @@ void BDN::setThreshold(const float t) {
     BDN::threshold = t;
 }
 
-Output BDN::calculateActivation(Input* input) {
+Output BDN::calculateActivation(Input input) {
     float total = 0.0f;
-    for (int i = 0; i < input->getSize(); i++) {
-        total += input->getValue(i) * getWeights()->getValue(i);
+    for (int i = 0; i < input.getSize(); i++) {
+        total += input.getValue(i) * getWeights()->getValue(i);
     }
     total -= threshold;
     Output output = Output(total);
     return output;
 }
 
-void BDN::setExpectedInput(Input* input) {
-    BDN::expectedInput = input;
+void BDN::setExpectedInput(auto_ptr<Input> input) {
+    expectedInput = input;
 }
 
 Input *BDN::getExpectedInput() {
-    return expectedInput;
+    return expectedInput.get();
 }
 
-void BDN::setNecessaryInput(Input* input) {
-    BDN::necessaryInput = input;
+void BDN::setNecessaryInput(auto_ptr<Input> input) {
+    necessaryInput = input;
 }
 
 Input *BDN::getNecessaryInput() {
-    return necessaryInput;
+    return necessaryInput.get();
 }

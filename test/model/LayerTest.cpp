@@ -11,6 +11,7 @@
 #include "nn-simulator/test/model/MockOutput.h"
 
 using ::testing::Return;
+using ::testing::_;
 
 namespace {
 
@@ -71,13 +72,13 @@ namespace {
      * 
      */
     TEST_F(LayerTest, ProcessInputTest) {
-        Input *input = new Input(1);
-        EXPECT_CALL((*neuronMock), mockProcessInput(input))
+        Input input(1);
+        EXPECT_CALL((*neuronMock), processInput(_))
                 .WillOnce(Return((*outputMock)));
         
         auto_ptr<Neuron> neuronPointer(neuronMock);
         layer->setNeuron(0, neuronPointer);
-        Input *processedInput = layer->processInput(input);
-        EXPECT_EQ(MockOutput().getValue(), processedInput->getValue(0));
+        Input processedInput = layer->processInput(input);
+        EXPECT_EQ(MockOutput().getValue(), processedInput.getValue(0));
     }
 }

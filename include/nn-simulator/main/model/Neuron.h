@@ -40,11 +40,9 @@ public:
      * 
      * @param input the <code>Input</code> to process.
      * @return the <code>Neuron</code>'s <code>Output</code>.
-     * @throw IllegalArgumentException if the input is null.
      * 
      */
-    virtual Output processInput(Input *input)
-    throw (IllegalArgumentException);
+    virtual Output processInput(Input input);
     /**
      * Gets the expected <code>Output</code> for this 
      * <code>Neuron</code>.
@@ -91,7 +89,7 @@ protected:
      * given <code>Input</code>.
      * 
      */
-    virtual Output calculateActivation(Input *input);
+    virtual Output calculateActivation(Input input);
 private:
     auto_ptr<Weights> weights;
     auto_ptr<Output> expectedOutput;

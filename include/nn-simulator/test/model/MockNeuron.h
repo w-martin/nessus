@@ -16,16 +16,10 @@ public:
     MockNeuron() : Neuron(auto_ptr<Weights>(new MockWeights()),
     new MockOutputFunction()) {
     }
-
     MOCK_METHOD0(getType,
             const char*());
-    MOCK_METHOD1(mockProcessInput,
-            Output(Input *input));
+    MOCK_METHOD1(processInput,
+            Output(Input input));
     MOCK_METHOD1(calculateActivation,
-            Output(Input *input));
-
-    virtual Output processInput(Input *input)
-    throw (IllegalArgumentException) {
-        return mockProcessInput(input);
-    }
+            Output(Input input));
 };
