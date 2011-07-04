@@ -1,5 +1,26 @@
 # Things I need to do!
 # Updated 4th July 2011
 
+# Improvements
+
 - Rewrite NeuronFactory (to use templates?)
 - Make use of const where appropriate
+
+# Tests to write
+
+- Net
+- LayerNotSetException
+- NetsFactory
+- BDN
+- BDNTrainer
+- LogicalArchitecture
+- ORnet
+- Trainer
+- SupervisedTrainer
+
+# New features
+
+- More logical realisations(and, xor, nor, xnor)
+- Hopfield net
+- MLP
+- Kohonen net
