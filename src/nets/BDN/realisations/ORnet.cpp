@@ -34,7 +34,7 @@ void ORnet::createInputVectors() {
 
 void ORnet::createLayers() {
     Layer *l = new Layer(1, false);
-    setLayer(0, l);
+    setLayer(0, auto_ptr<Layer > (l));
 }
 
 void ORnet::createNeurons() {

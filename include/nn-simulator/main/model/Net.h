@@ -55,7 +55,7 @@ public:
      * @param newLayer the <code>Layer</code> to set.
      * 
      */
-    void setLayer(int i, Layer *newLayer);
+    void setLayer(int i, auto_ptr<Layer> newLayer);
     /**
      * Gets the <code>Layer</code> at the specified position.
      * 
@@ -100,7 +100,7 @@ protected:
     void setNoInputs(int noInputs);
 private:
     int size, noInputs;
-    Layer **layers;
+    auto_ptr<Layer> *layers;
     auto_ptr<Architecture> architecture;
 };
 

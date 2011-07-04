@@ -20,7 +20,7 @@ throw (UnsupportedConfigurationException, IllegalArgumentException) {
     Net::architecture = architecture;
     size = noLayers;
     Net::noInputs = noInputs;
-    layers = new Layer*[noLayers];
+    layers = new auto_ptr<Layer>[noLayers];
 }
 
 Net::~Net() {
@@ -31,12 +31,12 @@ int Net::getSize() {
     return size;
 }
 
-void Net::setLayer(int i, Layer* newLayer) {
+void Net::setLayer(int i, auto_ptr<Layer> newLayer) {
     layers[i] = newLayer;
 }
 
 Layer *Net::getLayer(int i) {
-    return layers[i];
+    return layers[i].get();
 }
 
 Architecture *Net::getArchitecture() {
