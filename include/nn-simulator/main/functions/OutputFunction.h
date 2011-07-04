@@ -27,7 +27,7 @@ public:
      * pure virtual method called
      * 
      */
-    virtual Output function(float activation) = 0;
+    virtual Output function(float const activation) const = 0;
 };
 
 #endif	/* OUTPUTFUNCTION_H */

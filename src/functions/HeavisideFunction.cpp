@@ -14,7 +14,7 @@ HeavisideFunction::~HeavisideFunction() {
 }
 
 Output HeavisideFunction::function(
-        float activation) {
+        float const activation) const {
     if (activation > 0)
         return Output(1);
     else

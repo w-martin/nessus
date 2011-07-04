@@ -9,7 +9,7 @@
 #include "nn-simulator/main/functions/OutputFunction.h"
 
 class MockOutputFunction : public OutputFunction {
-public:
-    MOCK_METHOD1(function,
-            Output (float activation));
+ public:
+  MOCK_CONST_METHOD1(function,
+      Output(float const activation));
 };

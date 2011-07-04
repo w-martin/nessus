@@ -14,14 +14,14 @@ SigmoidFunction::~SigmoidFunction() {
 }
 
 Output SigmoidFunction::function(
-        float activation) {
+        float const activation) const {
     float denominator = 1.0f + expf(-activation);
     float result = 1.0f / denominator;
     return Output(result);
 }
 
 Output SigmoidFunction::derivative(
-        float activation) {
+        float const activation) const {
     Output fx = function(activation);
     float result = fx.getValue() * (1.0f - fx.getValue());
     return Output(result);

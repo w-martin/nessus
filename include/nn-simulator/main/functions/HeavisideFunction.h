@@ -20,7 +20,7 @@ class HeavisideFunction : public OutputFunction {
 public:
     HeavisideFunction();
     virtual ~HeavisideFunction();
-    virtual Output function(float activation);
+    virtual Output function(float const activation) const;
 private:
 };
 
