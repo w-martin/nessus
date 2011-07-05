@@ -9,7 +9,7 @@
 
 #include "nn-simulator/main/model/Layer.h"
 
-Layer::Layer(int noNeurons, bool adaptiveWeights) {
+Layer::Layer(int const noNeurons, bool const adaptiveWeights) {
     size = noNeurons;
     Layer::adaptiveWeights = adaptiveWeights;
     neurons = new auto_ptr<Neuron>[size];
@@ -21,26 +21,26 @@ Layer::Layer(int noNeurons, bool adaptiveWeights) {
 Layer::~Layer() {
 }
 
-int Layer::getSize() {
+int const Layer::getSize() const {
     return size;
 }
 
-void Layer::setNeuron(int position, auto_ptr<Neuron> neuron) {
+void Layer::setNeuron(int const position, auto_ptr<Neuron> neuron) {
     neurons[position] = neuron;
 }
 
-Neuron *Layer::getNeuron(int position) {
+Neuron * const Layer::getNeuron(int const position) const {
     if (neurons[position].get())
         return neurons[position].get();
     else
         return NULL;
 }
 
-bool Layer::hasAdaptiveWeights() {
+bool const Layer::hasAdaptiveWeights() const {
     return adaptiveWeights;
 }
 
-Input Layer::processInput(Input input) {
+Input const Layer::processInput(Input const &input) const {
     Input output(size);
     for (int i = 0; i < size; i++) {
         Output result = getNeuron(i)->processInput(input);

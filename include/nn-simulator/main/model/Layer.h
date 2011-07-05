@@ -32,7 +32,7 @@ public:
      * <code>Layer</code> has adaptive <code>Weights</code>.
      * 
      */
-    Layer(int noNeurons, bool adaptiveWeights);
+    Layer(int const noNeurons, bool const adaptiveWeights);
     virtual ~Layer();
     /**
      * Gets the number of <code>Neuron</code>s in this 
@@ -42,7 +42,7 @@ public:
      * <code>Layer</code>.
      * 
      */
-    int getSize();
+    int const getSize() const;
     /**
      * Sets the <code>Neuron</code> at the given position to be the
      * given <code>Neuron</code>.
@@ -52,7 +52,7 @@ public:
      * @param neuron the <code>Neuron</code> to set.
      * 
      */
-    void setNeuron(int position, auto_ptr<Neuron> neuron);
+    void setNeuron(int const position, auto_ptr<Neuron> neuron);
     /**
      * Gets the <code>Neuron</code> at the given position.
      * 
@@ -61,7 +61,7 @@ public:
      * @return the <code>Neuron</code> at the given position.
      * 
      */
-    Neuron *getNeuron(int position);
+    Neuron * const getNeuron(int const position) const;
     /**
      * Checks whether this <code>Layer</code> has adaptive 
      * <code>Weights</code> or not.
@@ -70,7 +70,7 @@ public:
      * <code>Weights</code>, <code>false</code> otherwise.
      * 
      */
-    bool hasAdaptiveWeights();
+    bool const hasAdaptiveWeights() const;
     /**
      * Processes the given <code>Input</code> to produce the another
      * <code>Input</code> vector as <code>Output</code>.
@@ -80,7 +80,7 @@ public:
      * <code>Output</code> of each constituent <code>Neuron</code>.
      * 
      */
-    Input processInput(Input input);
+    Input const processInput(Input const &input) const;
 private:
     int size;
     auto_ptr<Neuron> *neurons;
