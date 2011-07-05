@@ -10,7 +10,8 @@
 #include "nn-simulator/main/model/Neuron.h"
 #include "nn-simulator/main/model/Architecture.h"
 
-Neuron::Neuron(auto_ptr<Weights> weights, OutputFunction *outputFunction)
+Neuron::Neuron(auto_ptr<Weights> weights,
+        OutputFunction const * const outputFunction)
 throw (IllegalArgumentException) {
     if (!weights.get())
         throw IllegalArgumentException("Error. No weights.");
@@ -23,16 +24,16 @@ throw (IllegalArgumentException) {
 Neuron::~Neuron() {
 }
 
-const char *Neuron::getType() {
+char const *Neuron::getType() const {
     return NEURON_TYPE_STD;
 }
 
-Output Neuron::processInput(Input input) {
+Output const Neuron::processInput(Input const &input) const {
     Output activation = calculateActivation(input);
     return applyOutputFunction(activation.getValue());
 }
 
-Output Neuron::calculateActivation(Input input) {
+Output const Neuron::calculateActivation(Input const &input) const {
     float total = 0.0f;
     for (int i = 0; i < input.getSize(); i++) {
         total += input.getValue(i) * weights->getValue(i);
@@ -41,11 +42,11 @@ Output Neuron::calculateActivation(Input input) {
     return output;
 }
 
-Output Neuron::applyOutputFunction(float activation) {
+Output const Neuron::applyOutputFunction(float const activation) const {
     return outputFunction->function(activation);
 }
 
-Output *Neuron::getExpectedOutput() {
+Output const * const Neuron::getExpectedOutput() const {
     if (expectedOutput.get())
         return expectedOutput.get();
     else
@@ -59,10 +60,10 @@ throw (IllegalArgumentException) {
     Neuron::expectedOutput = expectedOutput;
 }
 
-Weights *Neuron::getWeights() {
+Weights * const Neuron::getWeights() const {
     return weights.get();
 }
 
-OutputFunction *Neuron::getOutputFunction() {
+OutputFunction const * const Neuron::getOutputFunction() const {
     return outputFunction;
 }

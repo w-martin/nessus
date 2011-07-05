@@ -13,7 +13,7 @@
 
 using std::stringstream;
 
-Vector::Vector(int noInputs) throw (EmptyVectorException) {
+Vector::Vector(int const noInputs) throw (EmptyVectorException) {
     if (0 == noInputs)
         throw EmptyVectorException();
 
@@ -44,7 +44,7 @@ Vector &Vector::operator =(const Vector& other) {
     return *this;
 }
 
-float Vector::getValue(int i) const throw (OutOfBoundsException) {
+float Vector::getValue(int const i) const throw (OutOfBoundsException) {
     if (i < size)
         return multipliers[i];
     else {
@@ -55,7 +55,7 @@ float Vector::getValue(int i) const throw (OutOfBoundsException) {
     }
 }
 
-void Vector::setValue(int i, float newMultiplier)
+void Vector::setValue(int const i, float const newMultiplier)
 throw (OutOfBoundsException) {
     if (i < size)
         multipliers[i] = newMultiplier;
@@ -67,6 +67,6 @@ throw (OutOfBoundsException) {
     }
 }
 
-int Vector::getSize() const {
+int const Vector::getSize() const {
     return size;
 }

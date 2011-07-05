@@ -22,7 +22,7 @@ public:
      * object with.
      * 
      */
-    Output(float value);
+    Output(float const value);
     Output(const Output &orig);
     virtual ~Output();
     /**
@@ -31,7 +31,7 @@ public:
      * @return the value of the <code>Output</code> object.
      * 
      */
-    float getValue() const;
+    float const getValue() const;
 private:
     float value;
 };

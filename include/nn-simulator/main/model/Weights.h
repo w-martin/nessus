@@ -21,7 +21,7 @@
 class Weights : public Vector {
 public:
 
-    Weights(int noInputs) throw (EmptyVectorException) : Vector(noInputs) {
+    Weights(int const noInputs) throw (EmptyVectorException) : Vector(noInputs) {
     }
 
     Weights(const Weights &orig) throw (EmptyVectorException) : Vector(orig) {
@@ -30,7 +30,7 @@ public:
     virtual ~Weights() {
     }
 
-    Weights &operator=(const Weights &other) {
+    Weights &operator=(Weights const &other) {
         Weights(other.getSize());
         for (int i = 0; i < other.getSize(); i++) {
             setValue(i, other.getValue(i));

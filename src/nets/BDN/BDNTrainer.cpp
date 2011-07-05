@@ -16,7 +16,7 @@ BDNTrainer::~BDNTrainer() {
 
 void setBinaryWeights(BDN *n) {
     Input *in = n->getExpectedInput();
-    Weights *ws = n->getWeights();
+    Weights * const ws = n->getWeights();
 
     if (ws->getSize() >= in->getSize()) {
         for (int i = 0; i < in->getSize(); i++) {

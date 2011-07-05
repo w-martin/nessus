@@ -7,7 +7,7 @@
 
 #include "nn-simulator/main/model/Output.h"
 
-Output::Output(float value) {
+Output::Output(float const value) {
     Output::value = value;
 }
 
@@ -18,6 +18,6 @@ Output::Output(const Output& orig) {
 Output::~Output() {
 }
 
-float Output::getValue() const {
+float const Output::getValue() const {
     return value;
 }

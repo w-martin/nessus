@@ -16,10 +16,10 @@ public:
     MockNeuron() : Neuron(auto_ptr<Weights>(new MockWeights()),
     new MockOutputFunction()) {
     }
-    MOCK_METHOD0(getType,
+    MOCK_CONST_METHOD0(getType,
             const char*());
-    MOCK_METHOD1(processInput,
-            Output(Input input));
-    MOCK_METHOD1(calculateActivation,
-            Output(Input input));
+    MOCK_CONST_METHOD1(processInput,
+            const Output(Input const &input));
+    MOCK_CONST_METHOD1(calculateActivation,
+            const Output(Input const &input));
 };

@@ -24,7 +24,7 @@ using std::auto_ptr;
  */
 class Neuron {
 public:
-    Neuron(auto_ptr<Weights> weights, OutputFunction *f)
+    Neuron(auto_ptr<Weights> weights, OutputFunction const * const f)
     throw (IllegalArgumentException);
     virtual ~Neuron();
     /**
@@ -33,7 +33,7 @@ public:
      * @return the type of this <code>Neuron</code>.
      * 
      */
-    virtual const char *getType();
+    virtual const char *getType() const;
     /**
      * Processes the given <code>Input</code> to produce the 
      * <code>Neuron</code>'s <code>Output</code>.
@@ -42,7 +42,7 @@ public:
      * @return the <code>Neuron</code>'s <code>Output</code>.
      * 
      */
-    virtual Output processInput(Input input);
+    virtual Output const processInput(Input const &input) const;
     /**
      * Gets the expected <code>Output</code> for this 
      * <code>Neuron</code>.
@@ -51,7 +51,7 @@ public:
      * <code>Neuron</code>.
      * 
      */
-    Output *getExpectedOutput();
+    Output const * const getExpectedOutput() const;
     /**
      * Sets the expected <code>Output</code> for this 
      * <code>Neuron</code>.
@@ -68,7 +68,7 @@ public:
      * @return the <code>Weights</code> for this <code>Neuron</code>.
      * 
      */
-    Weights *getWeights();
+    Weights * const getWeights() const;
     /**
      * Gets the <code>OutputFunction</code> used by this 
      * <code>Neuron</code>.
@@ -77,7 +77,7 @@ public:
      * <code>Neuron</code>.
      * 
      */
-    OutputFunction *getOutputFunction();
+    OutputFunction const * const getOutputFunction() const;
 protected:
     /**
      * Calculates the <code>Neuron</code>'s activation from the
@@ -89,11 +89,11 @@ protected:
      * given <code>Input</code>.
      * 
      */
-    virtual Output calculateActivation(Input input);
+    virtual Output const calculateActivation(Input const &input) const;
 private:
     auto_ptr<Weights> weights;
     auto_ptr<Output> expectedOutput;
-    OutputFunction *outputFunction;
+    OutputFunction const *outputFunction;
     /**
      * Applies the <code>Neuron</code>'s elected output function
      * to the given activation.
@@ -103,7 +103,7 @@ private:
      * output function on the given activation.
      * 
      */
-    Output applyOutputFunction(float activation);
+    Output const applyOutputFunction(float const activation) const;
 };
 
 #endif	/* NEURON_H */
