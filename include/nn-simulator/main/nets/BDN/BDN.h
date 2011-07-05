@@ -20,7 +20,7 @@ using std::auto_ptr;
  */
 class BDN : public Neuron {
 public:
-    BDN(auto_ptr<Weights> weights, OutputFunction *f);
+    BDN(auto_ptr<Weights> weights, OutputFunction const * const f);
     virtual ~BDN();
     virtual const char *getType();
     /**

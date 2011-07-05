@@ -61,7 +61,7 @@ public:
      * <code>Architecture</code>.
      * 
      */
-    OutputFunction *getFunction();
+    OutputFunction const * const getFunction() const;
     /**
      * Gets the <code>Trainer</code> of this <code>Architecture</code>.
      * 
@@ -69,7 +69,7 @@ public:
      * <code>Architecture</code>.
      * 
      */
-    Trainer *getTrainer();
+    Trainer const * const getTrainer() const;
 private:
     int maxLayers;
     auto_ptr<OutputFunction> function;

@@ -36,7 +36,9 @@ public:
      * i.e. if the <code>Architecture</code> is NULL.
      * 
      */
-    Net(auto_ptr<Architecture> architecture, int noLayers, int noInputs)
+    Net(auto_ptr<Architecture> architecture,
+            int const noLayers,
+            int const noInputs)
     throw (UnsupportedConfigurationException, IllegalArgumentException);
     virtual ~Net();
     /**
@@ -46,7 +48,7 @@ public:
      * <code>Net</code>.
      * 
      */
-    int getSize();
+    int const getSize() const;
     /**
      * Sets the <code>Layer</code> at the specified position to be 
      * the given <code>Architecture</code>.
@@ -55,7 +57,7 @@ public:
      * @param newLayer the <code>Layer</code> to set.
      * 
      */
-    void setLayer(int i, auto_ptr<Layer> newLayer);
+    void setLayer(int const i, auto_ptr<Layer> newLayer);
     /**
      * Gets the <code>Layer</code> at the specified position.
      * 
@@ -63,7 +65,7 @@ public:
      * @return the <code>Layer</code> at the specified position.
      * 
      */
-    Layer *getLayer(int i);
+    Layer * const getLayer(int const i) const;
     /**
      * Gets the <code>Architecture</code> that this <code>Net</code>
      * implements.
@@ -72,14 +74,14 @@ public:
      * implements.
      * 
      */
-    Architecture *getArchitecture();
+    Architecture const * const getArchitecture() const;
     /**
      * Gets the number of inputs that this <code>Net</code> receives.
      * 
      * @return the number of inputs that this <code>Net</code> receives.
      * 
      */
-    int getNoInputs();
+    int const getNoInputs() const;
     /**
      * Processes the given <code>Input</code> to produce this 
      * <code>Net</code>'s <code>Output</code>.
@@ -89,7 +91,8 @@ public:
      * <code>Input</code>.
      * 
      */
-    Output processInput(Input input) throw (IncorrectInputException);
+    Output const processInput(Input const &input) const
+    throw (IncorrectInputException);
 protected:
     /**
      * Sets the number of inputs that this <code>Net</code> receives.
@@ -97,7 +100,7 @@ protected:
      * @param noInputs the number of inputs that this <code>Net</code> receives.
      * 
      */
-    void setNoInputs(int noInputs);
+    void setNoInputs(int const noInputs);
 private:
     int size, noInputs;
     auto_ptr<Layer> *layers;

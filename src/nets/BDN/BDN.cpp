@@ -7,7 +7,8 @@
 
 #include "nn-simulator/main/nets/BDN/BDN.h"
 
-BDN::BDN(auto_ptr<Weights> weights, OutputFunction* f) : Neuron(weights, f) {
+BDN::BDN(auto_ptr<Weights> weights, 
+        OutputFunction const * const f) : Neuron(weights, f) {
     threshold = 0.0f;
 }
 

@@ -27,10 +27,10 @@ int Architecture::getMaxLayers() {
     return maxLayers;
 }
 
-OutputFunction *Architecture::getFunction() {
+OutputFunction const * const Architecture::getFunction() const {
     return function.get();
 }
 
-Trainer *Architecture::getTrainer() {
+Trainer const * const Architecture::getTrainer() const {
     return trainer.get();
 }

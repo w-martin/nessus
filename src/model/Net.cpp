@@ -9,7 +9,9 @@
 
 #include "nn-simulator/main/model/Net.h"
 
-Net::Net(auto_ptr<Architecture> architecture, int noLayers, int noInputs)
+Net::Net(auto_ptr<Architecture> architecture,
+        int const noLayers,
+        int const noInputs)
 throw (UnsupportedConfigurationException, IllegalArgumentException) {
     if (!architecture.get())
         throw IllegalArgumentException("Architecture cannot be NULL.");
@@ -27,31 +29,32 @@ Net::~Net() {
     delete [] layers;
 }
 
-int Net::getSize() {
+int const Net::getSize() const {
     return size;
 }
 
-void Net::setLayer(int i, auto_ptr<Layer> newLayer) {
+void Net::setLayer(int const i, auto_ptr<Layer> newLayer) {
     layers[i] = newLayer;
 }
 
-Layer *Net::getLayer(int i) {
+Layer * const Net::getLayer(int const i) const {
     return layers[i].get();
 }
 
-Architecture *Net::getArchitecture() {
+Architecture const * const Net::getArchitecture() const {
     return architecture.get();
 }
 
-void Net::setNoInputs(int noInputs) {
+void Net::setNoInputs(int const noInputs) {
     Net::noInputs = noInputs;
 }
 
-int Net::getNoInputs() {
+int const Net::getNoInputs() const {
     return noInputs;
 }
 
-Output Net::processInput(Input input) throw (IncorrectInputException) {
+Output const Net::processInput(Input const &input) const
+throw (IncorrectInputException) {
     if (input.getSize() != noInputs) {
         throw IncorrectInputException();
     }
