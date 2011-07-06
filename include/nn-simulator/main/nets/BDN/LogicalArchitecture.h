@@ -8,7 +8,7 @@
 #ifndef LOGICALARCHITECTURE_H
 #define	LOGICALARCHITECTURE_H
 
-#include "../../model/Architecture.h"
+#include "nn-simulator/main/model/Architecture.h"
 
 /**
  * Architecture implementation which models logical functions.
@@ -18,8 +18,6 @@ class LogicalArchitecture : public Architecture {
 public:
     LogicalArchitecture();
     virtual ~LogicalArchitecture();
-private:
-
 };
 
 #endif	/* LOGICALARCHITECTURE_H */

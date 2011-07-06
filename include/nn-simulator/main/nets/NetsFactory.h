@@ -11,6 +11,9 @@
 #include "nn-simulator/main/model/Net.h"
 #include "nn-simulator/main/util/exceptions/UnsupportedConfigurationException.h"
 #include "nn-simulator/main/nets/BDN/realisations/ORnet.h"
+#include <memory>
+
+using std::auto_ptr;
 
 /**
  * Factory for creating <code>Nets</code>.
@@ -18,7 +21,8 @@
  */
 class NetsFactory {
 public:
-    static Net *createInstance(const char *netIdentifier, int noInputs) 
+    static auto_ptr<Net> createInstance(
+    const char * const netIdentifier, int const noInputs) 
     throw (UnsupportedConfigurationException);
 };
 

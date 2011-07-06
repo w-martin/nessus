@@ -8,22 +8,27 @@
 #ifndef BDNTRAINER_H
 #define	BDNTRAINER_H
 
-#include "../../trainer/Trainer.h"
+#include "nn-simulator/main/trainer/Trainer.h"
 #include "BDN.h"
 
 class BDNTrainer : public Trainer {
 public:
     BDNTrainer();
     virtual ~BDNTrainer();
-    virtual void initWeights(Neuron *n);
+    /**
+     * Initializes the weights of the given <code>Neuron</code>.
+     * 
+     * @param n the <code>Neuron</code> to initialize the weights of.
+     * 
+     */
+    virtual void initWeights(Neuron * const n) const;
     /**
      * Sets the threshold on the given <code>BDN</code>.
      * 
      * @param n the <code>BDN</code> whose threshold is to be set.
      * 
      */
-    void setThreshold(BDN *n);
-private:
+    void setThreshold(BDN * const n) const;
 };
 
 #endif	/* BDNTRAINER_H */

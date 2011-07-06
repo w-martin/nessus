@@ -12,7 +12,7 @@
 
 using namespace std;
 
-ORnet::ORnet(int noInputs) :
+ORnet::ORnet(int const noInputs) :
 Net(auto_ptr<Architecture>(new LogicalArchitecture()), 1, noInputs) {
     ORnet::noInputs = noInputs;
     createInputVectors();

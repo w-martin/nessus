@@ -8,10 +8,11 @@
 #include "nn-simulator/main/nets/NetsFactory.h"
 #include <string.h>
 
-Net *NetsFactory::createInstance(const char* netIdentifier, int noInputs)
+auto_ptr<Net> NetsFactory::createInstance(
+        const char * const netIdentifier, int const noInputs)
 throw (UnsupportedConfigurationException) {
-    if(0 == strcmp(ORNET_ID, netIdentifier)){
-        return new ORnet(noInputs);
+    if (0 == strcmp(ORNET_ID, netIdentifier)) {
+        return auto_ptr<Net > (new ORnet(noInputs));
     }
     throw UnsupportedConfigurationException("Error. Unknown net.");
 }

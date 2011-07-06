@@ -20,7 +20,7 @@ using namespace std;
 int main(int argc, char** argv) {
     cout << "Creating OR net." << "\n";
 
-    ORnet *net = (ORnet*) NetsFactory::createInstance(ORNET_ID, 2);
+    auto_ptr<Net> net = NetsFactory::createInstance(ORNET_ID, 2);
 
     cout << "Created OR net." << "\n";
 
@@ -37,10 +37,6 @@ int main(int argc, char** argv) {
     cout << "Set inputs to " << f0 << " and " << f1 << "." << "\n";
 
     cout << "OR = " << net->processInput(input).getValue() << ".\n";
-
-    delete net;
-
-    cout << "Deleted OR net." << "\n";
 
     return 0;
 }

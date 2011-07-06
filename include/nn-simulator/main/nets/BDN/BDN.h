@@ -22,14 +22,20 @@ class BDN : public Neuron {
 public:
     BDN(auto_ptr<Weights> weights, OutputFunction const * const f);
     virtual ~BDN();
-    virtual const char *getType();
+    /**
+     * Gets the type of this <code>Neuron</code>.
+     * 
+     * @return the type of this <code>Neuron</code>.
+     * 
+     */
+    virtual const char * getType() const;
     /**
      * Gets the value of the threshold of this <code>BDN</code>.
      * 
      * @return the value of the threshold of this <code>BDN</code>.
      * 
      */
-    float getThreshold();
+    float const getThreshold() const;
     /**
      * Sets the value of the threshold of this <code>BDN</code>.
      * 
@@ -50,7 +56,7 @@ public:
      * @return the expected <code>Input</code> for this <code>BDN</code>.
      * 
      */
-    Input *getExpectedInput();
+    Input const * const getExpectedInput() const;
     /**
      * Sets the necessary <code>Input</code> for this <code>BDN</code>.
      * For example, the expected input will differ from the necessary
@@ -71,9 +77,9 @@ public:
      * <code>BDN</code>.
      * 
      */
-    Input *getNecessaryInput();
+    Input const * const getNecessaryInput() const;
 protected:
-    Output calculateActivation(Input input);
+    Output const calculateActivation(Input const &input) const;
 private:
     float threshold;
     auto_ptr<Input> expectedInput;

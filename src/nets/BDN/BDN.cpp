@@ -15,11 +15,11 @@ BDN::BDN(auto_ptr<Weights> weights,
 BDN::~BDN() {
 }
 
-const char *BDN::getType() {
+const char * BDN::getType() const {
     return NEURON_TYPE_BDN;
 }
 
-float BDN::getThreshold() {
+float const BDN::getThreshold() const {
     return threshold;
 }
 
@@ -27,7 +27,7 @@ void BDN::setThreshold(const float t) {
     BDN::threshold = t;
 }
 
-Output BDN::calculateActivation(Input input) {
+Output const BDN::calculateActivation(Input const &input) const {
     float total = 0.0f;
     for (int i = 0; i < input.getSize(); i++) {
         total += input.getValue(i) * getWeights()->getValue(i);
@@ -41,7 +41,7 @@ void BDN::setExpectedInput(auto_ptr<Input> input) {
     expectedInput = input;
 }
 
-Input *BDN::getExpectedInput() {
+Input const * const BDN::getExpectedInput() const {
     return expectedInput.get();
 }
 
@@ -49,6 +49,6 @@ void BDN::setNecessaryInput(auto_ptr<Input> input) {
     necessaryInput = input;
 }
 
-Input *BDN::getNecessaryInput() {
+Input const * const BDN::getNecessaryInput() const {
     return necessaryInput.get();
 }

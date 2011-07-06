@@ -14,8 +14,8 @@ BDNTrainer::BDNTrainer() {
 BDNTrainer::~BDNTrainer() {
 }
 
-void setBinaryWeights(BDN *n) {
-    Input *in = n->getExpectedInput();
+void setBinaryWeights(BDN * const n) {
+    Input const * const in = n->getExpectedInput();
     Weights * const ws = n->getWeights();
 
     if (ws->getSize() >= in->getSize()) {
@@ -28,15 +28,15 @@ void setBinaryWeights(BDN *n) {
     }
 }
 
-void BDNTrainer::initWeights(Neuron* n) {
+void BDNTrainer::initWeights(Neuron* const n) const {
     if (0 == strcmp(n->getType(), NEURON_TYPE_BDN)) {
         BDN *bdn = (BDN*) n;
         setBinaryWeights(bdn);
     }
 }
 
-void BDNTrainer::setThreshold(BDN* n) {
-    Input *necessaryInput = n->getNecessaryInput();
+void BDNTrainer::setThreshold(BDN* const n) const {
+    Input const * const necessaryInput = n->getNecessaryInput();
     float threshold = necessaryInput->getSize() - 0.5f;
     for (int i = 0; i < necessaryInput->getSize(); i++) {
         if (necessaryInput->getValue(i) < 0.5f)

@@ -16,7 +16,7 @@
 
 class ORnet : public Net {
 public:
-    ORnet(int noInputs);
+    ORnet(int const noInputs);
     virtual ~ORnet();
 protected:
     virtual void createInputVectors();
