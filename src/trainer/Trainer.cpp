@@ -15,11 +15,11 @@ Trainer::Trainer() {
 Trainer::~Trainer() {
 }
 
-void Trainer::initWeights(Neuron &n) {
+void Trainer::initWeights(Neuron const &n) const {
     setRandomWeights(n);
 }
 
-void Trainer::setRandomWeights(Neuron &n) {
+void Trainer::setRandomWeights(Neuron const &n) const {
     Weights *w = n.getWeights();
     srand(time(NULL));
     for (int i = 0; i < w->getSize(); i++) {

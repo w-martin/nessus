@@ -19,7 +19,6 @@ class Trainer {
 public:
     Trainer();
     virtual ~Trainer();
-    ;
     /**
      * Initialises the <code>Weights</code> of the given 
      * <code>Neuron</code>.
@@ -28,7 +27,7 @@ public:
      * <code>Weights</code> for.
      * 
      */
-    virtual void initWeights(Neuron &n);
+    virtual void initWeights(Neuron const &n) const;
 protected:
     /**
      * Sets the <code>Weights</code> of the given <code>Neuron</code>
@@ -38,7 +37,7 @@ protected:
      * for.
      * 
      */
-    virtual void setRandomWeights(Neuron &n);
+    virtual void setRandomWeights(Neuron const &n) const;
 };
 
 #endif	/* TRAINER_H */

@@ -26,7 +26,7 @@ public:
      * successfully adapted, <code>false</code> otherwise.
      * 
      */
-    virtual bool adaptWeights(Neuron *n) = 0;
+    virtual bool adaptWeights(Neuron const * const n) const = 0;
 };
 
 #endif	/* SUPERVISEDTRAINER_H */
