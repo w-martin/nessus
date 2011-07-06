@@ -23,7 +23,22 @@ public:
      * 
      */
     Output(float const value);
+    /**
+     * Copy constructor.
+     * 
+     * @param orig original object.
+     * 
+     */
     Output(const Output &orig);
+
+    /**
+     * Assignment operator.
+     * 
+     * @param other the object to assign from.
+     * @return the assigned object.
+     * 
+     */
+    Output &operator=(const Output &other);
     virtual ~Output();
     /**
      * Gets the value of the <code>Output</code> object.

@@ -20,7 +20,7 @@ throw (UnsupportedConfigurationException, IllegalArgumentException) {
         throw UnsupportedConfigurationException();
 
     Net::architecture = architecture;
-    size = noLayers;
+    Net::noLayers = noLayers;
     Net::noInputs = noInputs;
     layers = new auto_ptr<Layer>[noLayers];
 }
@@ -29,8 +29,8 @@ Net::~Net() {
     delete [] layers;
 }
 
-int const Net::getSize() const {
-    return size;
+int const Net::getNoLayers() const {
+    return noLayers;
 }
 
 void Net::setLayer(int const i, auto_ptr<Layer> newLayer) {
@@ -45,10 +45,6 @@ Architecture const * const Net::getArchitecture() const {
     return architecture.get();
 }
 
-void Net::setNoInputs(int const noInputs) {
-    Net::noInputs = noInputs;
-}
-
 int const Net::getNoInputs() const {
     return noInputs;
 }
@@ -59,7 +55,7 @@ throw (IncorrectInputException) {
         throw IncorrectInputException();
     }
     Input currentInput = input;
-    for (int i = 0; i < size; i++) {
+    for (int i = 0; i < noLayers; i++) {
         Input nextInput = getLayer(i)->processInput(currentInput);
         currentInput = nextInput;
     }

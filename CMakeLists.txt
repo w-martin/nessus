@@ -12,7 +12,7 @@ cmake_minimum_required (VERSION 2.6)
 project (nn-simulator CXX)
 
 set(NNSIM_NAME nn-simulator)
-set(NNSIM_LIB lib-nn-simulator)
+set(NNSIM_LIB neural_network)
 set(NNSIM_SOURCE_DIR src)
 set(NNSIM_INCLUDE_DIR include)
 set(NNSIM_TEST_DIR test)

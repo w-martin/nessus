@@ -4,7 +4,6 @@
 # Improvements
 
 - Rewrite NeuronFactory (to use templates?)
-- Make use of const where appropriate
 
 # Tests to write
 

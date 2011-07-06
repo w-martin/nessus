@@ -18,6 +18,11 @@ Output::Output(const Output& orig) {
 Output::~Output() {
 }
 
+Output &Output::operator=(const Output &other) {
+    value = other.getValue();
+    return *this;
+}
+
 float const Output::getValue() const {
     return value;
 }

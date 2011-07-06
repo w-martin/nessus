@@ -48,7 +48,7 @@ public:
      * <code>Net</code>.
      * 
      */
-    int const getSize() const;
+    int const getNoLayers() const;
     /**
      * Sets the <code>Layer</code> at the specified position to be 
      * the given <code>Architecture</code>.
@@ -102,7 +102,7 @@ protected:
      */
     void setNoInputs(int const noInputs);
 private:
-    int size, noInputs;
+    int noLayers, noInputs;
     auto_ptr<Layer> *layers;
     auto_ptr<Architecture> architecture;
 };

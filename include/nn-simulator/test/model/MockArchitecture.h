@@ -12,7 +12,7 @@
 class MockArchitecture : public Architecture {
 public:
 
-    MockArchitecture() : Architecture(0,
+    MockArchitecture() : Architecture(2,
     auto_ptr<OutputFunction>(new MockOutputFunction()),
     auto_ptr<Trainer>(new Trainer())) {
     }

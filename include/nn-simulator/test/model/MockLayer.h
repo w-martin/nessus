@@ -13,4 +13,6 @@ public:
 
     MockLayer() : Layer(0, false) {
     }
+    MOCK_CONST_METHOD1(processInput,
+            const Input(Input const &input));
 };

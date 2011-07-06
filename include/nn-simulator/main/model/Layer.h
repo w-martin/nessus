@@ -80,7 +80,7 @@ public:
      * <code>Output</code> of each constituent <code>Neuron</code>.
      * 
      */
-    Input const processInput(Input const &input) const;
+    virtual Input const processInput(Input const &input) const;
 private:
     int size;
     auto_ptr<Neuron> *neurons;
@@ -88,4 +88,3 @@ private:
 };
 
 #endif	/* LAYER_H */
-
