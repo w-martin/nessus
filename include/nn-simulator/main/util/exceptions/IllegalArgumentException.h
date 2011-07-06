@@ -23,7 +23,8 @@ public:
     IllegalArgumentException() : Exception(ILLEGAL_ARGUMENT_MESSAGE) {
     }
 
-    IllegalArgumentException(const char *message) : Exception(message) {
+    IllegalArgumentException(const char * const message) 
+    : Exception(message) {
     }
 };
 

@@ -24,7 +24,8 @@ public:
 
     }
 
-    IncorrectInputException(const char *message) : Exception(message) {
+    IncorrectInputException(const char * const message) 
+    : Exception(message) {
 
     }
 };

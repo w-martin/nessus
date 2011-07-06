@@ -38,7 +38,7 @@ public:
      * initialized.
      * 
      */
-    Architecture(int noLayers, auto_ptr<OutputFunction> function,
+    Architecture(int const noLayers, auto_ptr<OutputFunction> function,
             auto_ptr<Trainer> trainer)
     throw (IllegalArgumentException);
     virtual ~Architecture();
@@ -52,7 +52,7 @@ public:
      * layer support.
      * 
      */
-    int getMaxLayers();
+    int const getMaxLayers() const;
     /**
      * Gets the <code>OutputFunction</code> of this 
      * <code>Architecture</code>.

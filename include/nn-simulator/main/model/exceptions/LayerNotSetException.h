@@ -23,7 +23,8 @@ public:
     LayerNotSetException() : Exception(LAYER_NOT_SET_MESSAGE) {
     }
 
-    LayerNotSetException(const char *message) : Exception(message) {
+    LayerNotSetException(const char * const message) 
+    : Exception(message) {
     }
 
 };

@@ -23,7 +23,8 @@ public:
     EmptyVectorException() : Exception(EMPTY_VECTOR_MESSAGE) {
     }
 
-    EmptyVectorException(const char *message) : Exception(message) {
+    EmptyVectorException(const char * const message) 
+    : Exception(message) {
     }
 
 };

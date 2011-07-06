@@ -18,10 +18,12 @@
 class Input : public Vector {
 public:
 
-    Input(int noInputs) throw (EmptyVectorException) : Vector(noInputs) {
+    Input(int const noInputs)
+    throw (EmptyVectorException) : Vector(noInputs) {
     }
 
-    Input(const Input &orig) throw (EmptyVectorException) : Vector(orig) {
+    Input(const Input &orig)
+    throw (EmptyVectorException) : Vector(orig) {
     }
 
     virtual ~Input() {

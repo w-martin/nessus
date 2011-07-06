@@ -3,4 +3,5 @@ Neural network simulation and evaluation research project.
 See AUTHORS for list of authors.
 See INSTALL for installation instructions.
 See ChangeLog for list of version changes.
-This software uses the FreeBSD license (http://www.opensource.org/licenses/bsd-license.php), see COPYING for a copy of the licence.
+This software uses the 2-Clause BSD license (http://www.opensource.org/licenses/bsd-license.php), see COPYING for a copy of the licence.
+

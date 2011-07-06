@@ -19,7 +19,7 @@ public:
     : Exception(UNSUPPORT_CONFIGURATION_MESSAGE) {
     }
 
-    UnsupportedConfigurationException(const char *message) :
+    UnsupportedConfigurationException(const char * const message) :
     Exception(message) {
     }
 };

@@ -23,7 +23,8 @@ public:
     OutOfBoundsException() : Exception(OUT_OF_BOUNDS_MESSAGE) {
     }
 
-    OutOfBoundsException(const char *message) : Exception(message) {
+    OutOfBoundsException(const char * const message) 
+    : Exception(message) {
     }
 };
 
