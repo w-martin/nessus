@@ -9,7 +9,9 @@
 #include "nn-simulator/main/model/Net.h"
 #include "nn-simulator/test/model/MockArchitecture.h"
 #include "nn-simulator/test/model/MockLayer.h"
+
 using ::testing::Return;
+using ::testing::_;
 
 namespace {
 
@@ -87,18 +89,19 @@ namespace {
      *
      */
     TEST_F(NetTest, ProcessInputTest) {
-//        EXPECT_THROW(net->processInput(Input(2)),
-//                IncorrectInputException);
-//
-//        Input input = Input(1);
-//        float expected = 0.34f;
-//        input.setValue(0, expected);
-//
-//        MockLayer *layerMock = new MockLayer();
-//        EXPECT_CALL((*layerMock), processInput(input))
-//                .WillOnce(Return(input));
-//
-//        Output result = net->processInput(input);
-//        EXPECT_EQ(expected, result.getValue());
+        EXPECT_THROW(net->processInput(Input(2)),
+                IncorrectInputException);
+
+        Input input = Input(1);
+        float expected = 0.34f;
+        input.setValue(0, expected);
+
+        MockLayer *layerMock = new MockLayer();
+        EXPECT_CALL((*layerMock), processInput(_))
+                .WillOnce(Return(input));
+        net->setLayer(0, auto_ptr<Layer > (layerMock));
+
+        Output result = net->processInput(input);
+        EXPECT_EQ(expected, result.getValue());
     }
 }
