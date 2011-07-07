@@ -1,5 +1,5 @@
 # Things I need to do!
-# Updated 4th July 2011
+# Updated 7th July 2011
 
 # Improvements
 
@@ -7,7 +7,6 @@
 
 # Tests to write
 
-- Net
 - LayerNotSetException
 - NetsFactory
 - BDN
