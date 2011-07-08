@@ -1,19 +1,17 @@
 # Things I need to do!
-# Updated 7th July 2011
+# Updated 8th July 2011
 
 # Improvements
 
-- Rewrite NeuronFactory (to use templates?)
+- Rewrite NetsFactory (to use templates?)
 
 # Tests to write
 
-- LayerNotSetException
 - NetsFactory
 - BDN
 - BDNTrainer
 - LogicalArchitecture
 - ORnet
-- Trainer
 - SupervisedTrainer
 
 # New features

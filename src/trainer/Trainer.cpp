@@ -21,10 +21,13 @@ void Trainer::initWeights(Neuron const &n) const {
 
 void Trainer::setRandomWeights(Neuron const &n) const {
     Weights *w = n.getWeights();
-    srand(time(NULL));
+    srand((unsigned) time(NULL));
+    float limit = RAND_MAX + 1;
     for (int i = 0; i < w->getSize(); i++) {
-        int random = rand();
-        float multiplier = random / ((float) (2 * RAND_MAX));
+        float multiplier = (float) rand() / limit;
+        if (multiplier < 0) multiplier = multiplier * -1;
+        multiplier = multiplier / 2;
+
         w->setValue(i, multiplier);
     }
 }

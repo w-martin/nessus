@@ -22,7 +22,7 @@ using std::auto_ptr;
 class NetsFactory {
 public:
     static auto_ptr<Net> createInstance(
-    const char * const netIdentifier, int const noInputs) 
+    const char * const netIdentifier, int const noInputs)
     throw (UnsupportedConfigurationException);
 };
 

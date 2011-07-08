@@ -67,6 +67,7 @@ add_test(FunctionTests FunctionTests)
 add_executable(ModelTests 
 	${NNSIM_TEST_DIR}/model/exceptions/EmptyVectorExceptionTest.cpp
 	${NNSIM_TEST_DIR}/model/exceptions/IncorrectInputExceptionTest.cpp
+	${NNSIM_TEST_DIR}/model/exceptions/LayerNotSetExceptionTest.cpp
 	${NNSIM_TEST_DIR}/model/ArchitectureTest.cpp
 	${NNSIM_TEST_DIR}/model/InputTest.cpp
 	${NNSIM_TEST_DIR}/model/LayerTest.cpp
@@ -77,6 +78,12 @@ add_executable(ModelTests
 	${NNSIM_TEST_DIR}/model/WeightsTest.cpp) 
 target_link_libraries(ModelTests gmock gmock_main ${NNSIM_LIB}) 
 add_test(ModelTests ModelTests)
+
+add_executable(TrainerTests 
+	${NNSIM_TEST_DIR}/trainer/SupervisedTrainerTest.cpp
+	${NNSIM_TEST_DIR}/trainer/TrainerTest.cpp)
+target_link_libraries(TrainerTests gmock gmock_main ${NNSIM_LIB}) 
+add_test(TrainerTests TrainerTests)
 
 add_executable(UtilTests 
 	${NNSIM_TEST_DIR}/util/exceptions/ExceptionTest.cpp
