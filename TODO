@@ -1,13 +1,14 @@
 # Things I need to do!
-# Updated 8th July 2011
+# Updated 9th July 2011
 
 # Improvements
 
-- Rewrite NetsFactory (to use templates?)
+- Write a NeuronFactory
 
 # Tests to write
 
 - NetsFactory
+- Factory
 - BDN
 - BDNTrainer
 - LogicalArchitecture
