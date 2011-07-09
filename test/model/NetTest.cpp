@@ -10,6 +10,8 @@
 #include "nn-simulator/test/model/MockArchitecture.h"
 #include "nn-simulator/test/model/MockLayer.h"
 
+#define TEST_NET_TYPE "test net type"
+
 using ::testing::Return;
 using ::testing::_;
 
@@ -23,7 +25,7 @@ namespace {
             noInputs = 1;
             architectureMock = new MockArchitecture();
             net = new Net(auto_ptr<Architecture > (architectureMock),
-                    noLayers, noInputs);
+                    noLayers, noInputs, TEST_NET_TYPE);
         }
 
         virtual ~NetTest() {
@@ -33,6 +35,7 @@ namespace {
         int noInputs;
         MockArchitecture *architectureMock;
         Net *net;
+        char *netType;
     };
 
     /*
@@ -42,11 +45,11 @@ namespace {
     TEST_F(NetTest, ConstructorExceptionTest) {
         EXPECT_THROW(
                 new Net(auto_ptr<Architecture > (NULL),
-                noLayers, noInputs),
+                noLayers, noInputs, TEST_NET_TYPE),
                 IllegalArgumentException);
         EXPECT_THROW(
                 new Net(auto_ptr<Architecture > (new MockArchitecture()),
-                3, noInputs),
+                3, noInputs, TEST_NET_TYPE),
                 UnsupportedConfigurationException);
     }
 
@@ -56,6 +59,14 @@ namespace {
      */
     TEST_F(NetTest, GetNoLayersTest) {
         EXPECT_EQ(noLayers, net->getNoLayers());
+    }
+
+    /*
+     * Tests whether the net's type is returned correctly.
+     *
+     */
+    TEST_F(NetTest, GetNetTypeTest) {
+        EXPECT_EQ(TEST_NET_TYPE, net->getNetType());
     }
 
     /*

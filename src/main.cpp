@@ -9,7 +9,7 @@
 #include <iostream>
 #include <stdio.h>
 
-#include "nn-simulator/main/nets/NetsFactory.h"
+#include "nn-simulator/main/nets/NetFactory.h"
 #include "nn-simulator/main/nets/BDN/realisations/ORnet.h"
 
 using namespace std;
@@ -20,7 +20,8 @@ using namespace std;
 int main(int argc, char** argv) {
     cout << "Creating OR net." << "\n";
 
-    auto_ptr<Net> net = NetsFactory::createInstance(ORNET_ID, 2);
+    auto_ptr<Net> net = Factory<Net, const char*>::createInstance(
+            ORNET_TYPE, 2);
 
     cout << "Created OR net." << "\n";
 

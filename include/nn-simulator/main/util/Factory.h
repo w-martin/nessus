@@ -34,6 +34,21 @@ public:
      */
     static auto_ptr<T> createInstance(const C &constructionObject)
     throw (UnsupportedConfigurationException);
+    /**
+     * Creates an instance of class T, given the construction object C.
+     * 
+     * @param C the object which will be used during the construction of
+     * an object of class T.
+     * @param size the size the object should be.
+     * @return an auto pointer to the created object, to transfer
+     * ownership to the caller.
+     * @throw UnsupportedConfigurationException if the configuration of T with
+     * construction object C is not supported by any implementation.
+     * 
+     */
+    static auto_ptr<T> createInstance(const C &constructionObject,
+            const int &size)
+    throw (UnsupportedConfigurationException);
 };
 
 #endif	/* FACTORY_H */

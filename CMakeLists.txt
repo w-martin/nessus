@@ -31,7 +31,6 @@ add_library (${NNSIM_LIB}
     ${NNSIM_SOURCE_DIR}/model/Neuron.cpp
     ${NNSIM_SOURCE_DIR}/model/Output.cpp
     ${NNSIM_SOURCE_DIR}/model/Vector.cpp
-    ${NNSIM_SOURCE_DIR}/nets/NetsFactory.cpp
     ${NNSIM_SOURCE_DIR}/nets/BDN/BDN.cpp
     ${NNSIM_SOURCE_DIR}/nets/BDN/BDNTrainer.cpp
     ${NNSIM_SOURCE_DIR}/nets/BDN/LogicalArchitecture.cpp

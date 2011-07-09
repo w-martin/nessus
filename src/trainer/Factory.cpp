@@ -9,7 +9,14 @@
 #include "nn-simulator/main/util/Factory.h"
 
 template <class T, class C>
-auto_ptr<T> Factory<T, C>::createInstance(const C& constructionObject)
+auto_ptr<T> Factory::createInstance(const C& constructionObject)
+throw (UnsupportedConfigurationException) {
+    throw UnsupportedConfigurationException();
+}
+
+template <class T, class C>
+auto_ptr<T> Factory::createInstance(const C& constructionObject,
+const int& size)
 throw (UnsupportedConfigurationException) {
     throw UnsupportedConfigurationException();
 }

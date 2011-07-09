@@ -37,8 +37,9 @@ public:
      * 
      */
     Net(auto_ptr<Architecture> architecture,
-            int const noLayers,
-            int const noInputs)
+            int const &noLayers,
+            int const &noInputs,
+            const char * const netType)
     throw (UnsupportedConfigurationException, IllegalArgumentException);
     virtual ~Net();
     /**
@@ -49,6 +50,11 @@ public:
      * 
      */
     int const getNoLayers() const;
+    /**
+     * Gets the type of this <code>Net</code>.
+     * 
+     */
+    const char * const getNetType() const;
     /**
      * Sets the <code>Layer</code> at the specified position to be 
      * the given <code>Architecture</code>.
@@ -103,6 +109,7 @@ protected:
     void setNoInputs(int const noInputs);
 private:
     int noLayers, noInputs;
+    const char * type;
     auto_ptr<Layer> *layers;
     auto_ptr<Architecture> architecture;
 };
