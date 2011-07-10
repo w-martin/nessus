@@ -6,7 +6,6 @@
  */
 #ifndef NEURON_H
 #define	NEURON_H
-#define NEURON_TYPE_STD "standard neuron"
 
 #include "nn-simulator/main/model/Weights.h"
 #include "nn-simulator/main/model/Input.h"
@@ -24,7 +23,8 @@ using std::auto_ptr;
  */
 class Neuron {
 public:
-    Neuron(int const &size, OutputFunction const * const f)
+    Neuron(int const &size, OutputFunction const * const f,
+            char const * const neuronType)
     throw (IllegalArgumentException);
     virtual ~Neuron();
     /**
@@ -33,7 +33,7 @@ public:
      * @return the type of this <code>Neuron</code>.
      * 
      */
-    virtual const char *getType() const;
+    virtual const char * const getType() const;
     /**
      * Processes the given <code>Input</code> to produce the 
      * <code>Neuron</code>'s <code>Output</code>.
@@ -94,6 +94,7 @@ private:
     Weights *weights;
     auto_ptr<Output> expectedOutput;
     OutputFunction const *outputFunction;
+    const char * neuronType;
     /**
      * Applies the <code>Neuron</code>'s elected output function
      * to the given activation.

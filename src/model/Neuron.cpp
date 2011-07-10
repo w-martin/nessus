@@ -11,7 +11,8 @@
 #include "nn-simulator/main/model/Architecture.h"
 
 Neuron::Neuron(int const &size,
-        OutputFunction const * const outputFunction)
+        OutputFunction const * const outputFunction,
+        char const * const neuronType)
 throw (IllegalArgumentException) {
     if (0 == size)
         throw IllegalArgumentException("Error. Cannot create empty neuron.");
@@ -19,13 +20,14 @@ throw (IllegalArgumentException) {
         throw IllegalArgumentException("Error. No output function.");
     Neuron::weights = new Weights(size);
     Neuron::outputFunction = outputFunction;
+    Neuron::neuronType = neuronType;
 }
 
 Neuron::~Neuron() {
 }
 
-char const *Neuron::getType() const {
-    return NEURON_TYPE_STD;
+char const * const Neuron::getType() const {
+    return neuronType;
 }
 
 Output const Neuron::processInput(Input const &input) const {

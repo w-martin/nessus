@@ -10,6 +10,8 @@
 #include "nn-simulator/test/functions/MockOutputFunction.h"
 #include "nn-simulator/test/model/MockOutput.h"
 
+#define NEURON_TYPE_TEST "test neuron type"
+
 using ::testing::Return;
 
 namespace {
@@ -20,7 +22,7 @@ namespace {
         NeuronTest() {
             size = 1;
             outputFunctionMock = new MockOutputFunction();
-            neuron = new Neuron(size, outputFunctionMock);
+            neuron = new Neuron(size, outputFunctionMock, NEURON_TYPE_TEST);
         }
 
         virtual ~NeuronTest() {
@@ -38,10 +40,10 @@ namespace {
      * 
      */
     TEST_F(NeuronTest, ConstructorExceptionTest) {
-        EXPECT_THROW(new Neuron(0, outputFunctionMock),
+        EXPECT_THROW(new Neuron(0, outputFunctionMock, NEURON_TYPE_TEST),
                 IllegalArgumentException);
 
-        EXPECT_THROW(new Neuron(size, NULL),
+        EXPECT_THROW(new Neuron(size, NULL, NEURON_TYPE_TEST),
                 IllegalArgumentException);
     }
 
@@ -58,7 +60,7 @@ namespace {
      * 
      */
     TEST_F(NeuronTest, GetTypeTest) {
-        EXPECT_STREQ(NEURON_TYPE_STD, neuron->getType());
+        EXPECT_STREQ(NEURON_TYPE_TEST, neuron->getType());
     }
 
     /*

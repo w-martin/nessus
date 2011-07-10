@@ -7,16 +7,13 @@
 
 #include "nn-simulator/main/nets/BDN/BDN.h"
 
-BDN::BDN(int const &size, 
-        OutputFunction const * const f) : Neuron(size, f) {
+BDN::BDN(int const &size,
+        OutputFunction const * const f) :
+Neuron(size, f, NEURON_TYPE_BDN) {
     threshold = 0.0f;
 }
 
 BDN::~BDN() {
-}
-
-const char * BDN::getType() const {
-    return NEURON_TYPE_BDN;
 }
 
 float const BDN::getThreshold() const {

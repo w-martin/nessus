@@ -78,6 +78,11 @@ add_executable(ModelTests
 target_link_libraries(ModelTests gmock gmock_main ${NNSIM_LIB}) 
 add_test(ModelTests ModelTests)
 
+add_executable(NetTests
+	${NNSIM_TEST_DIR}/nets/BDN/BDNTest.cpp)
+target_link_libraries(NetTests gmock gmock_main ${NNSIM_LIB})
+add_test(NetTests NetTests)
+
 add_executable(TrainerTests 
 	${NNSIM_TEST_DIR}/trainer/SupervisedTrainerTest.cpp
 	${NNSIM_TEST_DIR}/trainer/TrainerTest.cpp)

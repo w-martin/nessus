@@ -10,13 +10,16 @@
 #include "nn-simulator/test/model/MockWeights.h"
 #include "nn-simulator/test/functions/MockOutputFunction.h"
 
+#define NEURON_TYPE_MOCK "mock neuron type"
+
 class MockNeuron : public Neuron {
 public:
 
-    MockNeuron() : Neuron(1, new MockOutputFunction()) {
+    MockNeuron() : Neuron(1, new MockOutputFunction(),
+    NEURON_TYPE_MOCK) {
     }
     MOCK_CONST_METHOD0(getType,
-            const char*());
+            char const * const());
     MOCK_CONST_METHOD1(processInput,
             const Output(Input const &input));
     MOCK_CONST_METHOD1(calculateActivation,
