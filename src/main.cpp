@@ -21,7 +21,7 @@ int main(int argc, char** argv) {
     cout << "Creating OR net." << "\n";
 
     auto_ptr<Net> net = Factory<Net, const char*>::createInstance(
-            ORNET_TYPE, 2);
+            NET_TYPE_ORNET, 2);
 
     cout << "Created OR net." << "\n";
 

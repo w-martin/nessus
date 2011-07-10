@@ -13,8 +13,7 @@
 class MockNeuron : public Neuron {
 public:
 
-    MockNeuron() : Neuron(auto_ptr<Weights>(new MockWeights()),
-    new MockOutputFunction()) {
+    MockNeuron() : Neuron(1, new MockOutputFunction()) {
     }
     MOCK_CONST_METHOD0(getType,
             const char*());

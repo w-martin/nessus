@@ -8,17 +8,19 @@
 #include "nn-simulator/main/model/Architecture.h"
 #include <stdlib.h>
 
-Architecture::Architecture(int const noLayers, 
+Architecture::Architecture(int const noLayers,
         auto_ptr<OutputFunction> function,
-        auto_ptr<Trainer> trainer)
+        auto_ptr<Trainer> trainer,
+        char const * const neuronType)
 throw (IllegalArgumentException) {
     if (!function.get())
         throw IllegalArgumentException("Error. No function.");
-    if(!trainer.get())
+    if (!trainer.get())
         throw IllegalArgumentException("Error. No trainer.");
     Architecture::maxLayers = noLayers;
     Architecture::function = function;
     Architecture::trainer = trainer;
+    Architecture::neuronType = neuronType;
 }
 
 Architecture::~Architecture() {
@@ -34,4 +36,8 @@ OutputFunction const * const Architecture::getFunction() const {
 
 Trainer const * const Architecture::getTrainer() const {
     return trainer.get();
+}
+
+char const * const Architecture::getNeuronType() const {
+    return neuronType;
 }

@@ -17,8 +17,8 @@ using std::auto_ptr;
 
 /**
  * Architecture class, for specifying the <code>OutputFunction</code>,
- * <code>Trainer</code> and maximum number of <code>Layer</code> a
- * <code>Net</code> may have.
+ * <code>Trainer</code>, <code>Neuron</code> type and maximum number of 
+ * <code>Layer</code> a <code>Net</code> may have.
  * 
  */
 class Architecture {
@@ -39,7 +39,7 @@ public:
      * 
      */
     Architecture(int const noLayers, auto_ptr<OutputFunction> function,
-            auto_ptr<Trainer> trainer)
+            auto_ptr<Trainer> trainer, char const * const neuronType)
     throw (IllegalArgumentException);
     virtual ~Architecture();
     /**
@@ -70,10 +70,17 @@ public:
      * 
      */
     Trainer const * const getTrainer() const;
+    /*
+     * Gets the type of <code>Neuron</code> that this 
+     * <code>Architecture</code> supports.
+     * 
+     */
+    char const * const getNeuronType() const;
 private:
     int maxLayers;
     auto_ptr<OutputFunction> function;
     auto_ptr<Trainer> trainer;
+    char const * neuronType;
 };
 
 #endif	/* ARCHITECTURE_H */

@@ -10,14 +10,14 @@
 #include "nn-simulator/main/model/Neuron.h"
 #include "nn-simulator/main/model/Architecture.h"
 
-Neuron::Neuron(auto_ptr<Weights> weights,
+Neuron::Neuron(int const &size,
         OutputFunction const * const outputFunction)
 throw (IllegalArgumentException) {
-    if (!weights.get())
-        throw IllegalArgumentException("Error. No weights.");
+    if (0 == size)
+        throw IllegalArgumentException("Error. Cannot create empty neuron.");
     if (NULL == outputFunction)
         throw IllegalArgumentException("Error. No output function.");
-    Neuron::weights = weights;
+    Neuron::weights = new Weights(size);
     Neuron::outputFunction = outputFunction;
 }
 
@@ -61,7 +61,7 @@ throw (IllegalArgumentException) {
 }
 
 Weights * const Neuron::getWeights() const {
-    return weights.get();
+    return weights;
 }
 
 OutputFunction const * const Neuron::getOutputFunction() const {

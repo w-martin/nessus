@@ -17,7 +17,8 @@ template<>
 class Factory<Net, const char*> {
 public:
     /**
-     * Creates an instance of class T, given the construction object C.
+     * Creates an instance of the <code>Net</code> specified by the
+     * given netType.
      * 
      * @param netType the identifier of the net to create.
      * @param size the size the net should be.
@@ -29,7 +30,7 @@ public:
     static auto_ptr<Net> createInstance(const char* netType,
             const int &size)
     throw (UnsupportedConfigurationException) {
-        if (0 == strcmp(ORNET_TYPE, netType)) {
+        if (0 == strcmp(NET_TYPE_ORNET, netType)) {
             return auto_ptr<Net > (new ORnet(size));
         }
         throw UnsupportedConfigurationException("Error. Unknown net.");
@@ -37,4 +38,3 @@ public:
 };
 
 #endif	/* NETFACTORY_H */
-

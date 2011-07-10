@@ -24,7 +24,7 @@ using std::auto_ptr;
  */
 class Neuron {
 public:
-    Neuron(auto_ptr<Weights> weights, OutputFunction const * const f)
+    Neuron(int const &size, OutputFunction const * const f)
     throw (IllegalArgumentException);
     virtual ~Neuron();
     /**
@@ -91,7 +91,7 @@ protected:
      */
     virtual Output const calculateActivation(Input const &input) const;
 private:
-    auto_ptr<Weights> weights;
+    Weights *weights;
     auto_ptr<Output> expectedOutput;
     OutputFunction const *outputFunction;
     /**

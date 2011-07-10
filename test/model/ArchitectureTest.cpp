@@ -11,6 +11,8 @@
 #include "nn-simulator/main/model/Architecture.h"
 #include "nn-simulator/test/functions/MockOutputFunction.h"
 
+#define NEURON_TYPE_TEST "test neuron type"
+
 using ::testing::Return;
 
 namespace {
@@ -25,7 +27,7 @@ namespace {
             auto_ptr<OutputFunction> outputFunctionPointer(outputFunctionMock);
             auto_ptr<Trainer> trainerPointer(trainer);
             architecture = new Architecture(noLayers, outputFunctionPointer,
-                    trainerPointer);
+                    trainerPointer, NEURON_TYPE_TEST);
         }
 
         virtual ~ArchitectureTest() {
@@ -49,12 +51,12 @@ namespace {
 
         auto_ptr<OutputFunction> tmp1;
         EXPECT_THROW(new Architecture(0,
-                tmp1, trainerPointer),
+                tmp1, trainerPointer, NEURON_TYPE_TEST),
                 IllegalArgumentException);
 
         auto_ptr<Trainer> tmp2;
         EXPECT_THROW(new Architecture(0,
-                outputFunctionPointer, tmp2),
+                outputFunctionPointer, tmp2, NEURON_TYPE_TEST),
                 IllegalArgumentException);
     }
 
@@ -80,5 +82,13 @@ namespace {
      */
     TEST_F(ArchitectureTest, GetTrainerTest) {
         EXPECT_EQ(trainer, architecture->getTrainer());
+    }
+
+    /*
+     * Tests whether the neuron type is returned correctly.
+     * 
+     */
+    TEST_F(ArchitectureTest, GetNeuronTypeTest) {
+        EXPECT_EQ(NEURON_TYPE_TEST, architecture->getNeuronType());
     }
 }

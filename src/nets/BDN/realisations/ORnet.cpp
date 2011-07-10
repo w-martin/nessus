@@ -8,13 +8,14 @@
 #include "nn-simulator/main/nets/BDN/realisations/ORnet.h"
 #include "nn-simulator/main/nets/BDN/BDNTrainer.h"
 #include "nn-simulator/main/nets/BDN/BDN.h"
+#include "nn-simulator/main/nets/NeuronFactory.h"
 #include <stdlib.h>
 
 using namespace std;
 
 ORnet::ORnet(int const noInputs) :
-Net(auto_ptr<Architecture>(new LogicalArchitecture()), 1, noInputs, 
-        ORNET_TYPE) {
+Net(auto_ptr<Architecture>(new LogicalArchitecture()), 1, noInputs,
+NET_TYPE_ORNET) {
     ORnet::noInputs = noInputs;
     createInputVectors();
     createLayers();
@@ -39,13 +40,13 @@ void ORnet::createLayers() {
 }
 
 void ORnet::createNeurons() {
-    auto_ptr<Weights> weights(new Weights(getNoInputs()));
-    BDN *n = new BDN(weights, getArchitecture()->getFunction());
+    auto_ptr<BDN> n = Factory<BDN, Architecture>::
+            createInstance((*getArchitecture()), getNoInputs());
     n->setExpectedInput(auto_ptr<Input > (expectedInput));
     n->setNecessaryInput(auto_ptr<Input > (necessaryInput));
     BDNTrainer *trainer = (BDNTrainer*) getArchitecture()->getTrainer();
-    trainer->initWeights(n);
-    trainer->setThreshold(n);
+    trainer->initWeights(n.get());
+    trainer->setThreshold(n.get());
     auto_ptr<Neuron> neuronPointer = auto_ptr<Neuron > (n);
     getLayer(0)->setNeuron(0, neuronPointer);
 }

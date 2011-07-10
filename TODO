@@ -1,13 +1,12 @@
 # Things I need to do!
-# Updated 9th July 2011
+# Updated 10th July 2011
 
 # Improvements
 
-- Write a NeuronFactory
-
 # Tests to write
 
-- NetsFactory
+- NetFactory
+- NeuronFactory
 - Factory
 - BDN
 - BDNTrainer

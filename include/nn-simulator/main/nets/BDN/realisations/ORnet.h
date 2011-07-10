@@ -8,7 +8,7 @@
 #ifndef ORNET_H
 #define	ORNET_H
 
-#define ORNET_TYPE "ORNET"
+#define NET_TYPE_ORNET "ORNET"
 
 #include "nn-simulator/main/nets/BDN/LogicalArchitecture.h"
 #include "nn-simulator/main/model/Net.h"
