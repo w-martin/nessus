@@ -22,7 +22,7 @@ void Trainer::initWeights(Neuron const &n) const {
 void Trainer::setRandomWeights(Neuron const &n) const {
     Weights *w = n.getWeights();
     srand((unsigned) time(NULL));
-    float limit = RAND_MAX + 1;
+    float limit = (float) RAND_MAX;
     for (int i = 0; i < w->getSize(); i++) {
         float multiplier = (float) rand() / limit;
         if (multiplier < 0) multiplier = multiplier * -1;
