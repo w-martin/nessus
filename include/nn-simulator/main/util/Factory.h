@@ -21,6 +21,7 @@ using std::auto_ptr;
 template <class T, class C>
 class Factory {
 public:
+
     /**
      * Creates an instance of class T, given the construction object C.
      * 
@@ -33,7 +34,10 @@ public:
      * 
      */
     static auto_ptr<T> createInstance(const C &constructionObject)
-    throw (UnsupportedConfigurationException);
+    throw (UnsupportedConfigurationException) {
+        throw UnsupportedConfigurationException();
+    }
+
     /**
      * Creates an instance of class T, given the construction object C.
      * 
@@ -48,7 +52,9 @@ public:
      */
     static auto_ptr<T> createInstance(const C &constructionObject,
             const int &size)
-    throw (UnsupportedConfigurationException);
+    throw (UnsupportedConfigurationException) {
+        throw UnsupportedConfigurationException();
+    }
 };
 
 #endif	/* FACTORY_H */

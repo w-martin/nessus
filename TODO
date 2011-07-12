@@ -8,11 +8,8 @@
 - NetFactory
 - NeuronFactory
 - Factory
-- BDN
 - BDNTrainer
-- LogicalArchitecture
 - ORnet
-- SupervisedTrainer
 
 # New features
 
