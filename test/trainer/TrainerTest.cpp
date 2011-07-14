@@ -31,7 +31,7 @@ namespace {
      */
     TEST_F(TrainerTest, InitWeightsTest) {
         MockNeuron *neuronMock = new MockNeuron();
-        trainer->initWeights((*neuronMock));
+        trainer->initWeights(neuronMock);
         
         Weights *weights = neuronMock->getWeights();
         for (int i = 0; i < weights->getSize(); i++) {

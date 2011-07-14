@@ -27,7 +27,7 @@ public:
      * <code>Weights</code> for.
      * 
      */
-    virtual void initWeights(Neuron const &n) const;
+    virtual void initWeights(Neuron const * const n) const;
 protected:
     /**
      * Sets the <code>Weights</code> of the given <code>Neuron</code>
@@ -37,7 +37,7 @@ protected:
      * for.
      * 
      */
-    virtual void setRandomWeights(Neuron const &n) const;
+    virtual void setRandomWeights(Neuron const * const n) const;
 };
 
 #endif	/* TRAINER_H */

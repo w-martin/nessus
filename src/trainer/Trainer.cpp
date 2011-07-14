@@ -15,12 +15,12 @@ Trainer::Trainer() {
 Trainer::~Trainer() {
 }
 
-void Trainer::initWeights(Neuron const &n) const {
+void Trainer::initWeights(Neuron const * const n) const {
     setRandomWeights(n);
 }
 
-void Trainer::setRandomWeights(Neuron const &n) const {
-    Weights *w = n.getWeights();
+void Trainer::setRandomWeights(Neuron const * const n) const {
+    Weights *w = n->getWeights();
     srand((unsigned) time(NULL));
     float limit = (float) RAND_MAX;
     for (int i = 0; i < w->getSize(); i++) {

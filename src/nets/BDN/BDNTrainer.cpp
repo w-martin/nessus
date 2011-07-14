@@ -15,12 +15,12 @@ BDNTrainer::~BDNTrainer() {
 }
 
 void setBinaryWeights(BDN * const n) {
-    Input const * const in = n->getExpectedInput();
+    Input const * const expectedInput = n->getExpectedInput();
     Weights * const ws = n->getWeights();
 
-    if (ws->getSize() >= in->getSize()) {
-        for (int i = 0; i < in->getSize(); i++) {
-            if (in->getValue(i) == 1.0f)
+    if (ws->getSize() >= expectedInput->getSize()) {
+        for (int i = 0; i < expectedInput->getSize(); i++) {
+            if (expectedInput->getValue(i) == 1.0f)
                 ws->setValue(i, 1.0f);
             else
                 ws->setValue(i, -1.0f);

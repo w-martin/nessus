@@ -23,6 +23,13 @@ public:
     BDN(int const &size, OutputFunction const * const f);
     virtual ~BDN();
     /**
+     * Gets the type of this <code>Neuron</code>.
+     * 
+     * @return the type of this <code>Neuron</code>.
+     * 
+     */
+    virtual const char * const getType() const;
+    /**
      * Gets the value of the threshold of this <code>BDN</code>.
      * 
      * @return the value of the threshold of this <code>BDN</code>.

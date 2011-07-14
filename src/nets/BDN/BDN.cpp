@@ -13,6 +13,10 @@ Neuron(size, f, NEURON_TYPE_BDN) {
     threshold = 0.0f;
 }
 
+const char * const BDN::getType() const {
+    return NEURON_TYPE_BDN;
+}
+
 BDN::~BDN() {
 }
 
