@@ -92,6 +92,7 @@ target_link_libraries(TrainerTests gmock gmock_main ${NNSIM_LIB})
 add_test(TrainerTests TrainerTests)
 
 add_executable(UtilTests 
+	${NNSIM_TEST_DIR}/util/FactoryTest.cpp
 	${NNSIM_TEST_DIR}/util/exceptions/ExceptionTest.cpp
 	${NNSIM_TEST_DIR}/util/exceptions/IllegalArgumentExceptionTest.cpp
 	${NNSIM_TEST_DIR}/util/exceptions/OutOfBoundsExceptionTest.cpp
