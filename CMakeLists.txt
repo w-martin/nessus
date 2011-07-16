@@ -16,6 +16,11 @@ set(NNSIM_LIB neural_network)
 set(NNSIM_SOURCE_DIR src)
 set(NNSIM_INCLUDE_DIR include)
 set(NNSIM_TEST_DIR test)
+# set(NNSIM_BIN_DIR bin)
+# set(NNSIM_LIB_DIR lib)
+
+# file(MAKE_DIRECTORY ${NNSIM_BIN_DIR})
+# file(MAKE_DIRECTORY ${NNSIM_LIB_DIR})
 
 include_directories(${NNSIM_INCLUDE_DIR})
 
@@ -46,7 +51,7 @@ target_link_libraries(${NNSIM_NAME}
 # GTest - http://code.google.com/p/googletest/ #
 ################################################
     
-add_subdirectory(gmock-1.6.0) 
+add_subdirectory(gmock-1.6.0)
 enable_testing(true) 
 
 include_directories(${gtest_SOURCE_DIR}/include 
