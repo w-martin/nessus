@@ -8,6 +8,8 @@
 #ifndef NETFACTORY_H
 #define	NETFACTORY_H
 
+#define ERROR_UNKNOWN_NET_MESSAGE "Error. Unknown net."
+
 #include "nn-simulator/main/util/Factory.h"
 #include "nn-simulator/main/model/Net.h"
 #include "nn-simulator/main/nets/BDN/realisations/ORnet.h"
@@ -33,7 +35,7 @@ public:
         if (0 == strcmp(NET_TYPE_ORNET, netType)) {
             return auto_ptr<Net > (new ORnet(size));
         }
-        throw UnsupportedConfigurationException("Error. Unknown net.");
+        throw UnsupportedConfigurationException(ERROR_UNKNOWN_NET_MESSAGE);
     }
 };
 
