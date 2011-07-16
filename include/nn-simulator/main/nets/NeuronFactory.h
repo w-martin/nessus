@@ -10,6 +10,7 @@
 
 #include "nn-simulator/main/util/Factory.h"
 #include "nn-simulator/main/model/Neuron.h"
+#include "nn-simulator/main/model/Architecture.h"
 #include "nn-simulator/main/nets/BDN/BDN.h"
 
 template <>

@@ -80,6 +80,7 @@ add_test(ModelTests ModelTests)
 
 add_executable(NetTests
 	${NNSIM_TEST_DIR}/nets/NetFactoryTest.cpp 
+	${NNSIM_TEST_DIR}/nets/NeuronFactoryTest.cpp 
 	${NNSIM_TEST_DIR}/nets/BDN/BDNTest.cpp 
 	${NNSIM_TEST_DIR}/nets/BDN/BDNTrainerTest.cpp 
         ${NNSIM_TEST_DIR}/nets/BDN/LogicalArchitectureTest.cpp
