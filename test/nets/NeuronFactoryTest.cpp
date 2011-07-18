@@ -57,7 +57,7 @@ namespace {
                 size);
         EXPECT_TRUE(neuron.get());
         EXPECT_EQ(size, neuron->getWeights()->getSize());
-        EXPECT_EQ(NEURON_TYPE_BDN, neuron->getType());
+        EXPECT_EQ(0, strcmp(NEURON_TYPE_BDN, neuron->getType()));
     }
 
     /*
@@ -73,6 +73,6 @@ namespace {
                 size);
         EXPECT_TRUE(bdn.get());
         EXPECT_EQ(size, bdn->getWeights()->getSize());
-        EXPECT_EQ(NEURON_TYPE_BDN, bdn->getType());
+        EXPECT_EQ(0, strcmp(NEURON_TYPE_BDN, bdn->getType()));
     }
 }

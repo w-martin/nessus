@@ -44,6 +44,6 @@ namespace {
         auto_ptr<Net> net = createInstance(NET_TYPE_ORNET, size);
         EXPECT_TRUE(net.get());
         EXPECT_EQ(size, net->getNoInputs());
-        EXPECT_EQ(NET_TYPE_ORNET, net->getNetType());
+        EXPECT_EQ(0, strcmp(NET_TYPE_ORNET, net->getNetType()));
     }
 }
