@@ -89,6 +89,7 @@ add_executable(NetTests
 	${NNSIM_TEST_DIR}/nets/BDN/BDNTest.cpp 
 	${NNSIM_TEST_DIR}/nets/BDN/BDNTrainerTest.cpp 
         ${NNSIM_TEST_DIR}/nets/BDN/LogicalArchitectureTest.cpp
+        ${NNSIM_TEST_DIR}/nets/BDN/realisations/ANDnetTest.cpp
         ${NNSIM_TEST_DIR}/nets/BDN/realisations/ORnetTest.cpp)
 target_link_libraries(NetTests gmock gmock_main ${NNSIM_LIB})
 add_test(NetTests NetTests)

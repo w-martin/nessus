@@ -1,14 +1,16 @@
 # Things I need to do!
-# Updated 16th July 2011
+# Updated 24th July 2011
 
 # Improvements
+
+- For ease, make Net extend Neuron
 
 # Tests to write
 
 
 # New features
 
-- More logical realisations(and, xor, nor, xnor)
+- More logical realisations(xor, nor, xnor)
 - Hopfield net
 - MLP
 - Kohonen net
