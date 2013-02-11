@@ -22,24 +22,26 @@
  * 
  */
 
-#include "gtest/gtest.h"
+#define BOOST_TEST_DYN_LINK
+#define BOOST_TEST_MODULE FunctionTests
 
-namespace {
+#include <boost/test/unit_test.hpp>
 
-    /**
-     * Integration tests.
-     * 
-     */
-    class IntegrationTest : public ::testing::Test {
-    protected:
+struct IntegrationTest {
 
-        IntegrationTest() {
+  IntegrationTest() {
 
-        }
+  }
 
-        virtual ~IntegrationTest() {
+  virtual ~IntegrationTest() {
 
-        }
+  }
 
-    };
 };
+
+BOOST_FIXTURE_TEST_SUITE(IntegrationTests, IntegrationTest)
+
+BOOST_AUTO_TEST_CASE(BDNTest) {
+}
+
+BOOST_AUTO_TEST_SUITE_END()

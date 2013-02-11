@@ -5,114 +5,114 @@
  * Created on 02 July, 21:32
  */
 
-#include "gtest/gtest.h"
+#define BOOST_TEST_DYN_LINK
+#define BOOST_TEST_MODULE ModelTests
+
+#include <boost/test/unit_test.hpp>
 #include "nn-simulator/main/model/Net.h"
 #include "nn-simulator/test/model/MockArchitecture.h"
 #include "nn-simulator/test/model/MockLayer.h"
 
 #define TEST_NET_TYPE "test net type"
 
-using ::testing::Return;
-using ::testing::_;
+struct NetTest {
 
-namespace {
-
-    class NetTest : public ::testing::Test {
-    protected:
-
-        NetTest() {
-            noLayers = 1;
-            noInputs = 1;
-            architectureMock = new MockArchitecture();
-            net = new Net(auto_ptr<Architecture > (architectureMock),
-                    noLayers, noInputs, TEST_NET_TYPE);
-        }
-
-        virtual ~NetTest() {
-            delete net;
-        }
-        int noLayers;
-        int noInputs;
-        MockArchitecture *architectureMock;
-        Net *net;
-        char *netType;
-    };
-
-    /*
-     * Tests whether the throws exceptions correctly.
-     *
-     */
-    TEST_F(NetTest, ConstructorExceptionTest) {
-        EXPECT_THROW(
-                new Net(auto_ptr<Architecture > (NULL),
-                noLayers, noInputs, TEST_NET_TYPE),
-                IllegalArgumentException);
-        EXPECT_THROW(
-                new Net(auto_ptr<Architecture > (new MockArchitecture()),
-                3, noInputs, TEST_NET_TYPE),
-                UnsupportedConfigurationException);
+    NetTest() {
+        noLayers = 1;
+        noInputs = 1;
+        architectureMock = new MockArchitecture();
+        net = new Net(auto_ptr<Architecture > (architectureMock),
+                noLayers, noInputs, TEST_NET_TYPE);
     }
 
-    /*
-     * Tests whether the number of layers is returned correctly.
-     *
-     */
-    TEST_F(NetTest, GetNoLayersTest) {
-        EXPECT_EQ(noLayers, net->getNoLayers());
+    ~NetTest() {
+        delete net;
     }
+    int noLayers;
+    int noInputs;
+    MockArchitecture *architectureMock;
+    Net *net;
+    char *netType;
+};
 
-    /*
-     * Tests whether the net's type is returned correctly.
-     *
-     */
-    TEST_F(NetTest, GetNetTypeTest) {
-        EXPECT_EQ(TEST_NET_TYPE, net->getNetType());
-    }
+BOOST_FIXTURE_TEST_SUITE(NetTests, NetTest)
 
-    /*
-     * Tests whether the layer getter and setter work correctly.
-     *
-     */
-    TEST_F(NetTest, LayerTest) {
-        MockLayer *layerMock = new MockLayer();
-        net->setLayer(0, auto_ptr<Layer > (layerMock));
-        EXPECT_EQ(layerMock, net->getLayer(0));
-    }
-
-    /*
-     * Tests whether the architecture is returned correctly.
-     *
-     */
-    TEST_F(NetTest, GetArchitectureTest) {
-        EXPECT_EQ(architectureMock, net->getArchitecture());
-    }
-
-    /*
-     * Tests whether the number of inputs is returned correctly.
-     *
-     */
-    TEST_F(NetTest, GetNoInputsTest) {
-        EXPECT_EQ(noInputs, net->getNoInputs());
-    }
-
-    /*
-     * Tests whether an input is processed correctly.
-     *
-     */
-    TEST_F(NetTest, ProcessInputTest) {
-        EXPECT_THROW(net->processInput(Input(2)),
-                IncorrectInputException);
-
-        Input input = Input(1);
-        float expected = 0.34f;
-        input.setValue(0, expected);
-
-        MockLayer *layerMock = new MockLayer();
-        EXPECT_CALL((*layerMock), processInput(_))
-                .WillOnce(Return(input));
-        net->setLayer(0, auto_ptr<Layer > (layerMock));
-
-        Output result = net->processInput(input);
-        EXPECT_EQ(expected, result.getValue());
-    }
+/*
+ * Tests whether the throws exceptions correctly.
+ *
+ */
+BOOST_AUTO_TEST_CASE(ConstructorExceptionTest) {
+    BOOST_CHECK_THROW(
+            new Net(auto_ptr<Architecture > (NULL),
+            noLayers, noInputs, TEST_NET_TYPE),
+            IllegalArgumentException);
+    BOOST_CHECK_THROW(
+            new Net(auto_ptr<Architecture > (new MockArchitecture()),
+            3, noInputs, TEST_NET_TYPE),
+            UnsupportedConfigurationException);
 }
+
+/*
+ * Tests whether the number of layers is returned correctly.
+ *
+ */
+BOOST_AUTO_TEST_CASE(GetNoLayersTest) {
+    BOOST_CHECK_EQUAL(noLayers, net->getNoLayers());
+}
+
+/*
+ * Tests whether the net's type is returned correctly.
+ *
+ */
+BOOST_AUTO_TEST_CASE(GetNetTypeTest) {
+    BOOST_CHECK_EQUAL(TEST_NET_TYPE, net->getNetType());
+}
+
+/*
+ * Tests whether the layer getter and setter work correctly.
+ *
+ */
+BOOST_AUTO_TEST_CASE(LayerTest) {
+    MockLayer *layerMock = new MockLayer();
+    net->setLayer(0, auto_ptr<Layer > (layerMock));
+    BOOST_CHECK_EQUAL(layerMock, net->getLayer(0));
+}
+
+/*
+ * Tests whether the architecture is returned correctly.
+ *
+ */
+BOOST_AUTO_TEST_CASE(GetArchitectureTest) {
+    BOOST_CHECK_EQUAL(architectureMock, net->getArchitecture());
+}
+
+/*
+ * Tests whether the number of inputs is returned correctly.
+ *
+ */
+BOOST_AUTO_TEST_CASE(GetNoInputsTest) {
+    BOOST_CHECK_EQUAL(noInputs, net->getNoInputs());
+}
+
+/*
+ * Tests whether an input is processed correctly.
+ *
+ */
+BOOST_AUTO_TEST_CASE(ProcessInputTest) {
+    BOOST_CHECK_THROW(net->processInput(Input(2)),
+            IncorrectInputException);
+
+    Input input = Input(1);
+    float expected = 0.34f;
+    input.setValue(0, expected);
+
+    MockLayer *layerMock = new MockLayer();
+    //    EXPECT_CALL((*layerMock), processInput(_))
+    //            .WillOnce(Return(input));
+    net->setLayer(0, auto_ptr<Layer > (layerMock));
+
+    Output result = net->processInput(input);
+    BOOST_CHECK_EQUAL(expected, result.getValue());
+}
+
+BOOST_AUTO_TEST_SUITE_END()

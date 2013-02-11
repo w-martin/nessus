@@ -5,11 +5,7 @@
  * Created on 02 July 2011, 17:35
  */
 
-#include "gmock/gmock.h"
 #include "nn-simulator/main/model/Output.h"
-
-using ::testing::Return;
-using ::testing::_;
 
 class MockOutput : public Output {
 public:

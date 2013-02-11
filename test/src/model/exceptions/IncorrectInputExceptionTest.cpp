@@ -5,42 +5,43 @@
  * Created on July 2, 2011, 1:01 AM
  */
 
-#include "gtest/gtest.h"
+#include <boost/test/unit_test.hpp>
 #include "nn-simulator/main/model/exceptions/IncorrectInputException.h"
 
 #define message "test message"
 
-namespace {
+struct IncorrectInputExceptionTest {
 
-    class IncorrectInputExceptionTest : public ::testing::Test {
-    protected:
+  IncorrectInputExceptionTest() {
+    testException = new IncorrectInputException(message);
+  }
 
-        IncorrectInputExceptionTest() {
-            testException = new IncorrectInputException(message);
-        }
+  virtual ~IncorrectInputExceptionTest() {
+    delete testException;
+  }
+  IncorrectInputException *testException;
+};
 
-        virtual ~IncorrectInputExceptionTest() {
-            delete testException;
-        }
-        IncorrectInputException *testException;
-    };
+BOOST_FIXTURE_TEST_SUITE(IncorrectInputExceptionTests,
+        IncorrectInputExceptionTest)
 
-    /*
-     * Tests whether the <code>Exception</code>'s message was set correctly.
-     * 
-     */
-    TEST_F(IncorrectInputExceptionTest, MessageTest) {
-        EXPECT_STREQ(message, testException->what());
-    }
-
-    /*
-     * Tests whether the default message is set correctly.
-     * 
-     */
-    TEST_F(IncorrectInputExceptionTest, DefaultMessageTest) {
-        delete testException;
-        testException = new IncorrectInputException();
-
-        EXPECT_STREQ(INCORRECT_INPUT_MESSAGE, testException->what());
-    }
+/*
+ * Tests whether the <code>Exception</code>'s message was set correctly.
+ * 
+ */
+BOOST_AUTO_TEST_CASE(MessageTest) {
+  BOOST_CHECK_EQUAL(message, testException->what());
 }
+
+/*
+ * Tests whether the default message is set correctly.
+ * 
+ */
+BOOST_AUTO_TEST_CASE(DefaultMessageTest) {
+  delete testException;
+  testException = new IncorrectInputException();
+
+  BOOST_CHECK_EQUAL(INCORRECT_INPUT_MESSAGE, testException->what());
+}
+
+BOOST_AUTO_TEST_SUITE_END()

@@ -5,42 +5,43 @@
  * Created on July 2, 2011, 9:59 AM
  */
 
-#include "gtest/gtest.h"
+#include <boost/test/unit_test.hpp>
 #include "nn-simulator/main/util/exceptions/IllegalArgumentException.h"
 
 #define message "test message"
 
-namespace {
+struct IllegalArgumentExceptionTest {
 
-    class IllegalArgumentExceptionTest : public ::testing::Test {
-    protected:
+  IllegalArgumentExceptionTest() {
+    testException = new IllegalArgumentException(message);
+  }
 
-        IllegalArgumentExceptionTest() {
-            testException = new IllegalArgumentException(message);
-        }
+  virtual ~IllegalArgumentExceptionTest() {
+    delete testException;
+  }
+  IllegalArgumentException *testException;
+};
 
-        virtual ~IllegalArgumentExceptionTest() {
-            delete testException;
-        }
-        IllegalArgumentException *testException;
-    };
+BOOST_FIXTURE_TEST_SUITE(IllegalArgumentExceptionTests,
+        IllegalArgumentExceptionTest)
 
-    /*
-     * Tests whether the <code>Exception</code>'s message was set correctly.
-     * 
-     */
-    TEST_F(IllegalArgumentExceptionTest, MessageTest) {
-        EXPECT_STREQ(message, testException->what());
-    }
-
-    /*
-     * Tests whether the default message is set correctly.
-     * 
-     */
-    TEST_F(IllegalArgumentExceptionTest, DefaultMessageTest) {
-        delete testException;
-        testException = new IllegalArgumentException();
-
-        EXPECT_STREQ(ILLEGAL_ARGUMENT_MESSAGE, testException->what());
-    }
+/*
+ * Tests whether the <code>Exception</code>'s message was set correctly.
+ * 
+ */
+BOOST_AUTO_TEST_CASE(MessageTest) {
+  BOOST_CHECK_EQUAL(message, testException->what());
 }
+
+/*
+ * Tests whether the default message is set correctly.
+ * 
+ */
+BOOST_AUTO_TEST_CASE(DefaultMessageTest) {
+  delete testException;
+  testException = new IllegalArgumentException();
+
+  BOOST_CHECK_EQUAL(ILLEGAL_ARGUMENT_MESSAGE, testException->what());
+}
+
+BOOST_AUTO_TEST_SUITE_END()

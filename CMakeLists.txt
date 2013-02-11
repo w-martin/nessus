@@ -48,13 +48,15 @@ IF(("FAST" STREQUAL TESTING) OR ("ALL" STREQUAL TESTING))
 
     message("-- Testing is enabled.")
 
-    add_subdirectory(gmock)
-    enable_testing(true) 
+    set(Boost_USE_MULTITHREADED ON)
+    find_package(Boost COMPONENTS 
+        unit_test_framework
+        REQUIRED)
+    enable_testing(true)
 
-    include_directories(${gtest_SOURCE_DIR}/include 
-        ${gtest_SOURCE_DIR}
-        ${gmock_SOURCE_DIR}/include 
-        ${gmock_SOURCE_DIR})
+    include_directories(
+        ${Boost_INCLUDE_DIRS}
+    )
 
     ################################################
     # Code coverage ################################
@@ -87,7 +89,9 @@ IF(("FAST" STREQUAL TESTING) OR ("ALL" STREQUAL TESTING))
     add_executable(FunctionTests 
         ${NNSIM_TEST_DIR}/functions/HeavisideFunctionTest.cpp
         ${NNSIM_TEST_DIR}/functions/SigmoidFunctionTest.cpp) 
-    target_link_libraries(FunctionTests gtest gtest_main ${NNSIM_LIB}) 
+    target_link_libraries(FunctionTests
+        ${NNSIM_LIB}
+        ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY}) 
     add_test(FunctionTests FunctionTests)
 
     add_executable(ModelTests 
@@ -102,7 +106,9 @@ IF(("FAST" STREQUAL TESTING) OR ("ALL" STREQUAL TESTING))
         ${NNSIM_TEST_DIR}/model/OutputTest.cpp
         ${NNSIM_TEST_DIR}/model/VectorTest.cpp
         ${NNSIM_TEST_DIR}/model/WeightsTest.cpp) 
-    target_link_libraries(ModelTests gmock gmock_main ${NNSIM_LIB}) 
+    target_link_libraries(ModelTests
+        ${NNSIM_LIB}
+        ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY}) 
     add_test(ModelTests ModelTests)
 
     add_executable(NetTests
@@ -110,14 +116,18 @@ IF(("FAST" STREQUAL TESTING) OR ("ALL" STREQUAL TESTING))
         ${NNSIM_TEST_DIR}/nets/NeuronFactoryTest.cpp 
         ${NNSIM_TEST_DIR}/nets/BDN/BDNTest.cpp 
         ${NNSIM_TEST_DIR}/nets/BDN/BDNTrainerTest.cpp 
-            ${NNSIM_TEST_DIR}/nets/BDN/LogicalArchitectureTest.cpp
-            ${NNSIM_TEST_DIR}/nets/BDN/realisations/ORnetTest.cpp)
-    target_link_libraries(NetTests gmock gmock_main ${NNSIM_LIB})
+        ${NNSIM_TEST_DIR}/nets/BDN/LogicalArchitectureTest.cpp
+        ${NNSIM_TEST_DIR}/nets/BDN/realisations/ORnetTest.cpp)
+    target_link_libraries(NetTests
+        ${NNSIM_LIB}
+        ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY})
     add_test(NetTests NetTests)
 
     add_executable(TrainerTests 
         ${NNSIM_TEST_DIR}/trainer/TrainerTest.cpp)
-    target_link_libraries(TrainerTests gmock gmock_main ${NNSIM_LIB}) 
+    target_link_libraries(TrainerTests
+        ${NNSIM_LIB}
+        ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY}) 
     add_test(TrainerTests TrainerTests)
 
     add_executable(UtilTests 
@@ -126,7 +136,9 @@ IF(("FAST" STREQUAL TESTING) OR ("ALL" STREQUAL TESTING))
         ${NNSIM_TEST_DIR}/util/exceptions/IllegalArgumentExceptionTest.cpp
         ${NNSIM_TEST_DIR}/util/exceptions/OutOfBoundsExceptionTest.cpp
         ${NNSIM_TEST_DIR}/util/exceptions/UnsupportedConfigurationExceptionTest.cpp) 
-    target_link_libraries(UtilTests gtest gtest_main ${NNSIM_LIB}) 
+    target_link_libraries(UtilTests
+        ${NNSIM_LIB}
+        ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY}) 
     add_test(UtilTests UtilTests)
 
 ENDIF()
@@ -139,7 +151,8 @@ IF("ALL" STREQUAL TESTING)
         ${NNSIM_TEST_DIR}/integration/IntegrationTests.cpp
     ) 
     target_link_libraries(IntegrationTests
-        gtest gtest_main ${NNSIM_LIB})
+        ${NNSIM_LIB}
+        ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY})
     add_test(IntegrationTests IntegrationTests)
 
 ENDIF()

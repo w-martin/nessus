@@ -5,31 +5,34 @@
  * Created on 29 June 2011, 23:20
  */
 
+#define BOOST_TEST_DYN_LINK
+#define BOOST_TEST_MODULE FunctionTests
+
+#include <boost/test/unit_test.hpp>
 #include "nn-simulator/main/functions/HeavisideFunction.h"
 #include "nn-simulator/main/model/Output.h"
-#include "gtest/gtest.h"
 
-namespace {
+struct HeavisideFunctionTest {
 
-    class HeavisideFunctionTest : public ::testing::Test {
-    protected:
+  HeavisideFunctionTest() {
+    heavisideFunction = new HeavisideFunction();
+  }
 
-        HeavisideFunctionTest() {
-            heavisideFunction = new HeavisideFunction();
-        }
+  virtual ~HeavisideFunctionTest() {
+    delete heavisideFunction;
+  }
+  HeavisideFunction *heavisideFunction;
+};
 
-        virtual ~HeavisideFunctionTest() {
-            delete heavisideFunction;
-        }
-        HeavisideFunction *heavisideFunction;
-    };
+BOOST_FIXTURE_TEST_SUITE(HeavisideFunctionTests, HeavisideFunctionTest)
 
-    /**
-     * Tests whether the function method works correctly.
-     * 
-     */
-    TEST_F(HeavisideFunctionTest, TestFunction) {
-        EXPECT_EQ(0.0f, heavisideFunction->function(-1).getValue());
-        EXPECT_EQ(1.0f, heavisideFunction->function(1).getValue());
-    }
+/**
+ * Tests whether the function method works correctly.
+ * 
+ */
+BOOST_AUTO_TEST_CASE(TestFunction) {
+  BOOST_CHECK_EQUAL(0.0f, heavisideFunction->function(-1).getValue());
+  BOOST_CHECK_EQUAL(1.0f, heavisideFunction->function(1).getValue());
 }
+
+BOOST_AUTO_TEST_SUITE_END()

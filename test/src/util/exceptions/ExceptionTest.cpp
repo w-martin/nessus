@@ -5,31 +5,32 @@
  * Created on July 2, 2011, 12:33 AM
  */
 
-#include "gtest/gtest.h"
+
+#include <boost/test/unit_test.hpp>
 #include "nn-simulator/main/util/exceptions/Exception.h"
 
 #define message "test message"
 
-namespace {
+struct ExceptionTest {
 
-    class ExceptionTest : public ::testing::Test {
-    protected:
+  ExceptionTest() {
+    testException = new Exception(message);
+  }
 
-        ExceptionTest() {
-            testException = new Exception(message);
-        }
+  virtual ~ExceptionTest() {
+    delete testException;
+  }
+  Exception *testException;
+};
 
-        virtual ~ExceptionTest() {
-            delete testException;
-        }
-        Exception *testException;
-    };
+BOOST_FIXTURE_TEST_SUITE(ExceptionTests, ExceptionTest)
 
-    /*
-     * Tests whether the <code>Exception</code>'s message was set correctly.
-     * 
-     */
-    TEST_F(ExceptionTest, MessageTest) {
-        EXPECT_STREQ(message, testException->what());
-    }
+/*
+ * Tests whether the <code>Exception</code>'s message was set correctly.
+ * 
+ */
+BOOST_AUTO_TEST_CASE(MessageTest) {
+  BOOST_CHECK_EQUAL(message, testException->what());
 }
+
+BOOST_AUTO_TEST_SUITE_END()

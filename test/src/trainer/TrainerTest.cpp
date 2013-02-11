@@ -5,38 +5,41 @@
  * Created on 8th July 2011, 23:31
  */
 
-#include "gtest/gtest.h"
+#define BOOST_TEST_DYN_LINK
+#define BOOST_TEST_MODULE TrainerTests
+
+#include <boost/test/unit_test.hpp>
 #include "nn-simulator/main/trainer/Trainer.h"
 #include "nn-simulator/test/model/MockNeuron.h"
 
-namespace {
+struct TrainerTest {
 
-    class TrainerTest : public ::testing::Test {
-    protected:
+  TrainerTest() {
+    trainer = new Trainer();
+  }
 
-        TrainerTest() {
-            trainer = new Trainer();
-        }
+  virtual ~TrainerTest() {
+    delete trainer;
+  }
+  Trainer *trainer;
+};
 
-        virtual ~TrainerTest() {
-            delete trainer;
-        }
-        Trainer *trainer;
-    };
+BOOST_FIXTURE_TEST_SUITE(TrainerTests, TrainerTest)
 
-    /*
-     * Tests whether the getValue method returns the correct
-     * value.
-     * 
-     */
-    TEST_F(TrainerTest, InitWeightsTest) {
-        MockNeuron *neuronMock = new MockNeuron();
-        trainer->initWeights(neuronMock);
-        
-        Weights *weights = neuronMock->getWeights();
-        for (int i = 0; i < weights->getSize(); i++) {
-            EXPECT_LT(weights->getValue(i), 1.0f);
-            EXPECT_GT(weights->getValue(i), 0.0f);
-        }
-    }
+/*
+ * Tests whether the getValue method returns the correct
+ * value.
+ * 
+ */
+BOOST_AUTO_TEST_CASE(InitWeightsTest) {
+  MockNeuron *neuronMock = new MockNeuron();
+  trainer->initWeights(neuronMock);
+
+  Weights *weights = neuronMock->getWeights();
+  for (int i = 0; i < weights->getSize(); i++) {
+    BOOST_CHECK_LT(weights->getValue(i), 1.0f);
+    BOOST_CHECK_GT(weights->getValue(i), 0.0f);
+  }
 }
+
+BOOST_AUTO_TEST_SUITE_END()

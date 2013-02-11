@@ -5,39 +5,39 @@
  * Created on July 12, 2011, 11:15 PM
  */
 
-#include "gtest/gtest.h"
+#include <boost/test/unit_test.hpp>
 #include "nn-simulator/main/nets/BDN/LogicalArchitecture.h"
 #include "nn-simulator/main/nets/BDN/BDNTrainer.h"
 #include "nn-simulator/main/functions/HeavisideFunction.h"
 
-namespace {
+struct LogicalArchitectureTest {
 
-    class LogicalArchitectureTest : public ::testing::Test {
-    protected:
+  LogicalArchitectureTest() {
+    logicalArchitecture = new LogicalArchitecture();
+  }
 
-        LogicalArchitectureTest() {
-            logicalArchitecture = new LogicalArchitecture();
-        }
+  virtual ~LogicalArchitectureTest() {
+    delete logicalArchitecture;
+  }
 
-        virtual ~LogicalArchitectureTest() {
-            delete logicalArchitecture;
-        }
+  LogicalArchitecture *logicalArchitecture;
+};
 
-        LogicalArchitecture *logicalArchitecture;
-    };
+BOOST_FIXTURE_TEST_SUITE(LogicalArchitectureTests, LogicalArchitectureTest)
 
-    /*
-     * Tests whether the parent constructor is called
-     * correctly.
-     *
-     */
-    TEST_F(LogicalArchitectureTest, ConstructorTest) {
-        EXPECT_EQ(0, logicalArchitecture->getMaxLayers());
-        HeavisideFunction *function =
-                (HeavisideFunction*) logicalArchitecture->getFunction();
-        BDNTrainer *trainer =
-                (BDNTrainer*) logicalArchitecture->getTrainer();
-        EXPECT_EQ(0,
-                strcmp(NEURON_TYPE_BDN, logicalArchitecture->getNeuronType()));
-    }
+/*
+ * Tests whether the parent constructor is called
+ * correctly.
+ *
+ */
+BOOST_AUTO_TEST_CASE(ConstructorTest) {
+  BOOST_CHECK_EQUAL(0, logicalArchitecture->getMaxLayers());
+  HeavisideFunction *function =
+          (HeavisideFunction*) logicalArchitecture->getFunction();
+  BDNTrainer *trainer =
+          (BDNTrainer*) logicalArchitecture->getTrainer();
+  BOOST_CHECK_EQUAL(0,
+          strcmp(NEURON_TYPE_BDN, logicalArchitecture->getNeuronType()));
 }
+
+BOOST_AUTO_TEST_SUITE_END()

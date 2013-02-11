@@ -5,7 +5,6 @@
  * Created on 03 July, 10:06
  */
 
-#include "gmock/gmock.h"
 #include "nn-simulator/main/model/Layer.h"
 
 class MockLayer : public Layer {
@@ -13,6 +12,7 @@ public:
 
     MockLayer() : Layer(0, false) {
     }
-    MOCK_CONST_METHOD1(processInput,
-            const Input(Input const &input));
+    virtual Input const processInput(Input const &input) const {
+        return input;
+    }
 };

@@ -5,41 +5,41 @@
  * Created on July 2, 2011, 12:16 AM
  */
 
-#include "gtest/gtest.h"
+#include <boost/test/unit_test.hpp>
 #include "nn-simulator/main/model/Weights.h"
 
-namespace {
+struct WeightsTest {
 
-    class WeightsTest : public ::testing::Test {
-    protected:
-
-        WeightsTest() {
-            size = 5;
-            weights = new Weights(size);
-        }
-
-        virtual ~WeightsTest() {
-            delete weights;
-        }
-        int size;
-        Weights *weights;
-    };
-
-    /*
-     * Tests whether the <code>Weights</code> class extends 
-     * <code>Vector</code> correctly.
-     * 
-     */
-    TEST_F(WeightsTest, ExtensionTest) {
-        EXPECT_EQ(size, weights->getSize());
+    WeightsTest() {
+        size = 5;
+        weights = new Weights(size);
     }
 
-    /*
-     * Tests whether an exception is thrown when the size is set to
-     * zero.
-     * 
-     */
-    TEST_F(WeightsTest, ExceptionTest) {
-        EXPECT_THROW(new Weights(0), EmptyVectorException);
+    virtual ~WeightsTest() {
+        delete weights;
     }
+    int size;
+    Weights *weights;
+};
+
+BOOST_FIXTURE_TEST_SUITE(WeightsTests, WeightsTest)
+
+/*
+ * Tests whether the <code>Weights</code> class extends 
+ * <code>Vector</code> correctly.
+ * 
+ */
+BOOST_AUTO_TEST_CASE(ExtensionTest) {
+    BOOST_CHECK_EQUAL(size, weights->getSize());
 }
+
+/*
+ * Tests whether an exception is thrown when the size is set to
+ * zero.
+ * 
+ */
+BOOST_AUTO_TEST_CASE(ExceptionTest) {
+    BOOST_CHECK_THROW(new Weights(0), EmptyVectorException);
+}
+
+BOOST_AUTO_TEST_SUITE_END()

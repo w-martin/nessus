@@ -5,42 +5,42 @@
  * Created on 8th July 2011, 11:24 PM
  */
 
-#include "gtest/gtest.h"
+#include <boost/test/unit_test.hpp>
 #include "nn-simulator/main/model/exceptions/LayerNotSetException.h"
 
 #define message "test message"
 
-namespace {
+struct LayerNotSetExceptionTest {
 
-    class LayerNotSetExceptionTest : public ::testing::Test {
-    protected:
+  LayerNotSetExceptionTest() {
+    testException = new LayerNotSetException(message);
+  }
 
-        LayerNotSetExceptionTest() {
-            testException = new LayerNotSetException(message);
-        }
+  ~LayerNotSetExceptionTest() {
+    delete testException;
+  }
+  LayerNotSetException *testException;
+};
 
-        virtual ~LayerNotSetExceptionTest() {
-            delete testException;
-        }
-        LayerNotSetException *testException;
-    };
+BOOST_FIXTURE_TEST_SUITE(LayerNotSetExceptionTests, LayerNotSetExceptionTest)
 
-    /*
-     * Tests whether the <code>Exception</code>'s message was set correctly.
-     * 
-     */
-    TEST_F(LayerNotSetExceptionTest, MessageTest) {
-        EXPECT_STREQ(message, testException->what());
-    }
-
-    /*
-     * Tests whether the default message is set correctly.
-     * 
-     */
-    TEST_F(LayerNotSetExceptionTest, DefaultMessageTest) {
-        delete testException;
-        testException = new LayerNotSetException();
-
-        EXPECT_STREQ(LAYER_NOT_SET_MESSAGE, testException->what());
-    }
+/*
+ * Tests whether the <code>Exception</code>'s message was set correctly.
+ * 
+ */
+BOOST_AUTO_TEST_CASE(MessageTest) {
+  BOOST_CHECK_EQUAL(message, testException->what());
 }
+
+/*
+ * Tests whether the default message is set correctly.
+ * 
+ */
+BOOST_AUTO_TEST_CASE(DefaultMessageTest) {
+  delete testException;
+  testException = new LayerNotSetException();
+
+  BOOST_CHECK_EQUAL(LAYER_NOT_SET_MESSAGE, testException->what());
+}
+
+BOOST_AUTO_TEST_SUITE_END()

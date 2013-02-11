@@ -8,13 +8,20 @@
 #ifndef MOCKOUTPUTFUNCTION_H
 #define	MOCKOUTPUTFUNCTION_H
 
-#include "gmock/gmock.h"
 #include "nn-simulator/main/functions/OutputFunction.h"
 
 class MockOutputFunction : public OutputFunction {
- public:
-  MOCK_CONST_METHOD1(function,
-      Output(float const activation));
+public:
+
+    MockOutputFunction() {
+    }
+
+    virtual ~MockOutputFunction() {
+    }
+
+    Output function(float const activation) const {
+        return Output(0.0f);
+    }
 };
 
 #endif

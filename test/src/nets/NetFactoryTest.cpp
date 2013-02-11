@@ -5,45 +5,48 @@
  * Created on July 16, 2011, 11:17 AM
  */
 
-#define TEST_NET_TYPE "test net type"
+#define BOOST_TEST_DYN_LINK
+#define BOOST_TEST_MODULE NetTests
 
-#include "gtest/gtest.h"
+#include <boost/test/unit_test.hpp>
 #include "nn-simulator/main/nets/NetFactory.h"
 #include "nn-simulator/main/util/exceptions/UnsupportedConfigurationException.h"
 #include "nn-simulator/main/nets/BDN/realisations/ORnet.h"
 
-namespace {
+#define TEST_NET_TYPE "test net type"
 
-    class NetFactoryTest : public ::testing::Test {
-    protected:
+struct NetFactoryTest {
 
-        NetFactoryTest() {
-            size = 1;
-        }
+  NetFactoryTest() {
+    size = 1;
+  }
 
-        virtual ~NetFactoryTest() {
-        }
-        int size;
-    };
+  virtual ~NetFactoryTest() {
+  }
+  int size;
+};
 
-    auto_ptr<Net> createInstance(const char * const netType,
-            const int &size)
-    throw (UnsupportedConfigurationException) {
-        return Factory<Net, const char *>::createInstance(netType, size);
-    }
-
-    /*
-     * Tests whether the createInstance method works correctly
-     * given a net configuration.
-     *
-     */
-    TEST_F(NetFactoryTest, CreateInstanceTest) {
-        EXPECT_THROW(createInstance(TEST_NET_TYPE, size),
-                UnsupportedConfigurationException);
-
-        auto_ptr<Net> net = createInstance(NET_TYPE_ORNET, size);
-        EXPECT_TRUE(net.get());
-        EXPECT_EQ(size, net->getNoInputs());
-        EXPECT_EQ(0, strcmp(NET_TYPE_ORNET, net->getNetType()));
-    }
+auto_ptr<Net> createInstance(const char * const netType,
+        const int &size)
+throw (UnsupportedConfigurationException) {
+  return Factory<Net, const char *>::createInstance(netType, size);
 }
+
+BOOST_FIXTURE_TEST_SUITE(NetFactoryTests, NetFactoryTest)
+
+/*
+ * Tests whether the createInstance method works correctly
+ * given a net configuration.
+ *
+ */
+BOOST_AUTO_TEST_CASE(CreateInstanceTest) {
+  BOOST_CHECK_THROW(createInstance(TEST_NET_TYPE, size),
+          UnsupportedConfigurationException);
+
+  auto_ptr<Net> net = createInstance(NET_TYPE_ORNET, size);
+  BOOST_CHECK(net.get());
+  BOOST_CHECK_EQUAL(size, net->getNoInputs());
+  BOOST_CHECK_EQUAL(0, strcmp(NET_TYPE_ORNET, net->getNetType()));
+}
+
+BOOST_AUTO_TEST_SUITE_END()
