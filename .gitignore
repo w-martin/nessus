@@ -17,3 +17,5 @@ build/
 Makefile
 nbproject/
 *.pyc
+.idea/
+*.iml
