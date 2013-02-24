@@ -6,7 +6,7 @@
  */
 
 #include <boost/test/unit_test.hpp>
-#include "nn-simulator/main/model/Output.h"
+#include "nessus/model/Output.h"
 
 struct OutputTest {
 

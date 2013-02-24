@@ -9,8 +9,8 @@
 #define BOOST_TEST_MODULE FunctionTests
 
 #include <boost/test/unit_test.hpp>
-#include "nn-simulator/main/functions/HeavisideFunction.h"
-#include "nn-simulator/main/model/Output.h"
+#include "nessus/functions/HeavisideFunction.h"
+#include "nessus/model/Output.h"
 
 struct HeavisideFunctionTest {
 

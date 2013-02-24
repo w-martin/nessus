@@ -5,10 +5,10 @@
  * Created on 09 June 2011, 18:06
  */
 
-#include "nn-simulator/main/nets/BDN/realisations/ORnet.h"
-#include "nn-simulator/main/nets/BDN/BDNTrainer.h"
-#include "nn-simulator/main/nets/BDN/BDN.h"
-#include "nn-simulator/main/nets/NeuronFactory.h"
+#include "nessus/nets/BDN/realisations/ORnet.h"
+#include "nessus/nets/BDN/BDNTrainer.h"
+#include "nessus/nets/BDN/BDN.h"
+#include "nessus/nets/NeuronFactory.h"
 #include <stdlib.h>
 
 using namespace std;

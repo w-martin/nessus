@@ -9,9 +9,9 @@
 #define BOOST_TEST_MODULE NetTests
 
 #include <boost/test/unit_test.hpp>
-#include "nn-simulator/main/nets/NetFactory.h"
-#include "nn-simulator/main/util/exceptions/UnsupportedConfigurationException.h"
-#include "nn-simulator/main/nets/BDN/realisations/ORnet.h"
+#include "nessus/nets/NetFactory.h"
+#include "nessus/util/exceptions/UnsupportedConfigurationException.h"
+#include "nessus/nets/BDN/realisations/ORnet.h"
 
 #define TEST_NET_TYPE "test net type"
 

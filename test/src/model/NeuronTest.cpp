@@ -6,9 +6,9 @@
  */
 
 #include <boost/test/unit_test.hpp>
-#include "nn-simulator/main/model/Neuron.h"
-#include "nn-simulator/test/functions/MockOutputFunction.h"
-#include "nn-simulator/test/model/MockOutput.h"
+#include "nessus/model/Neuron.h"
+#include "nessus/functions/MockOutputFunction.h"
+#include "nessus/model/MockOutput.h"
 
 #define NEURON_TYPE_TEST "test neuron type"
 

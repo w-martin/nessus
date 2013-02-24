@@ -7,7 +7,7 @@
 
 
 #include <boost/test/unit_test.hpp>
-#include "nn-simulator/main/util/exceptions/Exception.h"
+#include "nessus/util/exceptions/Exception.h"
 
 #define message "test message"
 

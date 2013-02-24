@@ -6,10 +6,10 @@
  */
 
 #include <boost/test/unit_test.hpp>
-#include "nn-simulator/main/nets/BDN/realisations/ORnet.h"
-#include "nn-simulator/main/model/Input.h"
-#include "nn-simulator/main/nets/BDN/LogicalArchitecture.h"
-#include "nn-simulator/main/nets/BDN/BDN.h"
+#include "nessus/nets/BDN/realisations/ORnet.h"
+#include "nessus/model/Input.h"
+#include "nessus/nets/BDN/LogicalArchitecture.h"
+#include "nessus/nets/BDN/BDN.h"
 
 struct ORnetTest {
 

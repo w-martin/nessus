@@ -6,7 +6,7 @@
  */
 
 #include <boost/test/unit_test.hpp>
-#include "nn-simulator/main/model/Input.h"
+#include "nessus/model/Input.h"
 
 struct InputTest {
 

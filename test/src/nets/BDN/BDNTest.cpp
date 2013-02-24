@@ -6,10 +6,10 @@
  */
 
 #include <boost/test/unit_test.hpp>
-#include "nn-simulator/main/nets/BDN/BDN.h"
-#include "nn-simulator/test/functions/MockOutputFunction.h"
-#include "nn-simulator/test/model/MockInput.h"
-#include "nn-simulator/test/model/MockOutput.h"
+#include "nessus/nets/BDN/BDN.h"
+#include "nessus/functions/MockOutputFunction.h"
+#include "nessus/model/MockInput.h"
+#include "nessus/model/MockOutput.h"
 
 struct BDNTest {
 

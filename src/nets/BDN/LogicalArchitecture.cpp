@@ -5,10 +5,10 @@
  * Created on 09 June 2011, 09:45
  */
 
-#include "nn-simulator/main/nets/BDN/LogicalArchitecture.h"
-#include "nn-simulator/main/nets/BDN/BDNTrainer.h"
-#include "nn-simulator/main/functions/HeavisideFunction.h"
-#include "nn-simulator/main/nets/BDN/BDN.h"
+#include "nessus/nets/BDN/LogicalArchitecture.h"
+#include "nessus/nets/BDN/BDNTrainer.h"
+#include "nessus/functions/HeavisideFunction.h"
+#include "nessus/nets/BDN/BDN.h"
 
 LogicalArchitecture::LogicalArchitecture() : Architecture(
 0,

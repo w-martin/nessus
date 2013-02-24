@@ -9,9 +9,9 @@
 #define BOOST_TEST_MODULE ModelTests
 
 #include <boost/test/unit_test.hpp>
-#include "nn-simulator/main/model/Net.h"
-#include "nn-simulator/test/model/MockArchitecture.h"
-#include "nn-simulator/test/model/MockLayer.h"
+#include "nessus/model/Net.h"
+#include "nessus/model/MockArchitecture.h"
+#include "nessus/model/MockLayer.h"
 
 #define TEST_NET_TYPE "test net type"
 

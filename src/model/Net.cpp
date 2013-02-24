@@ -7,7 +7,7 @@
 
 #include <stdlib.h>
 
-#include "nn-simulator/main/model/Net.h"
+#include "nessus/model/Net.h"
 
 Net::Net(auto_ptr<Architecture> architecture,
         int const &noLayers,

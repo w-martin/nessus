@@ -6,7 +6,7 @@
  */
 
 #include <boost/test/unit_test.hpp>
-#include "nn-simulator/main/model/exceptions/LayerNotSetException.h"
+#include "nessus/model/exceptions/LayerNotSetException.h"
 
 #define message "test message"
 

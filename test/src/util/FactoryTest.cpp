@@ -9,8 +9,8 @@
 #define BOOST_TEST_MODULE UtilTests
 
 #include <boost/test/unit_test.hpp>
-#include "nn-simulator/main/util/Factory.h"
-#include "nn-simulator/main/util/exceptions/UnsupportedConfigurationException.h"
+#include "nessus/util/Factory.h"
+#include "nessus/util/exceptions/UnsupportedConfigurationException.h"
 
 struct FactoryTest {
 

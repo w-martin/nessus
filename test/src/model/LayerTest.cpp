@@ -6,9 +6,9 @@
  */
 
 #include <boost/test/unit_test.hpp>
-#include "nn-simulator/main/model/Layer.h"
-#include "nn-simulator/test/model/MockNeuron.h"
-#include "nn-simulator/test/model/MockOutput.h"
+#include "nessus/model/Layer.h"
+#include "nessus/model/MockNeuron.h"
+#include "nessus/model/MockOutput.h"
 
 struct LayerTest {
 

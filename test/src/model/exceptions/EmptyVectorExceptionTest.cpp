@@ -6,7 +6,7 @@
  */
 
 #include <boost/test/unit_test.hpp>
-#include "nn-simulator/main/model/exceptions/EmptyVectorException.h"
+#include "nessus/model/exceptions/EmptyVectorException.h"
 
 #define message "test message"
 

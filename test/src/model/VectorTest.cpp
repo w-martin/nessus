@@ -6,9 +6,9 @@
  */
 
 #include <boost/test/unit_test.hpp>
-#include "nn-simulator/main/model/Vector.h"
-#include "nn-simulator/main/model/exceptions/EmptyVectorException.h"
-#include "nn-simulator/main/util/exceptions/OutOfBoundsException.h"
+#include "nessus/model/Vector.h"
+#include "nessus/model/exceptions/EmptyVectorException.h"
+#include "nessus/util/exceptions/OutOfBoundsException.h"
 
 struct VectorTest {
 

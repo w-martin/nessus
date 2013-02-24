@@ -9,7 +9,7 @@
 #include <sstream>
 #include <math.h>
 
-#include "nn-simulator/main/model/Vector.h"
+#include "nessus/model/Vector.h"
 
 using std::stringstream;
 

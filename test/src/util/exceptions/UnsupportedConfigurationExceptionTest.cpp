@@ -6,7 +6,7 @@
  */
 
 #include <boost/test/unit_test.hpp>
-#include "nn-simulator/main/util/exceptions/UnsupportedConfigurationException.h"
+#include "nessus/util/exceptions/UnsupportedConfigurationException.h"
 
 #define message "test message"
 

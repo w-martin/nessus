@@ -6,7 +6,7 @@
  */
 
 #include <boost/test/unit_test.hpp>
-#include "nn-simulator/main/util/exceptions/IllegalArgumentException.h"
+#include "nessus/util/exceptions/IllegalArgumentException.h"
 
 #define message "test message"
 

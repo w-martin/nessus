@@ -5,7 +5,7 @@
  * Created on 08 June 2011, 11:00
  */
 
-#include "nn-simulator/main/nets/BDN/BDN.h"
+#include "nessus/nets/BDN/BDN.h"
 
 BDN::BDN(int const &size,
         OutputFunction const * const f) :

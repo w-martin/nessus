@@ -7,8 +7,8 @@
 
 #include <string>
 
-#include "nn-simulator/main/model/Neuron.h"
-#include "nn-simulator/main/model/Architecture.h"
+#include "nessus/model/Neuron.h"
+#include "nessus/model/Architecture.h"
 
 Neuron::Neuron(int const &size,
         OutputFunction const * const outputFunction,

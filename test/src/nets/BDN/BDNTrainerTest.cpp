@@ -6,13 +6,13 @@
  */
 
 #include <boost/test/unit_test.hpp>
-#include "nn-simulator/main/nets/BDN/BDNTrainer.h"
-#include "nn-simulator/main/nets/BDN/BDN.h"
-#include "nn-simulator/main/model/Neuron.h"
-#include "nn-simulator/test/nets/BDN/MockBDN.h"
-#include "nn-simulator/test/model/MockNeuron.h"
-#include "nn-simulator/test/model/MockInput.h"
-#include "nn-simulator/test/model/MockOutput.h"
+#include "nessus/nets/BDN/BDNTrainer.h"
+#include "nessus/nets/BDN/BDN.h"
+#include "nessus/model/Neuron.h"
+#include "nessus/nets/BDN/MockBDN.h"
+#include "nessus/model/MockNeuron.h"
+#include "nessus/model/MockInput.h"
+#include "nessus/model/MockOutput.h"
 
 struct BDNTrainerTest {
 

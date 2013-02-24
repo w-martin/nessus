@@ -7,7 +7,7 @@
 
 #include <stdlib.h>
 
-#include "nn-simulator/main/model/Layer.h"
+#include "nessus/model/Layer.h"
 
 Layer::Layer(int const noNeurons, bool const adaptiveWeights) {
     size = noNeurons;

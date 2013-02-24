@@ -6,7 +6,7 @@
  */
 
 #include <boost/test/unit_test.hpp>
-#include "nn-simulator/main/util/exceptions/OutOfBoundsException.h"
+#include "nessus/util/exceptions/OutOfBoundsException.h"
 
 #define message "test message"
 

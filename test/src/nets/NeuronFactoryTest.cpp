@@ -6,11 +6,11 @@
  */
 
 #include <boost/test/unit_test.hpp>
-#include "nn-simulator/main/nets/NeuronFactory.h"
-#include "nn-simulator/main/util/exceptions/UnsupportedConfigurationException.h"
-#include "nn-simulator/main/nets/BDN/BDN.h"
-#include "nn-simulator/test/model/MockArchitecture.h"
-#include "nn-simulator/main/nets/BDN/LogicalArchitecture.h"
+#include "nessus/nets/NeuronFactory.h"
+#include "nessus/util/exceptions/UnsupportedConfigurationException.h"
+#include "nessus/nets/BDN/BDN.h"
+#include "nessus/model/MockArchitecture.h"
+#include "nessus/nets/BDN/LogicalArchitecture.h"
 
 #define TEST_NEURON_TYPE "test net type"
 

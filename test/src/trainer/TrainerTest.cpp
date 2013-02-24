@@ -9,8 +9,8 @@
 #define BOOST_TEST_MODULE TrainerTests
 
 #include <boost/test/unit_test.hpp>
-#include "nn-simulator/main/trainer/Trainer.h"
-#include "nn-simulator/test/model/MockNeuron.h"
+#include "nessus/trainer/Trainer.h"
+#include "nessus/model/MockNeuron.h"
 
 struct TrainerTest {
 

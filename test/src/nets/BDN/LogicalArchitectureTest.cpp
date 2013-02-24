@@ -6,9 +6,9 @@
  */
 
 #include <boost/test/unit_test.hpp>
-#include "nn-simulator/main/nets/BDN/LogicalArchitecture.h"
-#include "nn-simulator/main/nets/BDN/BDNTrainer.h"
-#include "nn-simulator/main/functions/HeavisideFunction.h"
+#include "nessus/nets/BDN/LogicalArchitecture.h"
+#include "nessus/nets/BDN/BDNTrainer.h"
+#include "nessus/functions/HeavisideFunction.h"
 
 struct LogicalArchitectureTest {
 

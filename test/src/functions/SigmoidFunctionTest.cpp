@@ -6,8 +6,8 @@
  */
 
 #include <boost/test/unit_test.hpp>
-#include "nn-simulator/main/functions/SigmoidFunction.h"
-#include "nn-simulator/main/model/Output.h"
+#include "nessus/functions/SigmoidFunction.h"
+#include "nessus/model/Output.h"
 
 struct SigmoidFunctionTest {
 

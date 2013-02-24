@@ -5,7 +5,7 @@
  * Created on 07 June 2011, 14:08
  */
 
-#include "nn-simulator/main/functions/HeavisideFunction.h"
+#include "nessus/functions/HeavisideFunction.h"
 
 HeavisideFunction::HeavisideFunction() {
 }

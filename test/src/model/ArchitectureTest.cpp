@@ -8,8 +8,8 @@
 #include <memory>
 
 #include <boost/test/unit_test.hpp>
-#include "nn-simulator/main/model/Architecture.h"
-#include "nn-simulator/test/functions/MockOutputFunction.h"
+#include "nessus/model/Architecture.h"
+#include "nessus/functions/MockOutputFunction.h"
 
 #define NEURON_TYPE_TEST "test neuron type"
 

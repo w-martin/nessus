@@ -1,4 +1,4 @@
-# CMake build script for Neural Network Simulator.
+# CMake build script for Nessus.
 
 cmake_minimum_required (VERSION 2.6)
 
@@ -6,37 +6,38 @@ cmake_minimum_required (VERSION 2.6)
 # Main #
 ########
 
-project (nn-simulator)
+project (nessus)
 
 set(TESTING "NONE" CACHE STRING "NONE")
 set(COVERAGE "NONE" CACHE STRING "NONE")
 
-set(NNSIM_NAME nn-simulator)
-set(NNSIM_LIB neural_network)
-set(NNSIM_SOURCE_DIR src)
-set(NNSIM_INCLUDE_DIR include)
-set(NNSIM_TEST_DIR test/src)
+set(NESSUS_NAME nessus)
+set(NESSUS_LIB neural_network)
+set(NESSUS_SOURCE_DIR src)
+set(NESSUS_INCLUDE_DIR include)
+set(NESSUS_TEST_DIR test/src)
+set(NESSUS_MOCK_DIR test/mock)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/modules/")
 
-include_directories(${NNSIM_INCLUDE_DIR})
+include_directories(${NESSUS_INCLUDE_DIR})
 
 # list all source files here
 # TODO: replace this with a macro
 
-add_library (${NNSIM_LIB}
-    ${NNSIM_SOURCE_DIR}/functions/HeavisideFunction.cpp
-    ${NNSIM_SOURCE_DIR}/functions/SigmoidFunction.cpp
-    ${NNSIM_SOURCE_DIR}/model/Architecture.cpp
-    ${NNSIM_SOURCE_DIR}/model/Layer.cpp
-    ${NNSIM_SOURCE_DIR}/model/Net.cpp
-    ${NNSIM_SOURCE_DIR}/model/Neuron.cpp
-    ${NNSIM_SOURCE_DIR}/model/Output.cpp
-    ${NNSIM_SOURCE_DIR}/model/Vector.cpp
-    ${NNSIM_SOURCE_DIR}/nets/BDN/BDN.cpp
-    ${NNSIM_SOURCE_DIR}/nets/BDN/BDNTrainer.cpp
-    ${NNSIM_SOURCE_DIR}/nets/BDN/LogicalArchitecture.cpp
-    ${NNSIM_SOURCE_DIR}/nets/BDN/realisations/ORnet.cpp
-    ${NNSIM_SOURCE_DIR}/trainer/Trainer.cpp)
+add_library (${NESSUS_LIB}
+    ${NESSUS_SOURCE_DIR}/functions/HeavisideFunction.cpp
+    ${NESSUS_SOURCE_DIR}/functions/SigmoidFunction.cpp
+    ${NESSUS_SOURCE_DIR}/model/Architecture.cpp
+    ${NESSUS_SOURCE_DIR}/model/Layer.cpp
+    ${NESSUS_SOURCE_DIR}/model/Net.cpp
+    ${NESSUS_SOURCE_DIR}/model/Neuron.cpp
+    ${NESSUS_SOURCE_DIR}/model/Output.cpp
+    ${NESSUS_SOURCE_DIR}/model/Vector.cpp
+    ${NESSUS_SOURCE_DIR}/nets/BDN/BDN.cpp
+    ${NESSUS_SOURCE_DIR}/nets/BDN/BDNTrainer.cpp
+    ${NESSUS_SOURCE_DIR}/nets/BDN/LogicalArchitecture.cpp
+    ${NESSUS_SOURCE_DIR}/nets/BDN/realisations/ORnet.cpp
+    ${NESSUS_SOURCE_DIR}/trainer/Trainer.cpp)
 
 ################################################
 # GTest - http://code.google.com/p/googletest/ #
@@ -56,6 +57,7 @@ IF(("FAST" STREQUAL TESTING) OR ("ALL" STREQUAL TESTING))
 
     include_directories(
         ${Boost_INCLUDE_DIRS}
+        ${NESSUS_MOCK_DIR}
     )
 
     ################################################
@@ -69,7 +71,7 @@ IF(("FAST" STREQUAL TESTING) OR ("ALL" STREQUAL TESTING))
 
       if(NOT CMAKE_COMPILER_IS_GNUCXX)
         message("-- Compiler not GNU, cannot create coverage report.")
-      else()      
+      else()
         FIND_PROGRAM(PYTHON_EXECUTABLE
           NAMES python python3
           PATHS /usr/bin /usr/local/bin /usr/pkg/bin
@@ -91,57 +93,57 @@ IF(("FAST" STREQUAL TESTING) OR ("ALL" STREQUAL TESTING))
     # TODO: replace this with a macro
 
     add_executable(FunctionTests 
-        ${NNSIM_TEST_DIR}/functions/HeavisideFunctionTest.cpp
-        ${NNSIM_TEST_DIR}/functions/SigmoidFunctionTest.cpp) 
+        ${NESSUS_TEST_DIR}/functions/HeavisideFunctionTest.cpp
+        ${NESSUS_TEST_DIR}/functions/SigmoidFunctionTest.cpp) 
     target_link_libraries(FunctionTests
-        ${NNSIM_LIB}
+        ${NESSUS_LIB}
         ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY}) 
     add_test(FunctionTests FunctionTests)
 
     add_executable(ModelTests 
-        ${NNSIM_TEST_DIR}/model/exceptions/EmptyVectorExceptionTest.cpp
-        ${NNSIM_TEST_DIR}/model/exceptions/IncorrectInputExceptionTest.cpp
-        ${NNSIM_TEST_DIR}/model/exceptions/LayerNotSetExceptionTest.cpp
-        ${NNSIM_TEST_DIR}/model/ArchitectureTest.cpp
-        ${NNSIM_TEST_DIR}/model/InputTest.cpp
-        ${NNSIM_TEST_DIR}/model/LayerTest.cpp
-        ${NNSIM_TEST_DIR}/model/NetTest.cpp
-        ${NNSIM_TEST_DIR}/model/NeuronTest.cpp
-        ${NNSIM_TEST_DIR}/model/OutputTest.cpp
-        ${NNSIM_TEST_DIR}/model/VectorTest.cpp
-        ${NNSIM_TEST_DIR}/model/WeightsTest.cpp) 
+        ${NESSUS_TEST_DIR}/model/exceptions/EmptyVectorExceptionTest.cpp
+        ${NESSUS_TEST_DIR}/model/exceptions/IncorrectInputExceptionTest.cpp
+        ${NESSUS_TEST_DIR}/model/exceptions/LayerNotSetExceptionTest.cpp
+        ${NESSUS_TEST_DIR}/model/ArchitectureTest.cpp
+        ${NESSUS_TEST_DIR}/model/InputTest.cpp
+        ${NESSUS_TEST_DIR}/model/LayerTest.cpp
+        ${NESSUS_TEST_DIR}/model/NetTest.cpp
+        ${NESSUS_TEST_DIR}/model/NeuronTest.cpp
+        ${NESSUS_TEST_DIR}/model/OutputTest.cpp
+        ${NESSUS_TEST_DIR}/model/VectorTest.cpp
+        ${NESSUS_TEST_DIR}/model/WeightsTest.cpp) 
     target_link_libraries(ModelTests
-        ${NNSIM_LIB}
+        ${NESSUS_LIB}
         ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY}) 
     add_test(ModelTests ModelTests)
 
     add_executable(NetTests
-        ${NNSIM_TEST_DIR}/nets/NetFactoryTest.cpp 
-        ${NNSIM_TEST_DIR}/nets/NeuronFactoryTest.cpp 
-        ${NNSIM_TEST_DIR}/nets/BDN/BDNTest.cpp 
-        ${NNSIM_TEST_DIR}/nets/BDN/BDNTrainerTest.cpp 
-        ${NNSIM_TEST_DIR}/nets/BDN/LogicalArchitectureTest.cpp
-        ${NNSIM_TEST_DIR}/nets/BDN/realisations/ORnetTest.cpp)
+        ${NESSUS_TEST_DIR}/nets/NetFactoryTest.cpp 
+        ${NESSUS_TEST_DIR}/nets/NeuronFactoryTest.cpp 
+        ${NESSUS_TEST_DIR}/nets/BDN/BDNTest.cpp 
+        ${NESSUS_TEST_DIR}/nets/BDN/BDNTrainerTest.cpp 
+        ${NESSUS_TEST_DIR}/nets/BDN/LogicalArchitectureTest.cpp
+        ${NESSUS_TEST_DIR}/nets/BDN/realisations/ORnetTest.cpp)
     target_link_libraries(NetTests
-        ${NNSIM_LIB}
+        ${NESSUS_LIB}
         ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY})
     add_test(NetTests NetTests)
 
     add_executable(TrainerTests 
-        ${NNSIM_TEST_DIR}/trainer/TrainerTest.cpp)
+        ${NESSUS_TEST_DIR}/trainer/TrainerTest.cpp)
     target_link_libraries(TrainerTests
-        ${NNSIM_LIB}
+        ${NESSUS_LIB}
         ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY}) 
     add_test(TrainerTests TrainerTests)
 
     add_executable(UtilTests 
-        ${NNSIM_TEST_DIR}/util/FactoryTest.cpp
-        ${NNSIM_TEST_DIR}/util/exceptions/ExceptionTest.cpp
-        ${NNSIM_TEST_DIR}/util/exceptions/IllegalArgumentExceptionTest.cpp
-        ${NNSIM_TEST_DIR}/util/exceptions/OutOfBoundsExceptionTest.cpp
-        ${NNSIM_TEST_DIR}/util/exceptions/UnsupportedConfigurationExceptionTest.cpp) 
+        ${NESSUS_TEST_DIR}/util/FactoryTest.cpp
+        ${NESSUS_TEST_DIR}/util/exceptions/ExceptionTest.cpp
+        ${NESSUS_TEST_DIR}/util/exceptions/IllegalArgumentExceptionTest.cpp
+        ${NESSUS_TEST_DIR}/util/exceptions/OutOfBoundsExceptionTest.cpp
+        ${NESSUS_TEST_DIR}/util/exceptions/UnsupportedConfigurationExceptionTest.cpp) 
     target_link_libraries(UtilTests
-        ${NNSIM_LIB}
+        ${NESSUS_LIB}
         ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY}) 
     add_test(UtilTests UtilTests)
 
@@ -152,16 +154,16 @@ IF("ALL" STREQUAL TESTING)
     message("-- Integration testing is enabled.")
 
     add_executable(IntegrationTests
-        ${NNSIM_TEST_DIR}/integration/IntegrationTests.cpp
+        ${NESSUS_TEST_DIR}/integration/IntegrationTests.cpp
     ) 
     target_link_libraries(IntegrationTests
-        ${NNSIM_LIB}
+        ${NESSUS_LIB}
         ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY})
     add_test(IntegrationTests IntegrationTests)
 
 ENDIF()
     
-add_executable (${NNSIM_NAME}
-	${NNSIM_SOURCE_DIR}/main.cpp)
-target_link_libraries(${NNSIM_NAME}
-	${NNSIM_LIB})
+add_executable (${NESSUS_NAME}
+	${NESSUS_SOURCE_DIR}/main.cpp)
+target_link_libraries(${NESSUS_NAME}
+	${NESSUS_LIB})

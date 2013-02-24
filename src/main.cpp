@@ -9,8 +9,8 @@
 #include <iostream>
 #include <stdio.h>
 
-#include "nn-simulator/main/nets/NetFactory.h"
-#include "nn-simulator/main/nets/BDN/realisations/ORnet.h"
+#include "nessus/nets/NetFactory.h"
+#include "nessus/nets/BDN/realisations/ORnet.h"
 
 using namespace std;
 

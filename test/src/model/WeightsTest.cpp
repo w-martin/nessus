@@ -6,7 +6,7 @@
  */
 
 #include <boost/test/unit_test.hpp>
-#include "nn-simulator/main/model/Weights.h"
+#include "nessus/model/Weights.h"
 
 struct WeightsTest {
 

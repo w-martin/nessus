@@ -6,7 +6,7 @@
  */
 
 #include <boost/test/unit_test.hpp>
-#include "nn-simulator/main/model/exceptions/IncorrectInputException.h"
+#include "nessus/model/exceptions/IncorrectInputException.h"
 
 #define message "test message"
 
