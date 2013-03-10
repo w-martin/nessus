@@ -1,4 +1,4 @@
-/* 
+/*
  * File:   Trainer.h
  * Author: Will
  *
@@ -16,18 +16,18 @@ Trainer::~Trainer() {
 }
 
 void Trainer::initWeights(Neuron const * const n) const {
-    setRandomWeights(n);
+  setRandomWeights(n);
 }
 
 void Trainer::setRandomWeights(Neuron const * const n) const {
-    Weights *w = n->getWeights();
-    srand((unsigned) time(NULL));
-    float limit = (float) RAND_MAX;
-    for (int i = 0; i < w->getSize(); i++) {
-        float multiplier = (float) rand() / limit;
-        if (multiplier < 0) multiplier = multiplier * -1;
-        multiplier = multiplier / 2;
+  Weights *w = n->getWeights();
+  srand((unsigned) time(NULL));
+  float limit = (float) RAND_MAX;
+  for (int i = 0; i < w->getSize(); i++) {
+    float multiplier = (float) rand() / limit;
+    if (multiplier < 0) multiplier = multiplier * -1;
+    multiplier = multiplier / 2;
 
-        w->setValue(i, multiplier);
-    }
+    w->setValue(i, multiplier);
+  }
 }

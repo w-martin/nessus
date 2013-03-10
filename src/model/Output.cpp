@@ -1,4 +1,4 @@
-/* 
+/*
  * File:   Output.cpp
  * Author: Will
  *
@@ -8,21 +8,21 @@
 #include "nessus/model/Output.h"
 
 Output::Output(float const value) {
-    Output::value = value;
+  Output::value = value;
 }
 
 Output::Output(const Output& orig) {
-    value = orig.getValue();
+  value = orig.getValue();
 }
 
 Output::~Output() {
 }
 
 Output &Output::operator=(const Output &other) {
-    value = other.getValue();
-    return *this;
+  value = other.getValue();
+  return *this;
 }
 
 float const Output::getValue() const {
-    return value;
+  return value;
 }

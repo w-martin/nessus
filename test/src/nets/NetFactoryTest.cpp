@@ -1,7 +1,7 @@
-/* 
+/*
  * File:   NetFactoryTest.cpp
  * Author: will
- * 
+ *
  * Created on July 16, 2011, 11:17 AM
  */
 
@@ -27,7 +27,7 @@ struct NetFactoryTest {
 };
 
 auto_ptr<Net> createInstance(const char * const netType,
-        const int &size)
+                             const int &size)
 throw (UnsupportedConfigurationException) {
   return Factory<Net, const char *>::createInstance(netType, size);
 }
@@ -41,7 +41,7 @@ BOOST_FIXTURE_TEST_SUITE(NetFactoryTests, NetFactoryTest)
  */
 BOOST_AUTO_TEST_CASE(CreateInstanceTest) {
   BOOST_CHECK_THROW(createInstance(TEST_NET_TYPE, size),
-          UnsupportedConfigurationException);
+                    UnsupportedConfigurationException);
 
   auto_ptr<Net> net = createInstance(NET_TYPE_ORNET, size);
   BOOST_CHECK(net.get());

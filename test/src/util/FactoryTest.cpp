@@ -1,7 +1,7 @@
-/* 
+/*
  * File:   FactoryTest.cpp
  * Author: will
- * 
+ *
  * Created on July 14, 2011, 10:24 PM
  */
 
@@ -38,9 +38,9 @@ BOOST_FIXTURE_TEST_SUITE(FactoryTests, FactoryTest)
  */
 BOOST_AUTO_TEST_CASE(CreateInstanceTest) {
   BOOST_CHECK_THROW(createInstance(),
-          UnsupportedConfigurationException);
+                    UnsupportedConfigurationException);
   BOOST_CHECK_THROW(createInstanceSize(),
-          UnsupportedConfigurationException);
+                    UnsupportedConfigurationException);
 }
 
 BOOST_AUTO_TEST_SUITE_END()

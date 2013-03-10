@@ -1,7 +1,7 @@
-/* 
+/*
  * File:   LogicalArchitectureTest.cpp
  * Author: will
- * 
+ *
  * Created on July 12, 2011, 11:15 PM
  */
 
@@ -33,11 +33,11 @@ BOOST_FIXTURE_TEST_SUITE(LogicalArchitectureTests, LogicalArchitectureTest)
 BOOST_AUTO_TEST_CASE(ConstructorTest) {
   BOOST_CHECK_EQUAL(0, logicalArchitecture->getMaxLayers());
   HeavisideFunction *function =
-          (HeavisideFunction*) logicalArchitecture->getFunction();
+    (HeavisideFunction*) logicalArchitecture->getFunction();
   BDNTrainer *trainer =
-          (BDNTrainer*) logicalArchitecture->getTrainer();
+    (BDNTrainer*) logicalArchitecture->getTrainer();
   BOOST_CHECK_EQUAL(0,
-          strcmp(NEURON_TYPE_BDN, logicalArchitecture->getNeuronType()));
+                    strcmp(NEURON_TYPE_BDN, logicalArchitecture->getNeuronType()));
 }
 
 BOOST_AUTO_TEST_SUITE_END()

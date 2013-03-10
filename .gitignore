@@ -19,3 +19,5 @@ nbproject/
 *.pyc
 .idea/
 *.iml
+*.orig
+*.kdev4

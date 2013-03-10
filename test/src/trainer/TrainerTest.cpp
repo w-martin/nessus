@@ -1,7 +1,7 @@
-/* 
+/*
  * File:   TrainerTest.cpp
  * Author: will
- * 
+ *
  * Created on 8th July 2011, 23:31
  */
 
@@ -29,7 +29,7 @@ BOOST_FIXTURE_TEST_SUITE(TrainerTests, TrainerTest)
 /*
  * Tests whether the getValue method returns the correct
  * value.
- * 
+ *
  */
 BOOST_AUTO_TEST_CASE(InitWeightsTest) {
   MockNeuron *neuronMock = new MockNeuron();

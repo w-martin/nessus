@@ -1,7 +1,7 @@
-/* 
+/*
  * File:   NeuronFactoryTest.cpp
  * Author: will
- * 
+ *
  * Created on July 16, 2011, 11:17 AM
  */
 
@@ -28,17 +28,17 @@ struct NeuronFactoryTest {
 };
 
 auto_ptr<Neuron> createNeuronInstance(const Architecture &architecture,
-        const int &size)
+                                      const int &size)
 throw (UnsupportedConfigurationException) {
   return Factory<Neuron, Architecture>::createInstance(architecture,
-          size);
+         size);
 }
 
 auto_ptr<BDN> createBDNInstance(const Architecture &architecture,
-        const int &size)
+                                const int &size)
 throw (UnsupportedConfigurationException) {
   return Factory<BDN, Architecture>::createInstance(architecture,
-          size);
+         size);
 }
 
 BOOST_FIXTURE_TEST_SUITE(NeuronFactoryTests, NeuronFactoryTest)
@@ -50,10 +50,10 @@ BOOST_FIXTURE_TEST_SUITE(NeuronFactoryTests, NeuronFactoryTest)
  */
 BOOST_AUTO_TEST_CASE(CreateNeuronInstanceTest) {
   BOOST_CHECK_THROW(createNeuronInstance(architectureMock, size),
-          UnsupportedConfigurationException);
+                    UnsupportedConfigurationException);
 
   auto_ptr<Neuron> neuron = createNeuronInstance(logicalArchitecture,
-          size);
+                            size);
   BOOST_CHECK(neuron.get());
   BOOST_CHECK_EQUAL(size, neuron->getWeights()->getSize());
   BOOST_CHECK_EQUAL(0, strcmp(NEURON_TYPE_BDN, neuron->getType()));
@@ -66,10 +66,10 @@ BOOST_AUTO_TEST_CASE(CreateNeuronInstanceTest) {
  */
 BOOST_AUTO_TEST_CASE(CreateBDNInstanceTest) {
   BOOST_CHECK_THROW(createBDNInstance(architectureMock, size),
-          UnsupportedConfigurationException);
+                    UnsupportedConfigurationException);
 
   auto_ptr<BDN> bdn = createBDNInstance(logicalArchitecture,
-          size);
+                                        size);
   BOOST_CHECK(bdn.get());
   BOOST_CHECK_EQUAL(size, bdn->getWeights()->getSize());
   BOOST_CHECK_EQUAL(0, strcmp(NEURON_TYPE_BDN, bdn->getType()));

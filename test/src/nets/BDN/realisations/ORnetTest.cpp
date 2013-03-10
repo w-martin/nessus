@@ -1,7 +1,7 @@
-/* 
+/*
  * File:   ORnetTest.cpp
  * Author: will
- * 
+ *
  * Created on July 14, 2011, 6:29 PM
  */
 
@@ -38,7 +38,7 @@ BOOST_AUTO_TEST_CASE(ConstructorTest) {
   BOOST_CHECK_EQUAL(1, net->getNoLayers());
   BOOST_CHECK_EQUAL(0, strcmp(NET_TYPE_ORNET, net->getNetType()));
   LogicalArchitecture *la = (LogicalArchitecture*)
-          net->getArchitecture();
+                            net->getArchitecture();
   Layer *l = net->getLayer(0);
   BDN *bdn = (BDN*) l->getNeuron(0);
 }

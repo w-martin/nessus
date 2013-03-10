@@ -94,7 +94,7 @@ BOOST_AUTO_TEST_CASE(CalculateActivationTest) {
   //  EXPECT_CALL((*outputFunctionMock), function(_))
   //          .WillOnce(Return(outputMock));
   BOOST_CHECK_EQUAL(outputMock.getValue(),
-          bdn->processInput(inputMock).getValue());
+                    bdn->processInput(inputMock).getValue());
 }
 
 BOOST_AUTO_TEST_SUITE_END()

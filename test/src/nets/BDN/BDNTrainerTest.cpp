@@ -1,7 +1,7 @@
-/* 
+/*
  * File:   BDNTrainerTest.cpp
  * Author: will
- * 
+ *
  * Created on July 14, 2011, 8:21 PM
  */
 

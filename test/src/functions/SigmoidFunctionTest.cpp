@@ -1,7 +1,7 @@
-/* 
+/*
  * File:   SigmoidFunctionTest.cpp
  * Author: Will
- * 
+ *
  * Created on June 29, 2011, 11:38 PM
  */
 
@@ -25,7 +25,7 @@ BOOST_FIXTURE_TEST_SUITE(SigmoidFunctionTests, SigmoidFunctionTest)
 
 /**
  * Tests whether the function method works correctly.
- * 
+ *
  */
 BOOST_AUTO_TEST_CASE(TestFunction) {
   float value;
@@ -39,7 +39,7 @@ BOOST_AUTO_TEST_CASE(TestFunction) {
 
 /**
  * Tests whether the derivative method works correctly.
- * 
+ *
  */
 BOOST_AUTO_TEST_CASE(TestDerivative) {
   float value;

@@ -1,7 +1,7 @@
-/* 
+/*
  * File:   HeavisideFunctionTest.cpp
  * Author: Will
- * 
+ *
  * Created on 29 June 2011, 23:20
  */
 
@@ -28,7 +28,7 @@ BOOST_FIXTURE_TEST_SUITE(HeavisideFunctionTests, HeavisideFunctionTest)
 
 /**
  * Tests whether the function method works correctly.
- * 
+ *
  */
 BOOST_AUTO_TEST_CASE(TestFunction) {
   BOOST_CHECK_EQUAL(0.0f, heavisideFunction->function(-1).getValue());

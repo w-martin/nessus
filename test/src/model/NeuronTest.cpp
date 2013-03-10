@@ -1,7 +1,7 @@
-/* 
+/*
  * File:   NeuronTest.cpp
  * Author: will
- * 
+ *
  * Created on July 2, 2011, 10:04 AM
  */
 
@@ -34,19 +34,19 @@ BOOST_FIXTURE_TEST_SUITE(NeuronTests, NeuronTest)
 /*
  * Tests whether the constructor throws an exception given
  * a null input.
- * 
+ *
  */
 BOOST_AUTO_TEST_CASE(ConstructorExceptionTest) {
   BOOST_CHECK_THROW(new Neuron(0, outputFunctionMock, NEURON_TYPE_TEST),
-          IllegalArgumentException);
+                    IllegalArgumentException);
 
   BOOST_CHECK_THROW(new Neuron(size, NULL, NEURON_TYPE_TEST),
-          IllegalArgumentException);
+                    IllegalArgumentException);
 }
 
 /*
  * Tests whether the getWeights method returns the weights correctly.
- * 
+ *
  */
 BOOST_AUTO_TEST_CASE(GetWeightsTest) {
   BOOST_CHECK_EQUAL(size, neuron->getWeights()->getSize());
@@ -54,7 +54,7 @@ BOOST_AUTO_TEST_CASE(GetWeightsTest) {
 
 /*
  * Tests whether the getType method returns the type correctly.
- * 
+ *
  */
 BOOST_AUTO_TEST_CASE(GetTypeTest) {
   BOOST_CHECK_EQUAL(NEURON_TYPE_TEST, neuron->getType());
@@ -62,7 +62,7 @@ BOOST_AUTO_TEST_CASE(GetTypeTest) {
 
 /*
  * Tests whether the input is processed correctly.
- * 
+ *
  */
 BOOST_AUTO_TEST_CASE(ProcessInputTest) {
   //    EXPECT_CALL((*outputFunctionMock), function(1))
@@ -74,7 +74,7 @@ BOOST_AUTO_TEST_CASE(ProcessInputTest) {
 
 /*
  * Tests whether the expected output getter and setter work correctly.
- * 
+ *
  */
 BOOST_AUTO_TEST_CASE(ExpectedOutputTest) {
   BOOST_CHECK_EQUAL((void*) NULL, neuron->getExpectedOutput());
@@ -88,7 +88,7 @@ BOOST_AUTO_TEST_CASE(ExpectedOutputTest) {
 /*
  * Tests whether the getOutputFunction method returns the output function
  * correctly.
- * 
+ *
  */
 BOOST_AUTO_TEST_CASE(GetOutputFunctionTest) {
   BOOST_CHECK_EQUAL(outputFunctionMock, neuron->getOutputFunction());

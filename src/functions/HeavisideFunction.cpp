@@ -1,7 +1,7 @@
-/* 
+/*
  * File:   HeavisideFunction.cpp
  * Author: Will
- * 
+ *
  * Created on 07 June 2011, 14:08
  */
 
@@ -14,9 +14,9 @@ HeavisideFunction::~HeavisideFunction() {
 }
 
 Output HeavisideFunction::function(
-        float const activation) const {
-    if (activation > 0)
-        return Output(1);
-    else
-        return Output(0);
+  float const activation) const {
+  if (activation > 0)
+    return Output(1);
+  else
+    return Output(0);
 }

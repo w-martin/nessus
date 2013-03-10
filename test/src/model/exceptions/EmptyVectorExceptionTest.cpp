@@ -1,7 +1,7 @@
-/* 
+/*
  * File:   EmptyVectorExceptionTest.cpp
  * Author: will
- * 
+ *
  * Created on July 2, 2011, 12:55 AM
  */
 
@@ -26,7 +26,7 @@ BOOST_FIXTURE_TEST_SUITE(EmptyVectorExceptionTests, EmptyVectorExceptionTest)
 
 /*
  * Tests whether the <code>Exception</code>'s message was set correctly.
- * 
+ *
  */
 BOOST_AUTO_TEST_CASE(MessageTest) {
   BOOST_CHECK_EQUAL(message, testException->what());
@@ -34,7 +34,7 @@ BOOST_AUTO_TEST_CASE(MessageTest) {
 
 /*
  * Tests whether the default message is set correctly.
- * 
+ *
  */
 BOOST_AUTO_TEST_CASE(DefaultMessageTest) {
   delete testException;
