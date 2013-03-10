@@ -1,4 +1,4 @@
-/* 
+/*
  * File:   UnsupportedConfigurationException.h
  * Author: will
  *
@@ -15,13 +15,13 @@
 class UnsupportedConfigurationException : public Exception {
 public:
 
-    UnsupportedConfigurationException()
+  UnsupportedConfigurationException()
     : Exception(UNSUPPORT_CONFIGURATION_MESSAGE) {
-    }
+  }
 
-    UnsupportedConfigurationException(const char * const message) :
+  UnsupportedConfigurationException(const char * const message) :
     Exception(message) {
-    }
+  }
 };
 
 #endif	/* UNSUPPORTEDCONFIGURATIONEXCEPTION_H */

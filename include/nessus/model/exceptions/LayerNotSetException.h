@@ -1,4 +1,4 @@
-/* 
+/*
  * File:   LayerNotSetException.h
  * Author: will
  *
@@ -15,17 +15,17 @@
 /**
  * Exception which indicates that a layer was not set when it
  * should have been.
- * 
+ *
  */
 class LayerNotSetException : public Exception {
 public:
 
-    LayerNotSetException() : Exception(LAYER_NOT_SET_MESSAGE) {
-    }
+  LayerNotSetException() : Exception(LAYER_NOT_SET_MESSAGE) {
+  }
 
-    LayerNotSetException(const char * const message) 
+  LayerNotSetException(const char * const message)
     : Exception(message) {
-    }
+  }
 
 };
 

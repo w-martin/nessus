@@ -1,3 +1,3 @@
 #!/bin/sh
-find ../ -regex '.*\.\(cpp\|hpp\)$' -exec ./format.sh {} \;
+find ../ -regex '.*\.\(cpp\|h\)$' -exec ./format.sh {} \;
 

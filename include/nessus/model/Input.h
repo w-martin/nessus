@@ -1,4 +1,4 @@
-/* 
+/*
  * File:   Input.h
  * Author: Will
  *
@@ -13,29 +13,29 @@
 
 /**
  * Input object for neurons.
- * 
+ *
  */
 class Input : public Vector {
 public:
 
-    Input(int const noInputs)
-    throw (EmptyVectorException) : Vector(noInputs) {
-    }
+  Input(int const noInputs)
+  throw (EmptyVectorException) : Vector(noInputs) {
+  }
 
-    Input(const Input &orig)
-    throw (EmptyVectorException) : Vector(orig) {
-    }
+  Input(const Input &orig)
+  throw (EmptyVectorException) : Vector(orig) {
+  }
 
-    virtual ~Input() {
-    }
+  virtual ~Input() {
+  }
 
-    Input &operator=(const Input &other) {
-        Input(other.getSize());
-        for (int i = 0; i < other.getSize(); i++) {
-            setValue(i, other.getValue(i));
-        }
-        return *this;
+  Input &operator=(const Input &other) {
+    Input(other.getSize());
+    for (int i = 0; i < other.getSize(); i++) {
+      setValue(i, other.getValue(i));
     }
+    return *this;
+  }
 };
 
 #endif	/* INPUT_H */

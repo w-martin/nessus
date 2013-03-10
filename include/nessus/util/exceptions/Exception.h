@@ -1,4 +1,4 @@
-/* 
+/*
  * File:   Exception.h
  * Author: will
  *
@@ -12,31 +12,31 @@
 
 /**
  * Custom <code>Exception</code> class.
- * 
+ *
  * @param message the message that will be printed as the cause for this
  * <code>Exception</code>.
- * 
+ *
  */
 class Exception : public std::exception {
 public:
 
-    Exception(const char *message) {
-        Exception::message = message;
-    }
+  Exception(const char *message) {
+    Exception::message = message;
+  }
 
-    virtual ~Exception() throw () {
-    }
+  virtual ~Exception() throw () {
+  }
 
-    virtual const char * what() const throw () {
-        return message;
-    }
+  virtual const char * what() const throw () {
+    return message;
+  }
 private:
-    /**
-     * The string which is the reason why this <code>Exception</code> was
-     * thrown.
-     * 
-     */
-    const char *message;
+  /**
+   * The string which is the reason why this <code>Exception</code> was
+   * thrown.
+   *
+   */
+  const char *message;
 };
 
 #endif	/* EXCEPTION_H */

@@ -1,4 +1,4 @@
-/* 
+/*
  * File:   EmptyVectorException.h
  * Author: will
  *
@@ -15,17 +15,17 @@
 /**
  * Exception which indicates that a vector either is
  * empty and was used.
- * 
+ *
  */
 class EmptyVectorException : public Exception {
 public:
 
-    EmptyVectorException() : Exception(EMPTY_VECTOR_MESSAGE) {
-    }
+  EmptyVectorException() : Exception(EMPTY_VECTOR_MESSAGE) {
+  }
 
-    EmptyVectorException(const char * const message) 
+  EmptyVectorException(const char * const message)
     : Exception(message) {
-    }
+  }
 
 };
 

@@ -1,4 +1,4 @@
-/* 
+/*
  * File:   Weights.h
  * Author: Will
  *
@@ -13,30 +13,30 @@
 
 /**
  * Weight Vector class for use with <code>Neuron</code>s.
- * 
+ *
  * @param noInputs the number of inputs the parent <code>Neuron</code>
  *  is expecting.
- * 
+ *
  */
 class Weights : public Vector {
 public:
 
-    Weights(int const noInputs) throw (EmptyVectorException) : Vector(noInputs) {
-    }
+  Weights(int const noInputs) throw (EmptyVectorException) : Vector(noInputs) {
+  }
 
-    Weights(const Weights &orig) throw (EmptyVectorException) : Vector(orig) {
-    }
+  Weights(const Weights &orig) throw (EmptyVectorException) : Vector(orig) {
+  }
 
-    virtual ~Weights() {
-    }
+  virtual ~Weights() {
+  }
 
-    Weights &operator=(Weights const &other) {
-        Weights(other.getSize());
-        for (int i = 0; i < other.getSize(); i++) {
-            setValue(i, other.getValue(i));
-        }
-        return *this;
+  Weights &operator=(Weights const &other) {
+    Weights(other.getSize());
+    for (int i = 0; i < other.getSize(); i++) {
+      setValue(i, other.getValue(i));
     }
+    return *this;
+  }
 };
 
 #endif	/* WEIGHTS_H */

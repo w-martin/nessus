@@ -1,4 +1,4 @@
-/* 
+/*
  * File:   LogicalArchitecture.h
  * Author: Will
  *
@@ -12,12 +12,12 @@
 
 /**
  * Architecture implementation which models logical functions.
- * 
+ *
  */
 class LogicalArchitecture : public Architecture {
 public:
-    LogicalArchitecture();
-    virtual ~LogicalArchitecture();
+  LogicalArchitecture();
+  virtual ~LogicalArchitecture();
 };
 
 #endif	/* LOGICALARCHITECTURE_H */

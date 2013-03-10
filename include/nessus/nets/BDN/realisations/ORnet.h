@@ -1,4 +1,4 @@
-/* 
+/*
  * File:   ORnet.h
  * Author: Will
  *
@@ -16,16 +16,16 @@
 
 class ORnet : public Net {
 public:
-    ORnet(int const noInputs);
-    virtual ~ORnet();
+  ORnet(int const noInputs);
+  virtual ~ORnet();
 protected:
-    virtual void createInputVectors();
-    virtual void createLayers();
-    virtual void createNeurons();
+  virtual void createInputVectors();
+  virtual void createLayers();
+  virtual void createNeurons();
 private:
-    int noInputs;
-    Input *expectedInput;
-    Input *necessaryInput;
+  int noInputs;
+  Input *expectedInput;
+  Input *necessaryInput;
 };
 
 #endif	/* ORNET_H */

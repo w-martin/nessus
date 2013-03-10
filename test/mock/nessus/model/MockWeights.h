@@ -1,7 +1,7 @@
-/* 
+/*
  * File:   MockWeights.cpp
  * Author: Will
- * 
+ *
  * Created on 02 July, 18:14
  */
 
@@ -9,6 +9,6 @@
 
 class MockWeights : public Weights {
 public:
-    MockWeights() : Weights(1) {
-    }
+  MockWeights() : Weights(1) {
+  }
 };

@@ -1,4 +1,4 @@
-/* 
+/*
  * File:   MockOutputFunction.h
  * Author: will
  *
@@ -13,15 +13,15 @@
 class MockOutputFunction : public OutputFunction {
 public:
 
-    MockOutputFunction() {
-    }
+  MockOutputFunction() {
+  }
 
-    virtual ~MockOutputFunction() {
-    }
+  virtual ~MockOutputFunction() {
+  }
 
-    Output function(float const activation) const {
-        return Output(0.0f);
-    }
+  Output function(float const activation) const {
+    return Output(0.0f);
+  }
 };
 
 #endif

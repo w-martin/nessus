@@ -1,7 +1,7 @@
-/* 
+/*
  * File:   MockNeuron.cpp
  * Author: Will
- * 
+ *
  * Created on 02 July, 18:12
  */
 
@@ -14,7 +14,7 @@
 class MockNeuron : public Neuron {
 public:
 
-    MockNeuron() : Neuron(1, new MockOutputFunction(),
-    NEURON_TYPE_MOCK) {
-    }
+  MockNeuron() : Neuron(1, new MockOutputFunction(),
+                          NEURON_TYPE_MOCK) {
+  }
 };

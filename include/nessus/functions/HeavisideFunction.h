@@ -1,4 +1,4 @@
-/* 
+/*
  * File:   HeavisideFunction.h
  * Author: Will
  *
@@ -14,13 +14,13 @@
  * Computes the <code>Output</code> of a neuron using the given
  * activation and threshold by applying the <code>Heaviside</code>
  * function.
- * 
+ *
  */
 class HeavisideFunction : public OutputFunction {
 public:
-    HeavisideFunction();
-    virtual ~HeavisideFunction();
-    virtual Output function(float const activation) const;
+  HeavisideFunction();
+  virtual ~HeavisideFunction();
+  virtual Output function(float const activation) const;
 private:
 };
 

@@ -1,4 +1,4 @@
-/* 
+/*
  * File:   IncorrectInputException.h
  * Author: Will
  *
@@ -15,19 +15,19 @@
 /**
  * Exception class which indicates that a <code>Net</code> was asked
  * to process an <code>Input</code> of the wrong size.
- * 
+ *
  */
 class IncorrectInputException : public Exception {
 public:
 
-    IncorrectInputException() : Exception(INCORRECT_INPUT_MESSAGE) {
+  IncorrectInputException() : Exception(INCORRECT_INPUT_MESSAGE) {
 
-    }
+  }
 
-    IncorrectInputException(const char * const message) 
+  IncorrectInputException(const char * const message)
     : Exception(message) {
 
-    }
+  }
 };
 
 #endif	/* INCORRECTINPUTEXCEPTION_H */

@@ -1,4 +1,4 @@
-/* 
+/*
  * File:   SigmoidFunction.h
  * Author: Will
  *
@@ -15,24 +15,24 @@
 /**
  * Computes the <code>Output</code> of a neuron using the given
  * activation by applying the <code>Sigmoid</code> function.
- * 
+ *
  */
 class SigmoidFunction : public OutputFunction {
 public:
-    SigmoidFunction();
-    virtual ~SigmoidFunction();
-    virtual Output function(float const activation) const;
-    /**
-     * Computes the <code>Output</code> from the <code>Sigmoid</code>
-     * derivative function, for use in the error back - propagation
-     * training process.
-     *
-     * @param activation the activation of the neuron.
-     * @return the <code>Output</code> from the <code>Sigmoid</code>
-     * derivative function.
-     *
-     */
-    Output derivative(float const activation) const;
+  SigmoidFunction();
+  virtual ~SigmoidFunction();
+  virtual Output function(float const activation) const;
+  /**
+   * Computes the <code>Output</code> from the <code>Sigmoid</code>
+   * derivative function, for use in the error back - propagation
+   * training process.
+   *
+   * @param activation the activation of the neuron.
+   * @return the <code>Output</code> from the <code>Sigmoid</code>
+   * derivative function.
+   *
+   */
+  Output derivative(float const activation) const;
 private:
 };
 

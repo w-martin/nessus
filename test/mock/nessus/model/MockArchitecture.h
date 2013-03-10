@@ -1,7 +1,7 @@
-/* 
+/*
  * File:   MockArchitecture.h
  * Author: Will
- * 
+ *
  * Created on 03 July, 09:56
  */
 
@@ -13,9 +13,9 @@
 class MockArchitecture : public Architecture {
 public:
 
-    MockArchitecture() : Architecture(2,
-    auto_ptr<OutputFunction>(new MockOutputFunction()),
-    auto_ptr<Trainer>(new Trainer()),
-    NEURON_TYPE_MOCK) {
-    }
+  MockArchitecture() : Architecture(2,
+                                      auto_ptr<OutputFunction>(new MockOutputFunction()),
+                                      auto_ptr<Trainer>(new Trainer()),
+                                      NEURON_TYPE_MOCK) {
+  }
 };

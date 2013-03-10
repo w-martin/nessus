@@ -1,4 +1,4 @@
-/* 
+/*
  * File:   IllegalArgumentException.h
  * Author: will
  *
@@ -13,19 +13,19 @@
 #include "nessus/util/exceptions/Exception.h"
 
 /**
- * Exception class which indicates that a method was called with 
+ * Exception class which indicates that a method was called with
  * one or more illegal arguments.
- * 
+ *
  */
 class IllegalArgumentException : public Exception {
 public:
 
-    IllegalArgumentException() : Exception(ILLEGAL_ARGUMENT_MESSAGE) {
-    }
+  IllegalArgumentException() : Exception(ILLEGAL_ARGUMENT_MESSAGE) {
+  }
 
-    IllegalArgumentException(const char * const message) 
+  IllegalArgumentException(const char * const message)
     : Exception(message) {
-    }
+  }
 };
 
 #endif	/* ILLEGALARGUMENTEXCEPTION_H */

@@ -1,4 +1,4 @@
-/* 
+/*
  * File:   OutOfBoundsException.h
  * Author: will
  *
@@ -15,17 +15,17 @@
 /**
  * Exception class which indicates that something attempted to access an
  * array outside of its bounds.
- * 
+ *
  */
 class OutOfBoundsException : public Exception {
 public:
 
-    OutOfBoundsException() : Exception(OUT_OF_BOUNDS_MESSAGE) {
-    }
+  OutOfBoundsException() : Exception(OUT_OF_BOUNDS_MESSAGE) {
+  }
 
-    OutOfBoundsException(const char * const message) 
+  OutOfBoundsException(const char * const message)
     : Exception(message) {
-    }
+  }
 };
 
 #endif	/* OUTOFBOUNDSEXCEPTION_H */

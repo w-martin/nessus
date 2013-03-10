@@ -1,7 +1,7 @@
-/* 
+/*
  * File:   MockBDN.h
  * Author: Will
- * 
+ *
  * Created on 14 July, 20:27
  */
 
@@ -11,6 +11,6 @@
 class MockBDN : public BDN {
 public:
 
-    MockBDN() : BDN(1, new MockOutputFunction()) {
-    }
+  MockBDN() : BDN(1, new MockOutputFunction()) {
+  }
 };

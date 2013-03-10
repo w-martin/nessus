@@ -1,4 +1,4 @@
-/* 
+/*
  * File:   MockOutput.h
  * Author: Will
  *
@@ -10,9 +10,9 @@
 class MockOutput : public Output {
 public:
 
-    MockOutput() : Output(0.0f) {
-    }
+  MockOutput() : Output(0.0f) {
+  }
 
-    MockOutput(const MockOutput &orig) : Output(0.0f) {
-    }
+  MockOutput(const MockOutput &orig) : Output(0.0f) {
+  }
 };
