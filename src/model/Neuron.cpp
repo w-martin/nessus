@@ -14,6 +14,7 @@ Neuron::Neuron(int const &size,
                OutputFunction const * const outputFunction,
                char const * const neuronType)
 throw (IllegalArgumentException) {
+    
   if (0 == size)
     throw IllegalArgumentException("Error. Cannot create empty neuron.");
   if (NULL == outputFunction)
@@ -55,11 +56,11 @@ Output const * const Neuron::getExpectedOutput() const {
     return NULL;
 }
 
-void Neuron::setExpectedOutput(auto_ptr<Output> expectedOutput)
+void Neuron::setExpectedOutput(unique_ptr<Output> expectedOutput)
 throw (IllegalArgumentException) {
   if (!expectedOutput.get())
     throw IllegalArgumentException();
-  Neuron::expectedOutput = expectedOutput;
+  Neuron::expectedOutput = std::move(expectedOutput);
 }
 
 Weights * const Neuron::getWeights() const {

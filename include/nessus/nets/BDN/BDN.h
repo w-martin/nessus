@@ -12,7 +12,7 @@
 #include "nessus/model/Neuron.h"
 #include <memory>
 
-using std::auto_ptr;
+using std::unique_ptr;
 
 /**
  * Binary decision neuron class.
@@ -49,7 +49,7 @@ public:
    * @param input the expected <code>Input</code> for this <code>BDN</code>.
    *
    */
-  void setExpectedInput(auto_ptr<Input> input);
+  void setExpectedInput(unique_ptr<Input> input);
   /**
    * Gets the expected <code>Input</code> for this <code>BDN</code>.
    *
@@ -66,7 +66,7 @@ public:
    * <code>BDN</code>.
    *
    */
-  void setNecessaryInput(auto_ptr<Input> input);
+  void setNecessaryInput(unique_ptr<Input> input);
   /**
    * Gets input the necessary <code>Input</code> for this
    * <code>BDN</code>.
@@ -82,8 +82,8 @@ protected:
   Output const calculateActivation(Input const &input) const;
 private:
   float threshold;
-  auto_ptr<Input> expectedInput;
-  auto_ptr<Input> necessaryInput;
+  unique_ptr<Input> expectedInput;
+  unique_ptr<Input> necessaryInput;
 };
 
 #endif	/* BDN_H */

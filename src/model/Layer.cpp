@@ -12,9 +12,9 @@
 Layer::Layer(int const noNeurons, bool const adaptiveWeights) {
   size = noNeurons;
   Layer::adaptiveWeights = adaptiveWeights;
-  neurons = new auto_ptr<Neuron>[size];
+  neurons = new unique_ptr<Neuron>[size];
   for (int i = 0; i < noNeurons; i++) {
-    neurons[i] = auto_ptr<Neuron > ();
+    neurons[i] = unique_ptr<Neuron > ();
   }
 }
 
@@ -25,8 +25,8 @@ int const Layer::getSize() const {
   return size;
 }
 
-void Layer::setNeuron(int const position, auto_ptr<Neuron> neuron) {
-  neurons[position] = neuron;
+void Layer::setNeuron(int const position, unique_ptr<Neuron> neuron) {
+  neurons[position] = std::move(neuron);
 }
 
 Neuron * const Layer::getNeuron(int const position) const {

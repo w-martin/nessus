@@ -12,8 +12,8 @@
 
 LogicalArchitecture::LogicalArchitecture() : Architecture(
     0,
-    auto_ptr<OutputFunction> (new HeavisideFunction()),
-    auto_ptr<Trainer>(new BDNTrainer()),
+    unique_ptr<OutputFunction> (new HeavisideFunction()),
+    unique_ptr<Trainer>(new BDNTrainer()),
     NEURON_TYPE_BDN
   ) {
 }

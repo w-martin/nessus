@@ -28,11 +28,11 @@ public:
    * @throw UnsupportedConfigurationException if the neuron is unknown.
    *
    */
-  static auto_ptr<Neuron> createInstance(const Architecture &architecture,
+  static unique_ptr<Neuron> createInstance(const Architecture &architecture,
                                          const int &size)
   throw (UnsupportedConfigurationException) {
     if (0 == strcmp(NEURON_TYPE_BDN, architecture.getNeuronType())) {
-      return auto_ptr<Neuron > (new BDN(size,
+      return unique_ptr<Neuron > (new BDN(size,
                                         architecture.getFunction()));
     }
     throw UnsupportedConfigurationException("Error. Unknown neuron.");
@@ -54,11 +54,11 @@ public:
    * @throw UnsupportedConfigurationException if the neuron is unknown.
    *
    */
-  static auto_ptr<BDN> createInstance(const Architecture &architecture,
+  static unique_ptr<BDN> createInstance(const Architecture &architecture,
                                       const int &size)
   throw (UnsupportedConfigurationException) {
     if (0 == strcmp(NEURON_TYPE_BDN, architecture.getNeuronType())) {
-      return auto_ptr<BDN > (new BDN(size,
+      return unique_ptr<BDN > (new BDN(size,
                                      architecture.getFunction()));
     }
     throw UnsupportedConfigurationException(

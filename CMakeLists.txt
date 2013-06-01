@@ -1,6 +1,8 @@
 # CMake build script for Nessus.
 
 cmake_minimum_required (VERSION 2.6)
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnuc++11")
+message("-- C++ flags: ${CMAKE_CXX_FLAGS}")
 
 ########
 # Main #

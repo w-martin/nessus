@@ -38,16 +38,16 @@ Output const BDN::calculateActivation(Input const &input) const {
   return output;
 }
 
-void BDN::setExpectedInput(auto_ptr<Input> input) {
-  expectedInput = input;
+void BDN::setExpectedInput(unique_ptr<Input> input) {
+  expectedInput = std::move(input);
 }
 
 Input const * const BDN::getExpectedInput() const {
   return expectedInput.get();
 }
 
-void BDN::setNecessaryInput(auto_ptr<Input> input) {
-  necessaryInput = input;
+void BDN::setNecessaryInput(unique_ptr<Input> input) {
+  necessaryInput = std::move(input);
 }
 
 Input const * const BDN::getNecessaryInput() const {

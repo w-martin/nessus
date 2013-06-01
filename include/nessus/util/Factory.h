@@ -11,7 +11,7 @@
 #include "nessus/util/exceptions/UnsupportedConfigurationException.h"
 #include <memory>
 
-using std::auto_ptr;
+using std::unique_ptr;
 
 /**
  * Factory interface which creates instances of class T given a
@@ -27,13 +27,13 @@ public:
    *
    * @param C the object which will be used during the construction of
    * an object of class T.
-   * @return auto_ptr<T> auto pointer to the created object, to transfer
+   * @return unique_ptr<T> auto pointer to the created object, to transfer
    * ownership to the caller.
    * @throw UnsupportedConfigurationException if the configuration of T with
    * construction object C is not supported by any implementation.
    *
    */
-  static auto_ptr<T> createInstance(const C &constructionObject)
+  static unique_ptr<T> createInstance(const C &constructionObject)
   throw (UnsupportedConfigurationException) {
     throw UnsupportedConfigurationException();
   }
@@ -50,7 +50,7 @@ public:
    * construction object C is not supported by any implementation.
    *
    */
-  static auto_ptr<T> createInstance(const C &constructionObject,
+  static unique_ptr<T> createInstance(const C &constructionObject,
                                     const int &size)
   throw (UnsupportedConfigurationException) {
     throw UnsupportedConfigurationException();

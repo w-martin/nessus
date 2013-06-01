@@ -49,7 +49,7 @@ BOOST_AUTO_TEST_CASE(GetSizeTest) {
 BOOST_AUTO_TEST_CASE(NeuronTest) {
   BOOST_CHECK_EQUAL((void*) NULL, layer->getNeuron(0));
 
-  auto_ptr<Neuron> neuronPointer(neuronMock);
+  unique_ptr<Neuron> neuronPointer(neuronMock);
   layer->setNeuron(0, neuronPointer);
   BOOST_CHECK_EQUAL(neuronMock, layer->getNeuron(0));
 }
@@ -72,7 +72,7 @@ BOOST_AUTO_TEST_CASE(ProcessLayerTest) {
   //    EXPECT_CALL((*neuronMock), processInput(_))
   //            .WillOnce(Return((*outputMock)));
 
-  auto_ptr<Neuron> neuronPointer(neuronMock);
+  unique_ptr<Neuron> neuronPointer(neuronMock);
   layer->setNeuron(0, neuronPointer);
   Input processedInput = layer->processInput(input);
   BOOST_CHECK_EQUAL(MockOutput().getValue(), processedInput.getValue(0));

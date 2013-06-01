@@ -27,14 +27,14 @@ struct NeuronFactoryTest {
   LogicalArchitecture logicalArchitecture;
 };
 
-auto_ptr<Neuron> createNeuronInstance(const Architecture &architecture,
+unique_ptr<Neuron> createNeuronInstance(const Architecture &architecture,
                                       const int &size)
 throw (UnsupportedConfigurationException) {
   return Factory<Neuron, Architecture>::createInstance(architecture,
          size);
 }
 
-auto_ptr<BDN> createBDNInstance(const Architecture &architecture,
+unique_ptr<BDN> createBDNInstance(const Architecture &architecture,
                                 const int &size)
 throw (UnsupportedConfigurationException) {
   return Factory<BDN, Architecture>::createInstance(architecture,
@@ -52,7 +52,7 @@ BOOST_AUTO_TEST_CASE(CreateNeuronInstanceTest) {
   BOOST_CHECK_THROW(createNeuronInstance(architectureMock, size),
                     UnsupportedConfigurationException);
 
-  auto_ptr<Neuron> neuron = createNeuronInstance(logicalArchitecture,
+  unique_ptr<Neuron> neuron = createNeuronInstance(logicalArchitecture,
                             size);
   BOOST_CHECK(neuron.get());
   BOOST_CHECK_EQUAL(size, neuron->getWeights()->getSize());
@@ -68,7 +68,7 @@ BOOST_AUTO_TEST_CASE(CreateBDNInstanceTest) {
   BOOST_CHECK_THROW(createBDNInstance(architectureMock, size),
                     UnsupportedConfigurationException);
 
-  auto_ptr<BDN> bdn = createBDNInstance(logicalArchitecture,
+  unique_ptr<BDN> bdn = createBDNInstance(logicalArchitecture,
                                         size);
   BOOST_CHECK(bdn.get());
   BOOST_CHECK_EQUAL(size, bdn->getWeights()->getSize());

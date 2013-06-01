@@ -19,8 +19,8 @@ struct ArchitectureTest {
     noLayers = 1;
     outputFunctionMock = new MockOutputFunction();
     trainer = new Trainer();
-    auto_ptr<OutputFunction> outputFunctionPointer(outputFunctionMock);
-    auto_ptr<Trainer> trainerPointer(trainer);
+    unique_ptr<OutputFunction> outputFunctionPointer(outputFunctionMock);
+    unique_ptr<Trainer> trainerPointer(trainer);
     architecture = new Architecture(noLayers, outputFunctionPointer,
                                     trainerPointer, NEURON_TYPE_TEST);
   }
@@ -42,16 +42,16 @@ BOOST_FIXTURE_TEST_SUITE(ArchitectureTests, ArchitectureTest)
  *
  */
 BOOST_AUTO_TEST_CASE(ConstructorExceptionTest) {
-  auto_ptr<OutputFunction> outputFunctionPointer(
+  unique_ptr<OutputFunction> outputFunctionPointer(
     new MockOutputFunction());
-  auto_ptr<Trainer> trainerPointer(new Trainer());
+  unique_ptr<Trainer> trainerPointer(new Trainer());
 
-  auto_ptr<OutputFunction> tmp1;
+  unique_ptr<OutputFunction> tmp1;
   BOOST_CHECK_THROW(new Architecture(0,
                                      tmp1, trainerPointer, NEURON_TYPE_TEST),
                     IllegalArgumentException);
 
-  auto_ptr<Trainer> tmp2;
+  unique_ptr<Trainer> tmp2;
   BOOST_CHECK_THROW(new Architecture(0,
                                      outputFunctionPointer, tmp2, NEURON_TYPE_TEST),
                     IllegalArgumentException);

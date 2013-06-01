@@ -11,7 +11,7 @@
 #include "Neuron.h"
 #include <memory>
 
-using std::auto_ptr;
+using std::unique_ptr;
 
 /**
  * Layer object constitutes of a number of <code>Neuron</code>s.
@@ -52,7 +52,7 @@ public:
    * @param neuron the <code>Neuron</code> to set.
    *
    */
-  void setNeuron(int const position, auto_ptr<Neuron> neuron);
+  void setNeuron(int const position, unique_ptr<Neuron> neuron);
   /**
    * Gets the <code>Neuron</code> at the given position.
    *
@@ -83,7 +83,7 @@ public:
   virtual Input const processInput(Input const &input) const;
 private:
   int size;
-  auto_ptr<Neuron> *neurons;
+  unique_ptr<Neuron> *neurons;
   bool adaptiveWeights;
 };
 

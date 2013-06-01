@@ -26,7 +26,7 @@ struct NetFactoryTest {
   int size;
 };
 
-auto_ptr<Net> createInstance(const char * const netType,
+unique_ptr<Net> createInstance(const char * const netType,
                              const int &size)
 throw (UnsupportedConfigurationException) {
   return Factory<Net, const char *>::createInstance(netType, size);
@@ -43,7 +43,7 @@ BOOST_AUTO_TEST_CASE(CreateInstanceTest) {
   BOOST_CHECK_THROW(createInstance(TEST_NET_TYPE, size),
                     UnsupportedConfigurationException);
 
-  auto_ptr<Net> net = createInstance(NET_TYPE_ORNET, size);
+  unique_ptr<Net> net = createInstance(NET_TYPE_ORNET, size);
   BOOST_CHECK(net.get());
   BOOST_CHECK_EQUAL(size, net->getNoInputs());
   BOOST_CHECK_EQUAL(0, strcmp(NET_TYPE_ORNET, net->getNetType()));

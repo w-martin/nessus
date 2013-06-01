@@ -66,7 +66,7 @@ BOOST_AUTO_TEST_CASE(ThresholdTest) {
  */
 BOOST_AUTO_TEST_CASE(ExpectedInputTest) {
   MockInput *inputMock = new MockInput();
-  bdn->setExpectedInput(auto_ptr<Input > (inputMock));
+  bdn->setExpectedInput(unique_ptr<Input > (inputMock));
   BOOST_CHECK_EQUAL(inputMock, bdn->getExpectedInput());
 }
 
@@ -77,7 +77,7 @@ BOOST_AUTO_TEST_CASE(ExpectedInputTest) {
  */
 BOOST_AUTO_TEST_CASE(NecessaryInputTest) {
   MockInput *inputMock = new MockInput();
-  bdn->setNecessaryInput(auto_ptr<Input > (inputMock));
+  bdn->setNecessaryInput(unique_ptr<Input > (inputMock));
   BOOST_CHECK_EQUAL(inputMock, bdn->getNecessaryInput());
 }
 

@@ -80,7 +80,7 @@ BOOST_AUTO_TEST_CASE(ExpectedOutputTest) {
   BOOST_CHECK_EQUAL((void*) NULL, neuron->getExpectedOutput());
 
   Output *outputMock = new MockOutput();
-  auto_ptr<Output> pOutput(outputMock);
+  unique_ptr<Output> pOutput(outputMock);
   neuron->setExpectedOutput(pOutput);
   BOOST_CHECK_EQUAL(outputMock, neuron->getExpectedOutput());
 }

@@ -29,11 +29,11 @@ public:
    * @throw UnsupportedConfigurationException if the net is unknown.
    *
    */
-  static auto_ptr<Net> createInstance(const char* netType,
+  static unique_ptr<Net> createInstance(const char* netType,
                                       const int &size)
   throw (UnsupportedConfigurationException) {
     if (0 == strcmp(NET_TYPE_ORNET, netType)) {
-      return auto_ptr<Net > (new ORnet(size));
+      return unique_ptr<Net > (new ORnet(size));
     }
     throw UnsupportedConfigurationException(ERROR_UNKNOWN_NET_MESSAGE);
   }

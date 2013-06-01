@@ -14,7 +14,7 @@
 using namespace std;
 
 ORnet::ORnet(int const noInputs) :
-  Net(auto_ptr<Architecture>(new LogicalArchitecture()), 1, noInputs,
+  Net(unique_ptr<Architecture>(new LogicalArchitecture()), 1, noInputs,
       NET_TYPE_ORNET) {
   ORnet::noInputs = noInputs;
   createInputVectors();
@@ -36,17 +36,17 @@ void ORnet::createInputVectors() {
 
 void ORnet::createLayers() {
   Layer *l = new Layer(1, false);
-  setLayer(0, auto_ptr<Layer > (l));
+  setLayer(0, unique_ptr<Layer > (l));
 }
 
 void ORnet::createNeurons() {
-  auto_ptr<BDN> n = Factory<BDN, Architecture>::
-                    createInstance((*getArchitecture()), getNoInputs());
-  n->setExpectedInput(auto_ptr<Input > (expectedInput));
-  n->setNecessaryInput(auto_ptr<Input > (necessaryInput));
+  unique_ptr<BDN> n = std::move(Factory<BDN, Architecture>::
+                    createInstance((*getArchitecture()), getNoInputs()));
+  n->setExpectedInput(unique_ptr<Input > (expectedInput));
+  n->setNecessaryInput(unique_ptr<Input > (necessaryInput));
   BDNTrainer *trainer = (BDNTrainer*) getArchitecture()->getTrainer();
   trainer->initWeights(n.get());
   trainer->setThreshold(n.get());
-  auto_ptr<Neuron> neuronPointer = auto_ptr<Neuron > (n);
+  unique_ptr<Neuron> neuronPointer = unique_ptr<Neuron > (n);
   getLayer(0)->setNeuron(0, neuronPointer);
 }

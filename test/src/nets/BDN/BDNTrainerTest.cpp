@@ -22,9 +22,9 @@ struct BDNTrainerTest {
     MockInput *expectedInput = new MockInput();
     MockInput *necessaryInput = new MockInput();
     MockOutput *expectedOutput = new MockOutput();
-    bdnMock->setExpectedInput(auto_ptr<Input > (expectedInput));
-    bdnMock->setNecessaryInput(auto_ptr<Input > (necessaryInput));
-    bdnMock->setExpectedOutput(auto_ptr<Output > (expectedOutput));
+    bdnMock->setExpectedInput(unique_ptr<Input > (expectedInput));
+    bdnMock->setNecessaryInput(unique_ptr<Input > (necessaryInput));
+    bdnMock->setExpectedOutput(unique_ptr<Output > (expectedOutput));
   }
 
   virtual ~BDNTrainerTest() {

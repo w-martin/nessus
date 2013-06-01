@@ -15,7 +15,7 @@
 #include <string.h>
 #include <memory>
 
-using std::auto_ptr;
+using std::unique_ptr;
 
 /**
  * Interface for neurons.
@@ -60,7 +60,7 @@ public:
    * for this <code>Neuron</code>.
    *
    */
-  void setExpectedOutput(auto_ptr<Output> newExpectedOutput)
+  void setExpectedOutput(unique_ptr<Output> newExpectedOutput)
   throw (IllegalArgumentException);
   /**
    * Gets the <code>Weights</code> for this <code>Neuron</code>.
@@ -92,7 +92,7 @@ protected:
   virtual Output const calculateActivation(Input const &input) const;
 private:
   Weights *weights;
-  auto_ptr<Output> expectedOutput;
+  unique_ptr<Output> expectedOutput;
   OutputFunction const *outputFunction;
   const char * neuronType;
   /**

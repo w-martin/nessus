@@ -21,7 +21,7 @@ struct NetTest {
     noLayers = 1;
     noInputs = 1;
     architectureMock = new MockArchitecture();
-    net = new Net(auto_ptr<Architecture > (architectureMock),
+    net = new Net(unique_ptr<Architecture > (architectureMock),
                   noLayers, noInputs, TEST_NET_TYPE);
   }
 
@@ -43,11 +43,11 @@ BOOST_FIXTURE_TEST_SUITE(NetTests, NetTest)
  */
 BOOST_AUTO_TEST_CASE(ConstructorExceptionTest) {
   BOOST_CHECK_THROW(
-    new Net(auto_ptr<Architecture > (NULL),
+    new Net(unique_ptr<Architecture > (NULL),
             noLayers, noInputs, TEST_NET_TYPE),
     IllegalArgumentException);
   BOOST_CHECK_THROW(
-    new Net(auto_ptr<Architecture > (new MockArchitecture()),
+    new Net(unique_ptr<Architecture > (new MockArchitecture()),
             3, noInputs, TEST_NET_TYPE),
     UnsupportedConfigurationException);
 }
@@ -74,7 +74,7 @@ BOOST_AUTO_TEST_CASE(GetNetTypeTest) {
  */
 BOOST_AUTO_TEST_CASE(LayerTest) {
   MockLayer *layerMock = new MockLayer();
-  net->setLayer(0, auto_ptr<Layer > (layerMock));
+  net->setLayer(0, unique_ptr<Layer > (layerMock));
   BOOST_CHECK_EQUAL(layerMock, net->getLayer(0));
 }
 
@@ -109,7 +109,7 @@ BOOST_AUTO_TEST_CASE(ProcessInputTest) {
   MockLayer *layerMock = new MockLayer();
   //    EXPECT_CALL((*layerMock), processInput(_))
   //            .WillOnce(Return(input));
-  net->setLayer(0, auto_ptr<Layer > (layerMock));
+  net->setLayer(0, unique_ptr<Layer > (layerMock));
 
   Output result = net->processInput(input);
   BOOST_CHECK_EQUAL(expected, result.getValue());

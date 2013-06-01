@@ -9,8 +9,8 @@
 #include <stdlib.h>
 
 Architecture::Architecture(int const noLayers,
-                           auto_ptr<OutputFunction> function,
-                           auto_ptr<Trainer> trainer,
+                           unique_ptr<OutputFunction> function,
+                           unique_ptr<Trainer> trainer,
                            char const * const neuronType)
 throw (IllegalArgumentException) {
   if (!function.get())
@@ -18,8 +18,8 @@ throw (IllegalArgumentException) {
   if (!trainer.get())
     throw IllegalArgumentException("Error. No trainer.");
   Architecture::maxLayers = noLayers;
-  Architecture::function = function;
-  Architecture::trainer = trainer;
+  Architecture::function = std::move(function);
+  Architecture::trainer = std::move(trainer);
   Architecture::neuronType = neuronType;
 }
 

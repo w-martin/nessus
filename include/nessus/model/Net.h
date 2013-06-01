@@ -36,7 +36,7 @@ public:
    * i.e. if the <code>Architecture</code> is NULL.
    *
    */
-  Net(auto_ptr<Architecture> architecture,
+  Net(unique_ptr<Architecture> architecture,
       int const &noLayers,
       int const &noInputs,
       const char * const netType)
@@ -63,7 +63,7 @@ public:
    * @param newLayer the <code>Layer</code> to set.
    *
    */
-  void setLayer(int const i, auto_ptr<Layer> newLayer);
+  void setLayer(int const i, unique_ptr<Layer> newLayer);
   /**
    * Gets the <code>Layer</code> at the specified position.
    *
@@ -110,8 +110,8 @@ protected:
 private:
   int noLayers, noInputs;
   const char * type;
-  auto_ptr<Layer> *layers;
-  auto_ptr<Architecture> architecture;
+  unique_ptr<Layer> *layers;
+  unique_ptr<Architecture> architecture;
 };
 
 #endif	/* NET_H */

@@ -13,7 +13,7 @@
 #include "nessus/util/exceptions/IllegalArgumentException.h"
 #include <memory>
 
-using std::auto_ptr;
+using std::unique_ptr;
 
 /**
  * Architecture class, for specifying the <code>OutputFunction</code>,
@@ -38,8 +38,8 @@ public:
    * initialized.
    *
    */
-  Architecture(int const noLayers, auto_ptr<OutputFunction> function,
-               auto_ptr<Trainer> trainer, char const * const neuronType)
+  Architecture(int const noLayers, unique_ptr<OutputFunction> function,
+               unique_ptr<Trainer> trainer, char const * const neuronType)
   throw (IllegalArgumentException);
   virtual ~Architecture();
   /**
@@ -78,8 +78,8 @@ public:
   char const * const getNeuronType() const;
 private:
   int maxLayers;
-  auto_ptr<OutputFunction> function;
-  auto_ptr<Trainer> trainer;
+  unique_ptr<OutputFunction> function;
+  unique_ptr<Trainer> trainer;
   char const * neuronType;
 };
 

@@ -9,21 +9,22 @@
 
 #include "nessus/model/Net.h"
 
-Net::Net(auto_ptr<Architecture> architecture,
+Net::Net(unique_ptr<Architecture> architecture,
          int const &noLayers,
          int const &noInputs,
          const char * const netType)
 throw (UnsupportedConfigurationException, IllegalArgumentException) {
+    
   if (!architecture.get())
     throw IllegalArgumentException("Architecture cannot be NULL.");
   if (architecture->getMaxLayers() > 0
       && noLayers > architecture->getMaxLayers())
     throw UnsupportedConfigurationException();
 
-  Net::architecture = architecture;
+  Net::architecture = std::move(architecture);
   Net::noLayers = noLayers;
   Net::noInputs = noInputs;
-  layers = new auto_ptr<Layer>[noLayers];
+  layers = new unique_ptr<Layer>[noLayers];
   Net::type = netType;
 }
 
@@ -39,8 +40,8 @@ const char * const Net::getNetType() const {
   return type;
 }
 
-void Net::setLayer(int const i, auto_ptr<Layer> newLayer) {
-  layers[i] = newLayer;
+void Net::setLayer(int const i, unique_ptr<Layer> newLayer) {
+  layers[i] = std::move(newLayer);
 }
 
 Layer * const Net::getLayer(int const i) const {
